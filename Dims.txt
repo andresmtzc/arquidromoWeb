@@ -1,0 +1,28 @@
+Aspect-ratio
+Formato
+Proporciones
+Dimensions
+
+horizontales (2 side by side)
+1920x1080
+2500x1406
+
+verticales
+1000x1250
+750x938
+
+horizontal 2 (vertical grande, vertical chiquita, horizontal2) o (horizontal2 square) o (pagina de proyectos) (horziontal-horizontal)
+750x500
+1000x667
+1200x800
+2500x1667
+
+vertical 2 (3 side by side) (2sidebyside) (1 vertical 2 square)
+500x700
+750x1125
+1000x1500
+
+cuadrada
+750x750
+500x500
+1300x1300

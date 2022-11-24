@@ -31454,6 +31454,8 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     text-transform: uppercase;
 }
 /*! Squarespace LESS Compiler  (less.js language v1.3.3)  */
+
+/*! Custom mouse cursor pointer
 html,
 body {
     cursor: url(https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/632b734f289b670d1c8c2cc2/1663791951612/cursor-standard.png), auto;
@@ -31470,6 +31472,9 @@ textarea {
 .sqs-system-button {
     cursor: url(https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/632b70060e03a86df2722f22/1663791110759/cursor-hover.png), auto !important;
 }
+
+*/
+
 .field-list .field-element {
     border-bottom: solid 3px #2793ed !important;
     border-left: none !important;
