@@ -21665,7 +21665,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
     transform: scalex(1);
 }
 main .page-section:first-child {
-    padding-top: 0px;
+    padding-top: 100px;
 }
 @media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 799px) {
     main .page-section:first-child {
