@@ -6460,7 +6460,7 @@ body:not(.sqs-seven-one) .sqs-announcement-bar-text {
     letter-spacing: 1px;
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-size: 1.4rem;
     font-weight: 500;
     font-style: normal;
@@ -6479,7 +6479,7 @@ body:not(.sqs-seven-one) .sqs-announcement-bar-text p {
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-size: 1.4rem;
     font-weight: 500;
     font-style: normal;
@@ -6835,6 +6835,18 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
         url("//assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.ttf") format("truetype"), url("//assets.squarespace.com/universal/fonts/social-20141119/social-icon-font.svg#social-icon-font") format("svg");
     font-weight: normal;
     font-style: normal;
+}
+@font-face {
+    font-family: 'Simplifica';
+    src: url('.Simplifica.eot');
+    src: url('Simplifica.eot?#iefix') format('embedded-opentype'),
+        url('Simplifica.woff') format('woff'),
+        url('Simplifica.ttf') format('truetype'),
+        url('Simplifica.svg#Simplifica') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    letter-spacing: 0.2em;
 }
 .social-smugmug:before,
 .social-dribbble:before,
@@ -7388,7 +7400,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     line-height: 1em;
     letter-spacing: 0.05em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: none;
@@ -7403,7 +7415,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     line-height: 1em !important;
     letter-spacing: 0.05em !important;
     font-size: 1rem !important;
-    font-family: forma-djr-display !important;
+    font-family: "Simplifica", "Helvetica Neue" !important;
     font-weight: 700 !important;
     font-style: normal !important;
     text-transform: none !important;
@@ -7418,7 +7430,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     line-height: 1em;
     letter-spacing: 0.05em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -7434,7 +7446,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     line-height: 1em !important;
     letter-spacing: 0.05em !important;
     font-size: 1rem !important;
-    font-family: forma-djr-display !important;
+    font-family: "Simplifica", "Helvetica Neue" !important;
     font-weight: 700 !important;
     font-style: normal !important;
     text-transform: uppercase !important;
@@ -7449,7 +7461,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     line-height: 1em;
     letter-spacing: 0.05em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -7465,7 +7477,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     line-height: 1em !important;
     letter-spacing: 0.05em !important;
     font-size: 1rem !important;
-    font-family: forma-djr-display !important;
+    font-family: "Simplifica", "Helvetica Neue" !important;
     font-weight: 700 !important;
     font-style: normal !important;
     text-transform: uppercase !important;
@@ -7488,7 +7500,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -7500,7 +7512,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.8em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -7513,7 +7525,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.1em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -7527,7 +7539,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     text-transform: none;
     line-height: 1em;
     letter-spacing: 0.05em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -7544,7 +7556,7 @@ body {
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.8em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -7581,7 +7593,7 @@ h4 {
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -7699,7 +7711,7 @@ h4 {
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.1em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -7728,7 +7740,7 @@ h4 {
     text-transform: none;
     line-height: 1em;
     letter-spacing: 0.05em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -7788,7 +7800,7 @@ h4 {
     text-transform: none;
     line-height: 1em;
     letter-spacing: 0.05em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -7822,7 +7834,7 @@ h4 {
     text-transform: none;
     line-height: 1em;
     letter-spacing: 0.05em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -7877,7 +7889,7 @@ p,
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-size: 1.4rem;
     font-weight: 500;
     font-style: normal;
@@ -7953,7 +7965,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -7982,7 +7994,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8015,7 +8027,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8056,7 +8068,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8072,7 +8084,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8104,7 +8116,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8179,7 +8191,7 @@ p,
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.8em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8204,7 +8216,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8270,7 +8282,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1.2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8298,7 +8310,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.9rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8327,7 +8339,7 @@ p,
     text-transform: none;
     line-height: 1.1em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8355,7 +8367,7 @@ p,
     font-weight: 300;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8419,7 +8431,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8448,7 +8460,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8476,7 +8488,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8505,7 +8517,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     font-size: 1.2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8561,7 +8573,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8590,7 +8602,7 @@ p,
     font-weight: 400;
     line-height: 1.4em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8624,7 +8636,7 @@ p,
     text-transform: none;
     line-height: 1.4em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8687,7 +8699,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8716,7 +8728,7 @@ p,
     font-weight: 400;
     line-height: 1.4em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8750,7 +8762,7 @@ p,
     text-transform: none;
     line-height: 1.1em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8813,7 +8825,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8842,7 +8854,7 @@ p,
     font-weight: 400;
     line-height: 1.4em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -8876,7 +8888,7 @@ p,
     text-transform: none;
     line-height: 1.4em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8939,7 +8951,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -8968,7 +8980,7 @@ p,
     font-weight: 400;
     line-height: 1.4em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -9002,7 +9014,7 @@ p,
     text-transform: none;
     line-height: 1.4em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9064,7 +9076,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9093,7 +9105,7 @@ p,
     font-weight: 400;
     line-height: 1.4em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -9126,7 +9138,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.4em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9197,7 +9209,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9228,7 +9240,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.4em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9267,7 +9279,7 @@ p,
     font-weight: 400;
     line-height: 1.4em;
     font-size: 0.9rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -9303,7 +9315,7 @@ p,
     text-transform: none;
     line-height: 1.4em;
     font-size: 1.2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9340,7 +9352,7 @@ p,
     font-weight: 600;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -9379,7 +9391,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9417,7 +9429,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9446,7 +9458,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9484,7 +9496,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9522,7 +9534,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9559,7 +9571,7 @@ p,
     font-weight: 400;
     letter-spacing: 0em;
     font-size: 1.2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.02em;
@@ -9632,7 +9644,7 @@ p,
     font-weight: 400;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -9662,7 +9674,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9692,7 +9704,7 @@ p,
     text-transform: none;
     line-height: 1.1em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9722,7 +9734,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9754,7 +9766,7 @@ p,
     letter-spacing: 0em;
     line-height: 1.4em;
     text-transform: none;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     font-size: 0.9rem;
@@ -9820,7 +9832,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9850,7 +9862,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9880,7 +9892,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9910,7 +9922,7 @@ p,
     letter-spacing: 0em;
     line-height: 1.4em;
     text-transform: none;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     font-size: 0.9rem;
@@ -9958,7 +9970,7 @@ p,
     text-transform: none;
     line-height: 1.4em;
     font-size: 1.2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -9987,7 +9999,7 @@ p,
     text-transform: none;
     line-height: 1.4em;
     font-size: 1.2rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10025,7 +10037,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10070,7 +10082,7 @@ p,
     text-transform: none;
     line-height: 1.1em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10108,7 +10120,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10147,7 +10159,7 @@ p,
     text-transform: none;
     line-height: 1.2em;
     font-size: 2rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10184,7 +10196,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10222,7 +10234,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10253,7 +10265,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.1em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10353,7 +10365,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10381,7 +10393,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10409,7 +10421,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10437,7 +10449,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10465,7 +10477,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10493,7 +10505,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10521,7 +10533,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10549,7 +10561,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10577,7 +10589,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.8rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10649,7 +10661,7 @@ p,
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.8em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10677,7 +10689,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10704,7 +10716,7 @@ p,
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10731,7 +10743,7 @@ p,
     font-weight: 400;
     line-height: 1.8em;
     font-size: 0.9rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10843,7 +10855,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -10889,7 +10901,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     font-weight: 400;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -10918,7 +10930,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     text-transform: none;
     line-height: 1.1em;
     font-size: 1rem;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -11061,7 +11073,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -11091,7 +11103,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     text-transform: none;
     line-height: 1.2em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -11120,7 +11132,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -11147,7 +11159,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
     line-height: 1.2em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -11176,7 +11188,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     letter-spacing: 0em;
     text-transform: none;
     line-height: 1.2em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -11206,7 +11218,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     text-transform: none;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -11233,7 +11245,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.8em;
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -11263,7 +11275,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
     text-transform: none;
     line-height: 1.8em;
     font-size: 1rem;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -13760,7 +13772,7 @@ body.button-style-default .sqs-add-to-cart-button {
     text-transform: none;
     line-height: 1em;
     letter-spacing: 0.05em;
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -13850,7 +13862,7 @@ body.button-style-default .tock-block div#Tock_widget_container > div.TockWidget
     text-transform: none !important;
     line-height: 1em !important;
     letter-spacing: 0.05em !important;
-    font-family: forma-djr-display !important;
+    font-family: "Simplifica", "Helvetica Neue" !important;
     font-weight: 700 !important;
     font-style: normal !important;
     text-transform: uppercase !important;
@@ -30659,7 +30671,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     color: #fff;
 }
 .heading-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30668,7 +30680,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .body-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30677,7 +30689,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .button-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -30686,7 +30698,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .primary-button-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: none;
@@ -30695,7 +30707,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.25rem;
 }
 .secondary-button-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -30704,7 +30716,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .tertiary-button-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     text-transform: uppercase;
@@ -30713,7 +30725,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30722,7 +30734,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .announcement-bar-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-size: 1.4rem;
     font-weight: 500;
     font-style: normal;
@@ -30730,7 +30742,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     text-transform: none;
 }
 .site-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30739,7 +30751,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .mobile-site-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30748,7 +30760,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .site-navigation-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30757,7 +30769,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .mobile-site-navigation-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30766,7 +30778,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .header-button-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30775,7 +30787,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .list-section-title-text-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30784,7 +30796,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.8rem;
 }
 .video-basic-grid-list-category-nav-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30793,7 +30805,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .video-basic-grid-list-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30802,7 +30814,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .video-basic-grid-list-excerpt-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30811,7 +30823,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .video-basic-grid-list-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30820,7 +30832,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .video-item-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30829,7 +30841,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.8rem;
 }
 .video-item-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30838,7 +30850,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .video-item-description-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30847,7 +30859,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .video-item-pagination-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30855,7 +30867,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .blog-basic-grid-list-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30864,7 +30876,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .blog-basic-grid-list-excerpt-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30873,7 +30885,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .blog-basic-grid-list-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30882,7 +30894,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .blog-single-column-list-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30891,7 +30903,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 4rem;
 }
 .blog-single-column-list-excerpt-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30900,7 +30912,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .blog-single-column-list-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30909,7 +30921,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .blog-side-by-side-list-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30918,7 +30930,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.8rem;
 }
 .blog-side-by-side-list-excerpt-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30927,7 +30939,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .blog-side-by-side-list-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30936,7 +30948,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .blog-alternating-side-by-side-list-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30945,7 +30957,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.8rem;
 }
 .blog-alternating-side-by-side-list-excerpt-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30954,7 +30966,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .blog-alternating-side-by-side-list-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30963,7 +30975,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .blog-grid-masonry-list-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30972,7 +30984,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .blog-grid-masonry-list-excerpt-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -30981,7 +30993,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .blog-grid-masonry-list-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30990,7 +31002,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .blog-item-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -30999,7 +31011,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 4rem;
 }
 .blog-item-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31008,7 +31020,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .blog-item-author-profile-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31017,7 +31029,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .blog-item-pagination-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31026,7 +31038,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .portfolio-grid-basic-title-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31035,7 +31047,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .portfolio-grid-overlay-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31044,7 +31056,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.2rem;
 }
 .portfolio-index-background-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31053,7 +31065,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 4rem;
 }
 .portfolio-hover-follow-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31062,7 +31074,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 4rem;
 }
 .portfolio-hover-static-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31071,7 +31083,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 4rem;
 }
 .portfolio-item-pagination-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.02em;
@@ -31080,7 +31092,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .product-basic-item-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31089,7 +31101,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.8rem;
 }
 .product-basic-item-price-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31098,7 +31110,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .product-basic-item-description-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31107,7 +31119,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .product-basic-item-variant-fields-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31116,7 +31128,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .product-basic-item-scarcity-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     font-size: 0.9rem;
@@ -31125,7 +31137,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     text-transform: uppercase;
 }
 .product-grid-text-below-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31134,7 +31146,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .product-grid-text-below-price-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31143,7 +31155,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .product-grid-text-below-status-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31152,7 +31164,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .product-grid-text-below-scarcity-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     font-size: 0.9rem;
@@ -31161,7 +31173,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     text-transform: uppercase;
 }
 .events-item-pagination-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31170,7 +31182,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .events-item-pagination-date-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31179,7 +31191,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .content-link-block-title-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31188,7 +31200,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .menu-block-nav-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31197,7 +31209,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .menu-block-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31206,7 +31218,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .menu-block-item-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31215,7 +31227,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .menu-block-item-description-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31224,7 +31236,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .menu-block-item-price-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31233,7 +31245,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .form-block-title-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31242,7 +31254,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .form-block-description-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31251,7 +31263,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .form-block-caption-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31260,7 +31272,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.3rem;
 }
 .form-block-placeholder-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31269,7 +31281,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .form-block-option-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31278,7 +31290,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .form-block-survey-title-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31287,7 +31299,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .form-block-select-dropdown-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31296,7 +31308,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .form-block-button-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31305,7 +31317,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .newsletter-block-title-text-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31314,7 +31326,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .newsletter-block-description-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31323,7 +31335,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .newsletter-block-field-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31331,7 +31343,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .newsletter-block-button-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31339,7 +31351,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.4rem;
 }
 .newsletter-block-footnote-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31348,7 +31360,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1.4rem;
 }
 .quote-block-text-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31357,7 +31369,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2.6rem;
 }
 .quote-block-source-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31366,7 +31378,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 0.9rem;
 }
 .course-item-side-nav-title-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31375,7 +31387,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .course-item-side-nav-chapter-name-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31384,7 +31396,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .course-item-side-nav-chapter-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31393,7 +31405,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .course-item-side-nav-lesson-name-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31402,7 +31414,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .course-item-side-nav-lesson-meta-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 400;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31411,7 +31423,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .course-item-name-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31420,7 +31432,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .course-item-chapter-name-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 500;
     font-style: normal;
     letter-spacing: 0em;
@@ -31429,7 +31441,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 1rem;
 }
 .course-item-lesson-name-font {
-    font-family: forma-djr-display;
+    font-family: "Simplifica", "Helvetica Neue";
     font-weight: 700;
     font-style: normal;
     letter-spacing: 0.15em;
@@ -31438,7 +31450,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     font-size: 2rem;
 }
 .announcement-bar-font {
-    font-family: forma-djr-text;
+    font-family: "Simplifica", "Helvetica Neue";
     font-size: 1.4rem;
     font-weight: 500;
     font-style: normal;
