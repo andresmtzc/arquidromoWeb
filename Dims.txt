@@ -8,6 +8,7 @@ horizontales (2 side by side)
 2500x1406
 
 verticales
+1200x1500
 1000x1250
 750x938
 
