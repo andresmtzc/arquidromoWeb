@@ -25852,6 +25852,9 @@ _:-ms-fullscreen :not([data-override-initial-global-animation]).clipIn {
 .tweak-product-quick-view-button-font {
 	text-transform: uppercase; letter-spacing: 1px; font-family: Helvetica,Arial,sans-serif; font-size: 12px; font-style: normal; font-weight: 400;
 }
+
+/* Custom mouse
+
 html {
 	cursor: url(https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/632b734f289b670d1c8c2cc2/1663791951612/cursor-standard.png), auto;
 }
@@ -25870,6 +25873,8 @@ textarea {
 .sqs-system-button {
 	cursor: url(https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/632b70060e03a86df2722f22/1663791110759/cursor-hover.png), auto !important;
 }
+*/
+
 .field-list .field-element {
 	border-width: medium medium 3px !important; border-style: none none solid !important; border-color: currentColor currentColor rgb(39, 147, 237) !important; background-color: transparent !important;
 }
