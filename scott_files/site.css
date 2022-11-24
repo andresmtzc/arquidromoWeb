@@ -1816,8 +1816,8 @@ body > .login-wrapper.hidden {
     float: left;
 }
 [class*="sqs-col"] .sqs-block {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding-left: 3.5px;
+    padding-right: 3.5px;
 }
 [class*="sqs-col"]:last-child {
     padding-right: 0;
@@ -2103,23 +2103,23 @@ body > .login-wrapper.hidden {
     padding-bottom: 0;
 }
 .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):first-child {
-    padding-top: 3px;
+    padding-top: 3.5px;
 }
 .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):first-child:last-child {
-    padding-bottom: 3px;
+    padding-bottom: 3.5px;
 }
 .sqs-layout:not(.sqs-editing) .sqs-row + .sqs-row .sqs-block:not(.float):first-child {
-    padding-top: 3px;
+    padding-top: 3.5px;
 }
 .sqs-layout:not(.sqs-editing) .sqs-row + .sqs-row .sqs-block:not(.float):first-child:last-child {
-    padding-bottom: 3px;
+    padding-bottom: 3.5px;
 }
 .sqs-layout:not(.sqs-editing) > .sqs-row:first-child > [class*="sqs-col"]:first-child > .sqs-block:not(:first-child):last-child,
 .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):last-child {
-    padding-bottom: 3px;
+    padding-bottom: 3.5px;
 }
 .sqs-layout:not(.sqs-editing) .sqs-row + .sqs-row:not(:last-child) .sqs-block:last-child {
-    padding-bottom: 3px;
+    padding-bottom: 3.5px;
 }
 .sqs-block.sized .sqs-block-content {
     overflow: hidden;
@@ -2560,8 +2560,8 @@ html.squarespace-damask.is-expanded .sqsSummaryBlockThumbnailPlaceholder[data-bl
 .sqs-block {
     position: relative;
     height: auto;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding-top: 3.5px;
+    padding-bottom: 3.5px;
 }
 .sqs-block:not(.sqs-block-html):not(.sqs-block-markdown) {
     clear: both;
@@ -2593,14 +2593,14 @@ html.squarespace-damask.is-expanded .sqsSummaryBlockThumbnailPlaceholder[data-bl
 }
 .sqs-block[class*="float-left"] {
     float: left;
-    margin-right: 3px;
+    margin-right: 3.5px;
 }
 .sqs-block[class*="float-left"] + .sqs-block[class*="float-left"] {
     clear: left;
 }
 .sqs-block[class*="float-right"] {
     float: right;
-    margin-left: 3px;
+    margin-left: 3.5px;
 }
 .sqs-block[class*="float-right"] + .sqs-block[class*="float-right"] {
     clear: right;
@@ -2996,8 +2996,8 @@ body.squarespace-config .sqs-block-image .sqs-image-caption .sqs-html-content {
 }
 .sqs-gallery-design-list .sqs-gallery-design-list-slide {
     overflow: hidden;
-    margin-bottom: 3px !important;
-    padding-bottom: 3px !important;
+    margin-bottom: 3.5px !important;
+    padding-bottom: 3.5px !important;
 }
 .sqs-gallery-design-list .sqs-gallery-image-container {
     float: left;
@@ -4212,10 +4212,10 @@ body .ma-pricing-toggle-wrapper .ma-pricing-options .ma-pricing-option-button.sq
 }
 .sqs-block-markdown textarea {
     position: absolute;
-    top: 3px;
+    top: 3.5px;
     bottom: 0;
-    left: 3px;
-    right: 3px;
+    left: 3.5px;
+    right: 3.5px;
     width: calc(100% - 34px);
     padding: 0;
     margin: 0;
@@ -6083,7 +6083,7 @@ html.sqs-modal-lightbox-open body {
     border-bottom: 1px solid rgba(130, 130, 130, 0.15);
 }
 .sqs-tourdates__item {
-    padding: 3px 0;
+    padding: 3.5px 0;
 }
 .sqs-tourdates__item:first-of-type {
     padding-top: 0;
@@ -12058,7 +12058,7 @@ div#Tock_widget_container > div.TockWidgetWrapper .InlineWidgetDropDown-NoRightB
     display: none;
 }
 .sqs-block-image .image-block-outer-wrapper:not(.image-block-v2).layout-caption-below .image-caption-wrapper.sqs-editing {
-    padding-top: 3px;
+    padding-top: 3.5px;
 }
 .sqs-block-image .image-block-outer-wrapper:not(.image-block-v2).layout-caption-hidden .image-caption-wrapper {
     height: 0;
@@ -12075,7 +12075,7 @@ div#Tock_widget_container > div.TockWidgetWrapper .InlineWidgetDropDown-NoRightB
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 3px;
+    padding: 3.5px;
     background: rgba(0, 0, 0, 0.7);
     max-height: 100%;
     box-sizing: border-box;
@@ -13648,8 +13648,8 @@ body.sqs-tweak-overlays-active .sqs-block-image .design-layout-poster .image-car
 }
 .sqs-block-summary-v2 .summary-block-setting-design-list .summary-item {
     visibility: visible !important;
-    margin-bottom: 3px !important;
-    padding-bottom: 3px !important;
+    margin-bottom: 3.5px !important;
+    padding-bottom: 3.5px !important;
     overflow: visible !important;
 }
 .sqs-block-summary-v2 .summary-block-setting-design-list .summary-item::after {
@@ -13658,8 +13658,8 @@ body.sqs-tweak-overlays-active .sqs-block-image .design-layout-poster .image-car
     clear: both;
 }
 .sqs-block-summary-v2 .summary-block-setting-design-list .summary-item.summary-item-show-thumbnail {
-    margin-bottom: 3px !important;
-    padding-bottom: 3px !important;
+    margin-bottom: 3.5px !important;
+    padding-bottom: 3.5px !important;
 }
 .sqs-block-summary-v2 .summary-block-setting-design-list .summary-item .summary-thumbnail-container {
     margin: 0 !important;
@@ -14702,7 +14702,7 @@ img[data-src]:not([src]):not([srcset]) {
     bottom: 20px;
     right: 20px;
     z-index: 100;
-    padding: 3px 17px 13px 13px;
+    padding: 3.5px 17px 13px 13px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -17892,7 +17892,7 @@ body:not(.tweak-events-stacked-ical-gcal-links) .event-meta-addtocalendar-contai
     overflow: hidden;
 }
 .eventitem-content-footer {
-    margin: 3px 0 0 0;
+    margin: 3.5px 0 0 0;
 }
 .eventitem-content-footer .eventitem-sourceurl {
     margin: 0 0 8.5px 0;
@@ -17989,7 +17989,7 @@ body:not(.tweak-events-stacked-ical-gcal-links) .event-meta-addtocalendar-contai
         display: block;
     }
     .eventitem-title {
-        margin-bottom: 3px !important;
+        margin-bottom: 3.5px !important;
     }
     .eventitem-column-meta {
         margin-bottom: 34px;
@@ -24448,10 +24448,10 @@ a:focus {
         display: none;
     }
     .sqs-layout .sqs-row .sqs-block:first-child {
-        padding-top: 3px !important;
+        padding-top: 3.5px !important;
     }
     .sqs-layout .sqs-row .sqs-block:last-child {
-        padding-bottom: 3px !important;
+        padding-bottom: 3.5px !important;
     }
     .sqs-layout .sqs-row + .sqs-row,
     .sqs-layout .sqs-row + .sqs-block {
@@ -30298,7 +30298,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     border-radius: 0;
     width: 10px;
     height: 8px;
-    right: 3px;
+    right: 3.5px;
     left: auto;
     top: 50%;
     bottom: auto;
