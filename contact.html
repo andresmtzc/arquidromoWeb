@@ -10564,10 +10564,11 @@ data-block-type="9">
 aria-hidden="true">*</SPAN></LEGEND>
 
 <DIV class="field first-name"><LABEL class="caption">
-	<INPUT name="fname" class="field-element field-control" aria-required="true" spellcheck="false" type="text" maxlength="30" data-title="First" x-autocompletetype="given-name" name="entry.2007259235" id="entry.2007259235"><SPAN class="caption-text">First Name</SPAN></LABEL></DIV>
+	<INPUT class="field-element field-control" aria-required="true" spellcheck="false" type="text" maxlength="30" data-title="First" x-autocompletetype="given-name" name="entry.2007259235" id="entry.2007259235"><SPAN class="caption-text">First Name</SPAN></LABEL></DIV>
 
 <DIV class="field last-name"><LABEL class="caption">
-	<INPUT name="lname" class="field-element field-control" aria-required="true" spellcheck="false" type="text" maxlength="30" data-title="Last" x-autocompletetype="surname" name="entry.1356585737" id="entry.1356585737"><SPAN class="caption-text">Last Name</SPAN></LABEL></DIV>
+	<INPUT class="field-element field-control" aria-required="true" spellcheck="false" type="text" maxlength="30" data-title="Last" x-autocompletetype="surname" 
+	name="entry.1356585737" id="entry.1356585737"><SPAN class="caption-text">Last Name</SPAN></LABEL></DIV>
 </FIELDSET>
 
 <DIV class="form-item field email required" id="email-yui_3_17_2_1_1553888888520_3745"><LABEL class="title" for="email-yui_3_17_2_1_1553888888520_3745-field">
@@ -10590,10 +10591,22 @@ class="title" for="textarea-yui_3_17_2_1_1611553372644_118027-field">
 data-animation-role="button">
 <INPUT class="button sqs-system-button sqs-editable-button sqs-button-element--primary" type="submit" value="Submit"> 
       </DIV>
-<DIV class="hidden form-submission-text">
-<P style="white-space: pre-wrap;">Thank you so much for taking the time to reach out to me. I might be shooting or neck deep in edits for an existing client, so thank you in advance for your patience. I’ll get back to you as soon as possible — cheers!</P></DIV>
-<DIV class="hidden form-submission-html" 
-data-submission-html=""></DIV></FORM>
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">var submitted=false;</script>
+<script type="text/javascript">
+  $('#arquidromoform').on('submit', function(e) {
+  $('#arquidromoform *').fadeOut(2000);
+  $('#arquidromoform').prepend('Gracias, ya recibimos tu mensaje. En breve nos comunicaremos contigo.');
+  });
+</script>
+
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
+
+</FORM>
 
 
 </DIV></DIV></DIV></DIV></DIV></DIV></DIV></DIV></DIV></DIV></DIV></SECTION> 
