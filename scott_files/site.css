@@ -31549,37 +31549,34 @@ a {
     background-image: url("https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/60417a3cc13a867fd25bd51a/1614903868329/ssp-icon-animation.gif");
 }
 
-.tv {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
 
-  width: 100%;
-  height: 100%;
 
-  overflow: hidden;
-  
-  }
 
-.screen {
-
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-
-    margin: auto;
-
-    opacity: 0;
-    transition: opacity .5s;
-
-  }
-  
-    &.active {
-      opacity: 1;
-    
-
+.video-container{
+  width: 100vw;
+  height: 100vh;
 }
+
+ iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .video-container iframe {
+    height: 56.25vw;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-container iframe {
+    width: 177.78vh;
+  }
+}
+
+
+
