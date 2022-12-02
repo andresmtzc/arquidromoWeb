@@ -15,18 +15,10 @@
   object-fit: cover;
 }
 
-@media (min-aspect-ratio: 16/9) {
-  video {
-    width: 100%;
-    height: auto;
+@media (max-width: 480px) {
+  #main {
+    height: 40vh;
   }
-}
-@media (max-aspect-ratio: 16/9) {
-  video {
-    width: auto;
-    height: 100%;
-  }
-}
 
 article,
 aside,
