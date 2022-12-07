@@ -8060,7 +8060,7 @@ p,
     .cart-style-text,
     .icon-cart-quantity:not(.legacy-cart),
     .language-picker {
-        font-size: calc((0.9 - 1) * 1.2vw + 1rem);
+        font-size: calc((0.9 - 1) * 1.2vw + 1.1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -8069,7 +8069,7 @@ p,
     .cart-style-text,
     .icon-cart-quantity:not(.legacy-cart),
     .language-picker {
-        font-size: calc(0.9 * 1rem);
+        font-size: calc(0.9 * 1.2rem);
     }
 }
 .header-menu-nav-item {
