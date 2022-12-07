@@ -31550,13 +31550,13 @@ a {
     background-image: none !important;
 }
 #img-hover {
-    background-image: url("https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/5fac7e6548fd365a106801ac/1605140069053/ssp-icon-static.jpg");
+    background-image: url("./arquidromo.jpg");
     height: 54px;
     width: 45px;
     background-size: contain;
 }
 #img-hover:hover {
-    background-image: url("https://static1.squarespace.com/static/5eab50863fed4924471b2956/t/60417a3cc13a867fd25bd51a/1614903868329/ssp-icon-animation.gif");
+    background-image: url("./arquidromo.gif");
 }
 
 
