@@ -31550,13 +31550,13 @@ a {
     background-image: none !important;
 }
 #img-hover {
-    background-image: url("./arquidromo.jpg");
+    background-image: url("https://andresmtzc.github.io/arquidromoWeb//arquidromo.jpg");
     height: 54px;
     width: 45px;
     background-size: contain;
 }
 #img-hover:hover {
-    background-image: url("./arquidromo.gif");
+    background-image: url("https://andresmtzc.github.io/arquidromoWeb//arquidromo.gif");
 }
 
 
