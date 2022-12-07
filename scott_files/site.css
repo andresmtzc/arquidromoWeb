@@ -7579,7 +7579,7 @@ body {
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .site-wrapper,
     .sqs-catalog-item-list {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -8387,7 +8387,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .video-category-nav-link {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -8508,7 +8508,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .lesson-item .lesson-details-description {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -8749,7 +8749,7 @@ p,
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .blog-single-column .blog-excerpt,
     .blog-single-column .blog-more-link {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -8875,7 +8875,7 @@ p,
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .blog-side-by-side .blog-excerpt,
     .blog-side-by-side .blog-more-link {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -9001,7 +9001,7 @@ p,
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .blog-alternating-side-by-side .blog-excerpt,
     .blog-alternating-side-by-side .blog-more-link {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -9664,7 +9664,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .collection-type-products .ProductItem-details .ProductItem-details-excerpt {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10057,7 +10057,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-collectionlink .collectionlink-title {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10216,7 +10216,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .menu-item-description {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10255,7 +10255,7 @@ p,
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .menu-item-price-top,
     .menu-item-price-bottom {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10413,7 +10413,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-form .field-list .description {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10553,7 +10553,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-form .field-list .option {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10581,7 +10581,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-form .field-list .question {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10709,7 +10709,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .newsletter-form .newsletter-form-header-description {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10735,7 +10735,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .newsletter-form .newsletter-form-field-element {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem) !important;
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem) !important;
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10798,7 +10798,7 @@ p,
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-summary-v2 .summary-block-setting-text-size-extralarge .summary-excerpt p {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -10829,7 +10829,7 @@ p,
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-summary-v2 .summary-title,
     .sqs-block-summary-v2 .summary-block-setting-text-size-medium .summary-title {
-        font-size: calc((2.4 - 1) * calc(0.012 * min(100vh, 900px)) + 1rem);
+        font-size: calc((2.4 - 1) * calc(0.012 * min(60vh, 900px)) + 1rem);
     }
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
@@ -14403,7 +14403,7 @@ img[data-src]:not([src]):not([srcset]) {
     justify-content: flex-end;
 }
 .page-section.section-height--small:not(.content-collection):not(.gallery-section):not(.user-items-list-section) {
-    min-height: 33vh;
+    min-height: 15vh; /*33vh*/
 }
 .page-section.section-height--medium:not(.content-collection):not(.gallery-section):not(.user-items-list-section) {
     min-height: 66vh;
