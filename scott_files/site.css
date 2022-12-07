@@ -7585,7 +7585,7 @@ body {
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .site-wrapper,
     .sqs-catalog-item-list {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -8392,7 +8392,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .video-category-nav-link {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -8513,7 +8513,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .lesson-item .lesson-details-description {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -8755,7 +8755,7 @@ p,
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .blog-single-column .blog-excerpt,
     .blog-single-column .blog-more-link {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -8881,7 +8881,7 @@ p,
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .blog-side-by-side .blog-excerpt,
     .blog-side-by-side .blog-more-link {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -9007,7 +9007,7 @@ p,
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .blog-alternating-side-by-side .blog-excerpt,
     .blog-alternating-side-by-side .blog-more-link {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -9669,7 +9669,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .collection-type-products .ProductItem-details .ProductItem-details-excerpt {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10062,7 +10062,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .sqs-block-collectionlink .collectionlink-title {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10221,7 +10221,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .menu-item-description {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10261,7 +10261,7 @@ p,
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .menu-item-price-top,
     .menu-item-price-bottom {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10418,7 +10418,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .sqs-block-form .field-list .description {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10558,7 +10558,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .sqs-block-form .field-list .option {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10586,7 +10586,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .sqs-block-form .field-list .question {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10714,7 +10714,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .newsletter-form .newsletter-form-header-description {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10740,7 +10740,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .newsletter-form .newsletter-form-field-element {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem) !important;
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem) !important;
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10803,7 +10803,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .sqs-block-summary-v2 .summary-block-setting-text-size-extralarge .summary-excerpt p {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -10835,7 +10835,7 @@ p,
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     .sqs-block-summary-v2 .summary-title,
     .sqs-block-summary-v2 .summary-block-setting-text-size-medium .summary-title {
-        font-size: calc((2.4 - 1) * 1.2vw + 1rem);
+        font-size: calc((2.4 - 1) * 0.8vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
