@@ -25972,7 +25972,7 @@ a:focus {
     text-align: left;
     display: flex;
     align-items: center;
-    max-width: 50%;
+    max-width: 33%;
     width: auto;
 }
 .item-pagination-link .item-pagination-prev-next {
@@ -25996,10 +25996,14 @@ a:focus {
     margin-left: 0;
     margin-right: auto;
 }
-.item-pagination-link--next {
+/*
+.item-pagination-link--next Botones footer{
     text-align: right;
     margin-left: auto;
     margin-right: 0;
+}*/
+.item-pagination-link--next {
+    margin: auto;
 }
 .item-pagination-link--next .item-pagination-icon {
     padding-right: 0;
