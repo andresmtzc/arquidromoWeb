@@ -15838,7 +15838,7 @@ img[data-src]:not([src]):not([srcset]) {
 }
 .lesson-item-pagination-link {
     text-align: left;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     max-width: 50%;
     width: auto;
