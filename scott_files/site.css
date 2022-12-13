@@ -31584,10 +31584,14 @@ a {
         height: 317px;
         width: 1000px;
         background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blk.png") no-repeat;
-        width: auto;
-        height: auto;
     }
     #logopito:hover {
         background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blkWHT.png") no-repeat;
     }
 
+svg {
+    fill: #3f4741;
+}
+svg:hover {
+    fill: #f5f4ee;
+}
