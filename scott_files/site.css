@@ -31566,13 +31566,32 @@ a {
 
 #navi {
     color: #3f4741;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 #navi:hover {
     color: #f5f4ee;
 }
 
+#navi {
+    color: #3f4741;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
 
+#navi:hover {
+    color: #f5f4ee;
+}
 
-
+    #logopito {
+        background: url("scott_files/ssp-logo-horizontal-blk.png") no-repeat;
+    }
+    #logopito:hover {
+        background: url("scott_files/ssp-logo-horizontal-blkWHT.png") no-repeat;
+    }
 
