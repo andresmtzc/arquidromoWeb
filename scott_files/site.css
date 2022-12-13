@@ -31564,11 +31564,11 @@ a {
     background-image: url("https://andresmtzc.github.io/arquidromoWeb//arquidromo.png");
 }
 
-.navi {
+#navi {
     color: #3f4741;
 }
 
-.navi:hover {
+#navi:hover {
     color: #f5f4ee;
 }
 
