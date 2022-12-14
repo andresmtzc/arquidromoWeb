@@ -31614,3 +31614,19 @@ a {
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
 }
+
+#navi2 {
+    text-decoration: none;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+#navi2:hover {
+    text-decoration: underline;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
