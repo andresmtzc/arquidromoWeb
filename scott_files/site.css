@@ -23560,6 +23560,7 @@ a:focus {
 }
 .item-pagination[data-collection-type^="portfolio"] {
     background-color: var(--siteBackgroundColor);
+    margin-bottom: 2vh; /* espacio debajo de botones bottom */
 }
 .item-pagination[data-collection-type^="portfolio"] .item-pagination-icon svg {
     stroke: var(--tweak-portfolio-item-pagination-icon-color);
@@ -31558,6 +31559,7 @@ a {
     background-image: url("https://andresmtzc.github.io/arquidromoWeb/arquidromo.gif");
     height: 54px;
     width: 45px;
+    margin-top: 40px;
     background-size: contain;
     background-repeat: no-repeat;
         -moz-transition: all .2s ease-in;
