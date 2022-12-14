@@ -31648,11 +31648,11 @@ a {
     width: 60px;
     height: 60px;
     display: flex;
-    position: fixed;
+    position: absolute;
     cursor: pointer;
     background-image: url(https://andresmtzc.github.io/arquidromoWeb/imgs/whapp120.png);
     background-size: 100%;
-    right: 18px;
-    bottom: 18px;
+    right: 17px;
+    bottom: 17px;
     z-index: 999999;
 }
