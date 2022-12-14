@@ -31643,3 +31643,16 @@ a {
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
 }
+
+.wha {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    position: fixed;
+    cursor: pointer;
+    background-image: url(https://vivecolmena.com/imgs/whapp120.png);
+    background-size: 100%;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999999;
+}
