@@ -31573,7 +31573,7 @@ a {
 }
 
 #navi {
-    color: #3f4741;
+    color: #f5f4ee;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -31581,7 +31581,7 @@ a {
 }
 
 #navi:hover {
-    color: #f5f4ee;
+    color: #3f4741;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -31592,7 +31592,7 @@ a {
         height: 46px;
         width: 145px;
         display: inline-block;
-        background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blk.png");
+        background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blkWHT.png");
         background-repeat: no-repeat;
         background-size: contain;
             -moz-transition: all .2s ease-in;
@@ -31601,7 +31601,7 @@ a {
     transition: all .2s ease-in;
     }
     #logopito:hover {
-        background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blkWHT.png");
+        background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blk.png");
             -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -31609,14 +31609,14 @@ a {
     }
 
 #popo {
-    fill: #3f4741;
+    fill: #f5f4ee;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
 }
 #popo:hover {
-    fill: #f5f4ee;
+    fill: #3f4741;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -31624,6 +31624,7 @@ a {
 }
 
 .navi2 {
+    color: #3f4741;
     text-decoration: none;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
