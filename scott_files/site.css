@@ -20714,8 +20714,8 @@ body:not(.header--menu-open) [data-header-style="gradient"].header .language-pic
     z-index: 2;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 2vw; /*traia 3vw y 3vw ancho barra*/
-    padding-bottom: 2vw;
+    padding-top: 1.5vw; /*traia 3vw y 3vw ancho barra desktop*/
+    padding-bottom: 1.5vw;
     padding-left: 7vw;
     padding-right: 7vw;
     pointer-events: auto;
@@ -20772,7 +20772,7 @@ body:not(.header--menu-open) .header .header-announcement-bar-wrapper [data-head
 }
 @media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 799px) {
     .header .header-announcement-bar-wrapper {
-        padding: 4vw; /*traia 6vw ancho barra */
+        padding: 4vw; /*traia 6vw ancho barra mobile */
     }
 }
 .tweak-fixed-header:not(.sqs-edit-mode-active):not(.sqs-site-styles-active) .header {
