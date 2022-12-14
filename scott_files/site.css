@@ -31615,7 +31615,7 @@ a {
     transition: transform .2s ease-in;
 }
 
-#navi2 {
+.navi2 {
     text-decoration: none;
     -moz-transition: transform .2s ease-in;
     -o-transition: transform .2s ease-in;
@@ -31623,7 +31623,7 @@ a {
     transition: transform .2s ease-in;
 }
 
-#navi2:hover {
+.navi2:hover {
     text-decoration: underline;
     -moz-transition: transform .2s ease-in;
     -o-transition: transform .2s ease-in;
