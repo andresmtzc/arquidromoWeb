@@ -25973,7 +25973,7 @@ a:focus {
     text-align: left;
     /*display: flex;*/
     align-items: center;
-    max-width: 33%;
+    max-width: 50%; /*estaba en 33%*/
     width: auto;
 }
 .item-pagination-link .item-pagination-prev-next {
