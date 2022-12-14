@@ -31559,25 +31559,33 @@ a {
     width: 45px;
     background-size: contain;
     background-repeat: no-repeat;
+        -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 #img-hover:hover {
     background-image: url("https://andresmtzc.github.io/arquidromoWeb/arquidromo.png");
+        -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 #navi {
     color: #3f4741;
-    -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 #navi:hover {
     color: #f5f4ee;
-    -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
     #logopito {
@@ -31587,46 +31595,46 @@ a {
         background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blk.png");
         background-repeat: no-repeat;
         background-size: contain;
-            -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+            -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
     }
     #logopito:hover {
         background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blkWHT.png");
-            -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+            -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
     }
 
 #popo {
     fill: #3f4741;
-    -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 #popo:hover {
     fill: #f5f4ee;
-    -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .navi2 {
     text-decoration: none;
-    -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 
 .navi2:hover {
     text-decoration: underline;
-    -moz-transition: transform .2s ease-in;
-    -o-transition: transform .2s ease-in;
-    -webkit-transition: transform .2s ease-in;
-    transition: transform .2s ease-in;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
