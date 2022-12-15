@@ -8182,7 +8182,7 @@ p,
     }
 }
 .header-menu-nav-item a {
-    font-size: 8.5vmin;
+    font-size: 5.5vmin; /* font size tamaño font menu mobile */
 }
 @media screen and (min-width: 576px) {
     .header-menu-nav-item a {
