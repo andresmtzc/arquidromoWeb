@@ -30314,7 +30314,7 @@ _:-ms-fullscreen .clipIn:not([data-override-initial-global-animation]),
     border-radius: 0;
     width: 10px;
     height: 8px;
-    right: 4.5px;
+    right: 4.5px; /* padding general de 4.5px a 17px ctrl+h */
     left: auto;
     top: 50%;
     bottom: auto;
