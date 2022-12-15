@@ -7298,8 +7298,8 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     max-width: 100%;
 }
 .page-section:not(.full-bleed-section) > .content-wrapper {
-    padding-right: 2vw;
-    padding-left: 2vw;
+    padding-right: 7vw;
+    padding-left: 7vw;
     margin: 0 auto;
     box-sizing: content-box;
 }
@@ -20807,7 +20807,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
 }
 .tweak-fixed-header .header .header-announcement-bar-wrapper {
     transition: padding 140ms ease-in-out;
-    /* background-color: #f5f4ee /*color de barra header*/
+    background-color: #f5f4ee /*color de barra header*/
 }
 .header .header-nav-wrapper a,
 .header .language-item a {
