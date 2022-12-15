@@ -7313,8 +7313,8 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
 }
 @media screen and (max-width: 767px) {
     .page-section:not(.full-bleed-section) > .content-wrapper {
-        padding-right: 6vw;
-        padding-left: 6vw;
+        padding-right: 2vw;
+        padding-left: 2vw;
         box-sizing: border-box;
     }
     .page-section .collection-content-wrapper,
