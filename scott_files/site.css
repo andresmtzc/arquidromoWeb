@@ -7298,8 +7298,8 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     max-width: 100%;
 }
 .page-section:not(.full-bleed-section) > .content-wrapper {
-    padding-right: 7vw;
-    padding-left: 7vw;
+    padding-right: 2vw;
+    padding-left: 2vw;
     margin: 0 auto;
     box-sizing: content-box;
 }
