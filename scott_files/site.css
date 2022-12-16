@@ -31661,7 +31661,7 @@ a {
 .descuadre {
     padding-bottom: 143.35%;
 }
-@media (max-width: 370px) {
+@media (max-width: 767px) {
     .descuadre {
         padding-bottom: 144.39%;
     }
