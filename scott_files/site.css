@@ -22741,6 +22741,7 @@ a:focus {
 }
 .site-wrapper .header-menu .header-menu-nav a:not(.btn) {
     color: #f5f4ee; /* color botones menu mobile */
+    font-weight: lighter
 }
 .site-wrapper .header-menu .header-menu-nav .header-menu-nav-item--active a,
 .site-wrapper .header-menu .header-menu-nav .header-nav-item--active a {
@@ -31576,7 +31577,8 @@ a {
 }
 
 #navi {
-    color: #3f4741;
+    color: #f5f4ee;
+    font-weight: lighter
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -31584,7 +31586,7 @@ a {
 }
 
 #navi:hover {
-    color: #f5f4ee;
+    color: #3f4741;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
