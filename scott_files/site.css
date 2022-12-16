@@ -22737,10 +22737,10 @@ a:focus {
     fill: currentColor;
 }
 .site-wrapper .header-menu .header-menu-bg {
-    background-color: var(--menuOverlayBackgroundColor);
+    background-color: #3f4741; /* color background menu mobile */
 }
 .site-wrapper .header-menu .header-menu-nav a:not(.btn) {
-    color: var(--menuOverlayNavigationLinkColor);
+    color: #f5f4ee; /* color botones menu mobile */
 }
 .site-wrapper .header-menu .header-menu-nav .header-menu-nav-item--active a,
 .site-wrapper .header-menu .header-menu-nav .header-nav-item--active a {
