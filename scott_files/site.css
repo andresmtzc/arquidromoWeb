@@ -31656,3 +31656,13 @@ a {
     bottom: 4px;
     z-index: 999999;
 }
+
+
+.descuadre {
+    padding-bottom: 143.35%;
+}
+@media (max-width: 370px) {
+    .descuadre {
+        padding-bottom: 144.39%;
+    }
+}
