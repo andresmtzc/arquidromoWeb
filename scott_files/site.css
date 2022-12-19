@@ -22741,7 +22741,8 @@ a:focus {
 }
 .site-wrapper .header-menu .header-menu-nav a:not(.btn) {
     color: #f5f4ee; /* color botones menu mobile */
-    font-weight: lighter
+    font-weight: lighter;
+    text-decoration: underline;
 }
 .site-wrapper .header-menu .header-menu-nav .header-menu-nav-item--active a,
 .site-wrapper .header-menu .header-menu-nav .header-nav-item--active a {
