@@ -31660,8 +31660,8 @@ a {
     cursor: pointer;
     background-image: url(https://andresmtzc.github.io/arquidromoWeb/imgs/whapp120.png);
     background-size: 100%;
-    right: 4px;
-    bottom: 4px;
+    right: 12px;
+    bottom: 12px;
     z-index: 999999;
 }
 
