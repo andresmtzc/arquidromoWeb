@@ -31579,19 +31579,20 @@ a {
 #navi {
     color: #f5f4ee;
     font-weight: lighter;
+    text-decoration: underline;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
 }
-/*
+
 #navi:hover {
-    color: #3f4741;
+   text-decoration: none;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in; */
-}
+    transition: all .2s ease-in; 
+} 
 
     #logopito {
         height: 46px;
@@ -31605,6 +31606,7 @@ a {
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
     }
+
    /* #logopito:hover {
         background-image: url("https://andresmtzc.github.io/arquidromoWeb/scott_files/ssp-logo-horizontal-blkWHT.png");
             -moz-transition: all .2s ease-in;
