@@ -20807,7 +20807,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
 }
 .tweak-fixed-header .header .header-announcement-bar-wrapper {
     transition: padding 140ms ease-in-out;
-    background-image:linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.5));  /* #f5f4ee color de barra header*/
+    background-image:linear-gradient(to top, rgba(0,0,0,0),rgba(0,0,0,0.1), rgba(0,0,0,0.4));  /* #f5f4ee color de barra header*/
 }
 .header .header-nav-wrapper a,
 .header .language-item a {
