@@ -31580,6 +31580,7 @@ a {
     color: #f5f4ee;
     font-weight: lighter;
     text-decoration: underline;
+    text-underline-offset: 3px;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -31634,8 +31635,9 @@ a {
 
 #navi2 {
     color: #3f4741;
+    font-weight: lighter;
     text-decoration: underline;
-    text-underline-offset: 5px;
+        text-underline-offset: 6px;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
