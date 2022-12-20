@@ -31677,12 +31677,12 @@ a {
 }
 
 
-.overlaytexto {
+#overlaytexto {
      height: 13%;
     top: 87%;
 }
 @media (max-width: 767px) {
-    .overlaytexto {
+    #overlaytexto {
             height: 23%;
     top: 77%;
     }
