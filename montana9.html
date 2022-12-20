@@ -78,47 +78,7 @@
 <SCRIPT>
         window.__INITIAL_SQUARESPACE_7_1_SITE_PALETTE__ = [{"id":"accent","value":"#F23000"},{"id":"darkAccent","value":"#A6843F"},{"id":"lightAccent","value":"#F5F4F0"},{"id":"black","value":"#262626"},{"id":"white","value":"#FFFFFF"}];
       </SCRIPT>
-     
-
-<script>
-  
-// hide url bar
-
-(function() {
-    
-  var win = window,
-      doc = win.document;
-
-  // If there's a hash, or addEventListener is undefined, stop here
-  if ( !location.hash || !win.addEventListener ) {
-
-    //scroll to 1
-    window.scrollTo( 0, 1 );
-    var scrollTop = 1,
-
-    //reset to 0 on bodyready, if needed
-    bodycheck = setInterval(function(){
-      if( doc.body ){
-        clearInterval( bodycheck );
-        scrollTop = "scrollTop" in doc.body ? doc.body.scrollTop : 1;
-        win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-      } 
-    }, 15 );
-
-    if (win.addEventListener) {
-      win.addEventListener("load", function(){
-        setTimeout(function(){
-          //reset to hide addr bar at onload
-          win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
-        }, 0);
-      }, false );
-    }
-  }
-
-})();
-  
-</script>
-
+                     
 <!-- --white-hsl "/ 0" hacer el nav bar transparente, HEX verde 3f4741 HEX offwhite f5f4ee background color dark accent -->
 
 <STYLE id="colorThemeStyles">
@@ -10917,7 +10877,6 @@ data-image-focal-point="0.46,0.5" data-image-dimensions="2500x1406" data-image="
     background-image: linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0.3), rgba(0,0,0,0.5));
     color: #f5f4ee;
     padding-left: 7vw;">
-
 
 <p style="white-space: pre-wrap;
 text-decoration-line: underline; 
