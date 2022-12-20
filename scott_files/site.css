@@ -12059,7 +12059,7 @@ div#Tock_widget_container > div.TockWidgetWrapper .InlineWidgetDropDown-NoRightB
 }
 .sqs-block-image .image-block-outer-wrapper:not(.image-block-v2) .image-block-wrapper img {
     position: absolute;
-    width: 100%;
+    height: 100%; /*hice cambio de width a height para arreglar fotos verticales */
 }
 .sqs-block-image .image-block-outer-wrapper:not(.image-block-v2) .image-block-wrapper.lightbox {
     cursor: pointer;
