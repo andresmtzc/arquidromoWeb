@@ -2110,7 +2110,7 @@ body > .login-wrapper.hidden {
     padding-top: 0;
 }
 .sqs-layout:not(.sqs-editing) .sqs-row .sqs-block:not(.float):not(.sqs-feature-gated-wrapper):first-child:last-child {
-    padding-bottom: 0;
+    padding-bottom: 4.25px;
 }
 .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):first-child {
     padding-top: 4.25px;
