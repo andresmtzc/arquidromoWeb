@@ -20633,7 +20633,7 @@ body:not(.header--menu-open) [data-header-style="solid"].header .sqs-custom-cart
 body:not(.header--menu-open) [data-header-style="solid"].header .burger-inner .top-bun,
 body:not(.header--menu-open) [data-header-style="solid"].header .burger-inner .patty,
 body:not(.header--menu-open) [data-header-style="solid"].header .burger-inner .bottom-bun {
-    background-color: var(--solidHeaderNavigationColor);
+    background-color: var(--black-hsl); /*color bun --solidHeaderNavigationColor */ 
 }
 body:not(.header--menu-open) [data-header-style="solid"].header .header-icon:not(.header-icon-border-shape-none).header-icon-border-style-outline {
     box-shadow: 0px 0px 0px 2px var(--solidHeaderNavigationColor) inset;
@@ -20807,7 +20807,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
 }
 .tweak-fixed-header .header .header-announcement-bar-wrapper {
     transition: padding 140ms ease-in-out;
-    background-image:linear-gradient(to top, rgba(0,0,0,0),rgba(0,0,0,0.16), rgba(0,0,0,0.4));  /* #f5f4ee color de barra header*/
+    background-color:#f5f4ee;  /* bg image vs bg color #f5f4ee color de barra header*/
 }
 .header .header-nav-wrapper a,
 .header .language-item a {
@@ -31578,7 +31578,7 @@ a {
 }
 
 #navi {
-    color: #f5f4ee;
+    color: #3f4741; /* f5f4ee*/
     font-weight: lighter;
     text-decoration: underline;
     text-underline-offset: 3px;
