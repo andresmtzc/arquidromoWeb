@@ -22687,7 +22687,7 @@ a:focus {
 .header--menu-open .header .header-burger .top-bun,
 .header--menu-open .header .header-burger .patty,
 .header--menu-open .header .header-burger .bottom-bun {
-    background-color: var(--menuOverlayNavigationLinkColor);
+    background-color: var(--black-hsl); /* --menuOverlayNavigationLinkColor color bun*/ 
 }
 @media (forced-colors: active) {
     .header--menu-open .header .header-burger .top-bun,
@@ -22737,10 +22737,10 @@ a:focus {
     fill: currentColor;
 }
 .site-wrapper .header-menu .header-menu-bg {
-    background-color: #3f4741; /* color background menu mobile */
+    background-color: #f5f4ee; /* f5f4ee color background menu mobile */
 }
 .site-wrapper .header-menu .header-menu-nav a:not(.btn) {
-    color: #f5f4ee; /* color botones menu mobile */
+    color: #3f4741; /* 3f4741 color botones menu mobile */
     font-weight: lighter;
     text-decoration: underline;
 }
