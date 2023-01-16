@@ -1,0 +1,194 @@
+<section class="page-section
+    
+      layout-engine-section
+    
+    background-width--full-bleed
+    
+      
+      
+    
+    
+    
+    horizontal-alignment--center
+    vertical-alignment--middle
+    
+       has-background
+    
+    
+    light" style="min-height: 100vh; padding-top: 79.6875px;" data-test="page-section" data-current-styles="{
+            &quot;backgroundImage&quot;: {
+              &quot;id&quot;: &quot;6033591303637f0d8e195a34&quot;,
+              &quot;recordType&quot;: 2,
+              &quot;addedOn&quot;: 1613977875230,
+              &quot;updatedOn&quot;: 1616107778871,
+              &quot;workflowState&quot;: 1,
+              &quot;publishOn&quot;: 1613977875230,
+              &quot;authorId&quot;: &quot;55da1fb0e4b00d712c24c32b&quot;,
+              &quot;systemDataId&quot;: &quot;1613977877157-7RUJNZT2763EKU9MB3ZN&quot;,
+              &quot;systemDataVariants&quot;: &quot;2500x1406,100w,300w,500w,750w,1000w,1500w,2500w&quot;,
+              &quot;systemDataSourceType&quot;: &quot;JPG&quot;,
+              &quot;filename&quot;: &quot;Casa-Montana-Banner.jpg&quot;,
+              &quot;mediaFocalPoint&quot;: {
+                &quot;x&quot;: 0.5,
+                &quot;y&quot;: 0.5,
+                &quot;source&quot;: 3
+              },
+              &quot;colorData&quot;: {
+                &quot;topLeftAverage&quot;: &quot;ebebed&quot;,
+                &quot;topRightAverage&quot;: &quot;e7e7e8&quot;,
+                &quot;bottomLeftAverage&quot;: &quot;e9e9e9&quot;,
+                &quot;bottomRightAverage&quot;: &quot;acb0b5&quot;,
+                &quot;centerAverage&quot;: &quot;85858a&quot;,
+                &quot;suggestedBgColor&quot;: &quot;ebebed&quot;
+              },
+              &quot;urlId&quot;: &quot;zs3hn0tm84fre2gz3lu48fb8rlszqo&quot;,
+              &quot;title&quot;: &quot;&quot;,
+              &quot;body&quot;: null,
+              &quot;likeCount&quot;: 0,
+              &quot;commentCount&quot;: 0,
+              &quot;publicCommentCount&quot;: 0,
+              &quot;commentState&quot;: 2,
+              &quot;unsaved&quot;: false,
+              &quot;author&quot;: {
+                &quot;id&quot;: &quot;55da1fb0e4b00d712c24c32b&quot;,
+                &quot;displayName&quot;: &quot;Arquidromo&quot;,
+                &quot;firstName&quot;: &quot;Arquidromo&quot;,
+                &quot;lastName&quot;: &quot;&quot;,
+                &quot;websiteUrl&quot;: &quot;&quot;,
+                &quot;bio&quot;: &quot;&quot;
+              },
+              &quot;assetUrl&quot;: &quot;./imgs/montana/Casa-Montana-Banner.jpg&quot;,
+              &quot;contentType&quot;: &quot;image/jpeg&quot;,
+              &quot;items&quot;: [ ],
+              &quot;pushedServices&quot;: { },
+              &quot;pendingPushedServices&quot;: { },
+              &quot;recordTypeLabel&quot;: &quot;image&quot;,
+              &quot;originalSize&quot;: &quot;2500x1406&quot;
+            },
+            &quot;imageOverlayOpacity&quot;: 0.0,
+            &quot;backgroundWidth&quot;: &quot;background-width--full-bleed&quot;,
+            &quot;sectionHeight&quot;: &quot;section-height--custom&quot;,
+            &quot;customSectionHeight&quot;: 100,
+            &quot;horizontalAlignment&quot;: &quot;horizontal-alignment--center&quot;,
+            &quot;verticalAlignment&quot;: &quot;vertical-alignment--middle&quot;,
+            &quot;contentWidth&quot;: &quot;content-width--custom&quot;,
+            &quot;customContentWidth&quot;: 100,
+            &quot;sectionTheme&quot;: &quot;light&quot;,
+            &quot;sectionAnimation&quot;: &quot;none&quot;,
+            &quot;backgroundMode&quot;: &quot;image&quot;,
+            &quot;imageEffect&quot;: &quot;none&quot;
+          }" data-animation="none" data-section-id="602e049d2c95ac2dfbf1d3e3" data-controller="SectionWrapperController" data-current-context="{
+            &quot;video&quot;: {
+              &quot;playbackSpeed&quot;: 0.5,
+              &quot;filter&quot;: 1,
+              &quot;filterStrength&quot;: 0,
+              &quot;zoom&quot;: 0,
+              &quot;videoSourceProvider&quot;: &quot;none&quot;
+            },
+            &quot;backgroundImageId&quot;: null,
+            &quot;backgroundMediaEffect&quot;: null,
+            &quot;typeName&quot;: &quot;portfolio-grid-basic&quot;
+          }" data-section-theme="light" data-controllers-bound="SectionWrapperController" data-active="true">
+<div class="section-border">
+<div class="section-background">
+<script>
+  "use strict";
+
+  var positionImage = function positionImage(imageEl) {
+    var imageDimensions = imageEl.dataset.imageDimensions.split('x');
+    var originalWidth = imageDimensions[0];
+    var originalHeight = imageDimensions[1];
+    var focalPoint = imageEl.dataset.imageFocalPoint.split(',');
+    var focalPointX = focalPoint[0];
+    var focalPointY = focalPoint[1];
+    var parentNode = imageEl.parentNode;
+
+    var scale = function () {
+      var imageRatio = originalWidth / originalHeight;
+      var parentClientSize = {
+        height: parentNode.clientHeight,
+        width: parentNode.clientWidth
+      };
+      var parentRatio = parentClientSize.width / parentClientSize.height;
+
+      if (imageRatio > parentRatio) {
+        return parentClientSize.height / originalHeight;
+      }
+
+      return parentClientSize.width / originalWidth;
+    }();
+
+    var getRelativeOffset = function getRelativeOffset() {
+      var targetWidth = Math.ceil(originalWidth * scale);
+      var targetHeight = Math.ceil(originalHeight * scale);
+      var parentDimensionWidth = parentNode.offsetWidth;
+      var parentDimensionHeight = parentNode.offsetHeight;
+      var overflowWidth = targetWidth - parentDimensionWidth;
+      var overflowHeight = targetHeight - parentDimensionHeight;
+      var valueX;
+
+      if (overflowWidth === 0) {
+        valueX = focalPointX;
+      } else {
+        valueX = Math.max(Math.min(targetWidth * focalPointX - parentDimensionWidth * 0.5, overflowWidth), 0) / overflowWidth;
+      }
+
+      var valueY;
+
+      if (overflowHeight === 0) {
+        valueY = focalPointY;
+      } else {
+        valueY = Math.max(Math.min(targetHeight * focalPointY - parentDimensionHeight * 0.5, overflowHeight), 0) / overflowHeight;
+      }
+
+      return {
+        valueX: valueX,
+        valueY: valueY
+      };
+    };
+
+    var relativeOffset = getRelativeOffset();
+    var valueX = relativeOffset.valueX;
+    var valueY = relativeOffset.valueY;
+    imageEl.style.objectPosition = "".concat(valueX * 100, "% ").concat(valueY * 100, "%");
+    Object.assign(imageEl.style, {
+      height: '100%',
+      width: '100%',
+      objectFit: 'cover',
+    });
+  };
+</script>
+
+<!-- focal-point x,y -->
+
+         <img onload="positionImage(this); this.classList.add('loaded');" alt="" data-src="./imgs/montana/Casa-Montana-Banner.jpg" srcset="./imgs/montana/Casa-Montana-Banner.jpg?format=100w 100w,./imgs/montana/Casa-Montana-Banner.jpg?format=300w 300w,./imgs/montana/Casa-Montana-Banner.jpg?format=500w 500w,./imgs/montana/Casa-Montana-Banner.jpg?format=750w 750w,./imgs/montana/Casa-Montana-Banner.jpg?format=1000w 1000w,./imgs/montana/Casa-Montana-Banner.jpg?format=1500w 1500w,./imgs/montana/Casa-Montana-Banner.jpg?format=2500w 2500w" loading="lazy" sizes="(max-width: 799px) 200vw, 100vw" data-load="false" data-image-focal-point="0.46,0.5" data-image-dimensions="2500x1406" data-image="./imgs/montana/Casa-Montana-Banner.jpg" class="loaded" style="object-position: 41.261% 50%; height: 100%; width: 100%; object-fit: cover;" data-parent-ratio="1.0" data-image-resolution="2500w"> 
+                        
+<div class="section-background-overlay" id="overlaytexto" style="opacity: 1;
+
+    
+    color: #f5f4ee;
+    padding-left: 7vw;">
+
+
+<p style="white-space: pre-wrap;
+text-decoration-line: underline; 
+text-decoration-style: wavy;
+text-decoration-thickness: 1px;
+text-underline-offset: 0.4vh;
+margin-bottom: 0px;
+font-size: 3vh;">Casa Montaña (Mountain House)</p>
+
+<p style="white-space: pre-wrap;
+margin-top: 0vh;
+font-size: 2vh;
+line-height: 1.2;
+">San Pedro Garza García NL MX<br>Residencial (Residential)  |  950m²  |  2023</p>
+
+</div></div></div>
+<div class="content-wrapper">
+<div class="content" style="width: 100%;">
+<div class="sqs-layout sqs-grid-12 columns-12" id="page-section-602e049d2c95ac2dfbf1d3e3" data-type="page-section">
+<div class="row sqs-row">
+<div class="col sqs-col-12 span-12">
+<div class="sqs-block spacer-block sqs-block-spacer" id="block-yui_3_17_2_1_1613954281329_29394" data-aspect-ratio="19.57831325301205" data-block-type="21">
+<div class="sqs-block-content sqs-intrinsic" id="yui_3_17_2_1_1673909290211_321" style="padding-bottom: 19.5783%;">&nbsp;</div></div></div></div></div></div></div></section>
