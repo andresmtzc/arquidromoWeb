@@ -31693,10 +31693,10 @@ a {
 }
 
 
-.putopad {
+#putopad {
     padding-top: 0%;
 }
 @media (max-width: 767px) {
-    .putopad {
+    #putopad {
         padding-top: 0%;
     }
