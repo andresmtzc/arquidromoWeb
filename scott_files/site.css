@@ -20772,20 +20772,20 @@ body:not(.header--menu-open) .header .header-announcement-bar-wrapper [data-head
 }
 @media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 799px) {
     .header .header-announcement-bar-wrapper {
-        padding: 4vw; /*traia 6vw ancho barra mobile */
+        /* padding: 4vw; traia 6vw ancho barra mobile */ /*css line header bar / 20774 / 4.25px / 20786 / 20781   */  margin-top: 4.25px;
     }
 }
 .tweak-fixed-header:not(.sqs-edit-mode-active):not(.sqs-site-styles-active) .header {
     position: fixed;
 }
 .tweak-fixed-header:not(.sqs-edit-mode-active):not(.sqs-site-styles-active) .header.shrink .header-announcement-bar-wrapper {
-    padding-top: 1.8vw;
-    padding-bottom: 1.8vw;
+    /* padding-top: 1.8vw;
+    padding-bottom: 1.8vw; */
 }
 @media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 799px) {
     .tweak-fixed-header:not(.sqs-edit-mode-active):not(.sqs-site-styles-active) .header.shrink .header-announcement-bar-wrapper {
-        padding-top: 2vmax;
-        padding-bottom: 2vmax;
+        /* padding-top: 2vmax;
+        padding-bottom: 2vmax; */ 
     }
 }
 body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme--override) {
