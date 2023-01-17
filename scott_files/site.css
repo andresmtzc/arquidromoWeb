@@ -23561,8 +23561,8 @@ a:focus {
     color: var(--portfolio-hover-static-title-color);
 }
 .item-pagination[data-collection-type^="portfolio"] {
-    background-color: var(--siteBackgroundColor);
-    margin-bottom: 2vh; /* espacio debajo de botones bottom */
+    background-color: #3f4741;
+    margin-bottom: 0px; /* espacio debajo de botones bottom */    margin-top: 4.25px;
 }
 .item-pagination[data-collection-type^="portfolio"] .item-pagination-icon svg {
     stroke: var(--tweak-portfolio-item-pagination-icon-color);
@@ -31635,7 +31635,7 @@ a {
 }
 
 #navi2 {
-    color: #3f4741;
+    color: #f5f4ee;
     font-weight: lighter;
     text-decoration: underline;
         text-underline-offset: 6px;
