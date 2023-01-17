@@ -20772,7 +20772,7 @@ body:not(.header--menu-open) .header .header-announcement-bar-wrapper [data-head
 }
 @media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 799px) {
     .header .header-announcement-bar-wrapper {
-        /* padding: 4vw; traia 6vw ancho barra mobile */ /*css line header bar / 20774 / 4.25px / 20786 / 20781   */  margin-top: 4.25px;
+        /* padding: 4vw; traia 6vw ancho barra mobile */ /*css line header bar / 20774 / 4.25px / 20786 / 20781   */
     }
 }
 .tweak-fixed-header:not(.sqs-edit-mode-active):not(.sqs-site-styles-active) .header {
