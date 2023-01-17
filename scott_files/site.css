@@ -20714,8 +20714,8 @@ body:not(.header--menu-open) [data-header-style="gradient"].header .language-pic
     z-index: 2;
     width: 100%;
     box-sizing: border-box;
-    padding-top: 1.5vw; /*traia 3vw y 3vw ancho barra desktop*/
-    padding-bottom: 1.5vw;
+    padding-top: 1.5vh; /*traia 3vw y 3vw ancho barra desktop*/
+    padding-bottom: 1.5vh;
     padding-left: 7vw;
     padding-right: 7vw;
     pointer-events: auto;
