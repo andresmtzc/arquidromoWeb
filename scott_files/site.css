@@ -31560,7 +31560,7 @@ a {
 #img-hover {
     background-image: url("https://andresmtzc.github.io/arquidromoWeb/arquidromo.gif");
     height: 60px;
-    margin-top: 40px;
+    margin-top: 60px;
     background-size: contain;
     background-repeat: no-repeat;
         -moz-transition: all .2s ease-in;
@@ -31697,5 +31697,6 @@ a {
     color:#f5f4ee;
     font-size:14px;
     font-weight: lighter;
+    margin: 0;
 }
 
