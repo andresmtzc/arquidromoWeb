@@ -9596,7 +9596,7 @@ p,
 }
 @media screen and (min-width: 768px), screen and (max-width: calc(1710px - 1px)) and (orientation: landscape) {
     [data-collection-type^="portfolio"] .item-pagination-title {
-        font-size: calc((1.6 - 1) * 1.2vw + 1rem);
+        font-size: calc((1.4 - 1) * 1.2vw + 1rem);
     }
 }
 @media screen and (min-width: 1710px) {
@@ -31692,5 +31692,11 @@ a {
     }
 }
 
-
+.directorio {
+    text-align: center;
+    white-space: pre-wrap;
+    color:#f5f4ee;
+    font-size:14px;
+    font-weight: lighter;
+}
 
