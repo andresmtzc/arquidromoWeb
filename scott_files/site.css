@@ -31698,5 +31698,17 @@ a {
     font-size:14px;
     font-weight: lighter;
     margin: 0;
+    line-height: 1.3em;
+}
+
+#ccc {
+    text-align: center;
+    white-space: pre-wrap;
+    color:#f5f4ee;
+    font-size:12px;
+    font-weight: lighter;
+    margin: 0;
+    line-height: 4em;
+    margin-top: 2vw;
 }
 
