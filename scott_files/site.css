@@ -20965,7 +20965,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
 }
 @media screen and (max-width: 767px) {
     .header-title-logo a {
-        max-height: 43px;
+        min-height: 52px; /*mobile nav bar height*/
     }
     .header-title-logo img {
         max-height: 43px;
@@ -21844,7 +21844,7 @@ main .page-section:first-child {
 .header-menu-nav-item a {
     position: relative;
     display: block;
-    margin: 1vh 5vw;
+    margin: 2vh 5vw;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 @media (hover: hover) {
