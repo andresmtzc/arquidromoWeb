@@ -6858,6 +6858,18 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     font-display: swap;
     letter-spacing: 0.2em;
 }
+@font-face {
+    font-family: 'Quakiez';
+    src: url('.Quakiez.eot');
+    src: url('Quakiez.eot?#iefix') format('embedded-opentype'),
+        url('Quakiez.woff') format('woff'),
+        url('Quakiez.ttf') format('truetype'),
+        url('Quakiez.svg#Quakiez') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    letter-spacing: 0.2em;
+}
 .social-smugmug:before,
 .social-dribbble:before,
 .social-youtube:before,
@@ -31732,5 +31744,5 @@ text-align:center;
   font-weight:200;
       inline-size: 105px;
     overflow-wrap: break-word;
-  font-family:'Quakiez Display'; 
+  font-family:'Quakiez'; 
 }
