@@ -31723,3 +31723,14 @@ a {
     margin-top: 2vw;
 }
 
+.logoanim {
+  margin: auto;
+  color: black;
+text-align:center;
+  line-height:1em;
+  font-size:27px;
+  font-weight:200;
+      inline-size: 105px;
+    overflow-wrap: break-word;
+  font-family:'Quakiez Display'; 
+}
