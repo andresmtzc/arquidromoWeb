@@ -31620,10 +31620,10 @@ a {
   text-decoration: underline;
   -webkit-text-decoration-style: wavy;
           text-decoration-style: wavy;
-  -webkit-text-decoration-color: #ffc823;
-          text-decoration-color: #ffc823;
-  -webkit-animation: wavy-slide 3s linear infinite;
-          animation: wavy-slide 3s linear infinite;
+  -webkit-text-decoration-color: red;
+          text-decoration-color: red;
+  -webkit-animation: wavy-slide 4s linear infinite;
+          animation: wavy-slide 4s linear infinite;
 }
 #navi:hover:after {
   -webkit-animation: stop;
@@ -31640,6 +31640,10 @@ a {
   to {
     margin-left: -51%;
   }
+}
+body {
+  display: flex;
+  
 }
 
     #logopito {
