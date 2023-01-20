@@ -31600,7 +31600,7 @@ a {
     padding-top: 1em;
     overflow: hidden;
     color: #3f4741;
-    text-underline-offset: 4px;
+    text-underline-offset: 6px;
     padding-left: 3px;
     font-weight: 200;
 }
@@ -31630,13 +31630,13 @@ text-decoration: none;
 
 @-webkit-keyframes wavy-slide {
   to {
-    margin-left: -51%;
+    margin-left: -50%;
   }
 }
 
 @keyframes wavy-slide {
   to {
-    margin-left: -51%;
+    margin-left: -50%;
   }
 }
 
