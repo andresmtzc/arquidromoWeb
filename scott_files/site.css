@@ -31800,3 +31800,41 @@ text-align:center;
     transform: rotate(359deg);
   }
 }
+
+/* showHeaderAfterEnoughScroll 
+baje numeros de 500 y 200 a 300 y 100 en site bundle js a7d..*/
+
+#navi3 {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 1em;
+    padding-top: .5em;
+    overflow: hidden;
+    color: #3f4741;
+    text-underline-offset: 6px;
+    padding-left: 3px;
+    font-weight: 200;
+}
+
+#navi3:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+  content: attr(data-text) attr(data-text);
+  color: transparent;
+  line-height: 1.8;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
+  -webkit-text-decoration-color: #3f4741;
+          text-decoration-color: #3f4741;
+  -webkit-animation: wavy-slide 4s linear infinite;
+          animation: wavy-slide 4s linear infinite;
+}
+#navi3:hover:after {
+text-decoration: none;
+}
