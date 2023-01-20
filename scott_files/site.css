@@ -31625,8 +31625,7 @@ a {
           animation: wavy-slide 4s linear infinite;
 }
 #navi:hover:after {
-  -webkit-animation: stop;
-          animation: stop;
+text-decoration: none;
 }
 
 @-webkit-keyframes wavy-slide {
