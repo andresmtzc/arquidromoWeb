@@ -31601,6 +31601,7 @@ a {
     overflow: hidden;
     color: #3f4741;
     text-underline-offset: 4px;
+    padding-left: 3px;
 }
 
 #navi:after {
@@ -31769,4 +31770,18 @@ text-align:center;
       inline-size: 105px;
     overflow-wrap: break-word;
   font-family:'Quakiez-Display'; 
+}
+
+
+.rotate {
+  animation: rotation 8s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
