@@ -31710,8 +31710,8 @@ text-decoration: none;
   text-decoration-thickness: 1px;
   -webkit-text-decoration-style: wavy;
           text-decoration-style: wavy;
-  -webkit-text-decoration-color: #3f4741;
-          text-decoration-color: #3f4741;
+  -webkit-text-decoration-color: #f5f4ee;
+          text-decoration-color: #f5f4ee;
   -webkit-animation: wavy-slide 4s linear infinite;
           animation: wavy-slide 4s linear infinite;
 }
