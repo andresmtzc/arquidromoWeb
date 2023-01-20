@@ -31602,6 +31602,7 @@ a {
     color: #3f4741;
     text-underline-offset: 4px;
     padding-left: 3px;
+    font-weight: 200;
 }
 
 #navi:after {
@@ -31615,6 +31616,7 @@ a {
   color: transparent;
   line-height: 1.8;
   text-decoration: underline;
+  text-decoration-thickness: 1px;
   -webkit-text-decoration-style: wavy;
           text-decoration-style: wavy;
   -webkit-text-decoration-color: #3f4741;

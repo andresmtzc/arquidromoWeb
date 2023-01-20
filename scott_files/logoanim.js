@@ -5,7 +5,7 @@ var words = ['ARQUIDROMO', 'ARQUIDROMO'],
     len = words.length,
     forwards = true,
     skip_count = 0,
-    skip_delay = 20,
+    skip_delay = 50,
     speed = 120;
 var wordflick = function () {
   setInterval(function () {
