@@ -20965,7 +20965,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
 }
 @media screen and (max-width: 767px) {
     .header-title-logo a {
-        min-height: 52px; /*mobile nav bar height*/
+        min-height: 54px; /*mobile nav bar height*/
     }
     .header-title-logo img {
         max-height: 43px;
@@ -31680,25 +31680,43 @@ text-decoration: none;
 }
 
 #navi2 {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    overflow: hidden;
+    padding-left: 3px;
+    font-weight: 200;
     color: #f5f4ee;
-    font-weight: lighter;
-    text-decoration: underline;
-        text-underline-offset: 6px;
+    text-underline-offset: 6px;
     -moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
     transition: all .2s ease-in;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
+
 }
 
-#navi2:hover {
-    text-decoration: none;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+#navi2:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+  content: attr(data-text) attr(data-text);
+  color: transparent;
+  line-height: 1.8;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy;
+  -webkit-text-decoration-color: #3f4741;
+          text-decoration-color: #3f4741;
+  -webkit-animation: wavy-slide 4s linear infinite;
+          animation: wavy-slide 4s linear infinite;
+}
+#navi2:hover:after {
+text-decoration: none;
 }
 
 #wha {
