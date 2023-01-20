@@ -31683,16 +31683,12 @@ text-decoration: none;
     text-decoration: none;
     position: relative;
     padding-bottom: 1em;
-    padding-top: 1em;
+    padding-top: .5em;
     overflow: hidden;
     padding-left: 3px;
     font-weight: 200;
     color: #f5f4ee;
     text-underline-offset: 6px;
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
 
 }
 
