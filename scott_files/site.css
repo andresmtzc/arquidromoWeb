@@ -7427,7 +7427,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     font-style: normal;
     text-transform: none;
     line-height: undefined;
-    letter-spacing: 0em;
+    letter-spacing: .05em;
     font-size: 1.25rem;
 }
 #siteWrapper #Tock_widget_container .sqs-button-element--primary .TockWidget-B2,
@@ -7442,7 +7442,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     font-style: normal !important;
     text-transform: none !important;
     line-height: undefined !important;
-    letter-spacing: 0em !important;
+    letter-spacing: 0.05em !important;
     font-size: 1.25rem !important;
 }
 #siteWrapper .sqs-button-element--secondary {
@@ -10450,6 +10450,7 @@ p,
     text-transform: none;
     line-height: 1.5em;
     font-size: 1.3rem;
+    letter-spacing: .05em;
 }
 @media screen and (max-width: 767px) and (orientation: portrait) {
     .sqs-block-form .field-list .caption {
