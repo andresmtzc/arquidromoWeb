@@ -7423,7 +7423,7 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
     letter-spacing: 0.05em;
     font-size: 1rem;
     font-family: "Simplifica", "Helvetica Neue";
-    font-weight: 700;
+    font-weight: 200;
     font-style: normal;
     text-transform: none;
     line-height: undefined;
@@ -11370,7 +11370,7 @@ div.sqs-block-opentable-v2 .squarespace-opentable-new-age-wrapper h1 {
 }
 #siteWrapper.site-wrapper .sqs-button-element--primary,
 #siteWrapper.site-wrapper .tock-block div#Tock_widget_container > div.TockWidgetWrapper .TockButton-blue.sqs-button-element--primary {
-    border-width: 3px;
+    border-width: 0px;
 }
 #siteWrapper.site-wrapper .sqs-button-element--secondary {
     padding: 0.4rem 0.668rem;
@@ -24321,7 +24321,7 @@ a:focus {
 }
 .sqs-block-form .sqs-editable-button.sqs-button-element--primary,
 .site-wrapper .sqs-block-form .sqs-editable-button {
-    background: var(--tweak-form-block-button-background-color);
+    background: #3f4741;
     color: var(--tweak-form-block-button-text-color);
 }
 .primary-button-style-solid.primary-button-shape-underline .sqs-block-form .sqs-editable-button.sqs-button-element--primary,
@@ -31523,7 +31523,7 @@ textarea {
 */
 
 .field-list .field-element {
-    border-bottom: solid 3px #2793ed !important;
+    border-bottom: solid 1px #3f4741 !important;
     border-left: none !important;
     border-right: none !important;
     border-top: none !important;
@@ -31849,6 +31849,6 @@ text-decoration: none;
 
     float: none !important;
     width: auto !important;
-    
+
     }
 }
