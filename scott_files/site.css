@@ -31840,3 +31840,15 @@ baje numeros de 500 y 200 a 300 y 100 en site bundle js a7d..*/
 #navi3:hover:after {
 text-decoration: none;
 }
+
+#mobimobi {
+
+}
+@media (max-width: 767px) {
+    #mobimobi {
+
+    float: none !important;
+    width: auto !important;
+    
+    }
+}
