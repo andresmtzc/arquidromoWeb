@@ -24296,7 +24296,7 @@ a:focus {
     color: var(--tweak-menu-block-item-price-color);
 }
 .sqs-block-form .field-list .title {
-    color: var(--tweak-form-block-title-color);
+    color: #3f4741;
 }
 .sqs-block-form .field-list .description {
     color: var(--tweak-form-block-description-color);
