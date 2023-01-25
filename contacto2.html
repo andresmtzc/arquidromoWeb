@@ -10880,32 +10880,83 @@ data-animation-role="button">
 
 
 <DIV class="col sqs-col-6 span-6" id="mobimobi">
-<DIV class="sqs-block html-block sqs-block-html" id="block-8c1b5003304a49fe7ebf" 
-data-block-type="2">
-<DIV class="sqs-block-content">
-<P class="sqsrte-large" style="white-space: pre-wrap;">Get in touch.</P>
-<P class="sqsrte-small" style="white-space: pre-wrap;">scottsnyderphoto@gmail.com</P>
-<P class="sqsrte-small" style="white-space: pre-wrap;">Costa Mesa — California</P></DIV></DIV>
-<DIV class="sqs-block socialaccountlinks-v2-block sqs-block-socialaccountlinks-v2" 
-id="block-d7752db69836d7db07f0" data-block-type="54">
-<DIV class="sqs-block-content">
-<DIV class="sqs-svg-icon--outer social-icon-alignment-left social-icons-color- social-icons-size-small social-icons-style-regular ">
-<STYLE>
-    #block-d7752db69836d7db07f0 .social-icons-style-border .sqs-svg-icon--wrapper {
-      
-        box-shadow: 0 0 0 2px inset;
-      
-      border: none; 
-    }
-  </STYLE>
-   <NAV class="sqs-svg-icon--list"><A class="sqs-svg-icon--wrapper instagram-unauth" 
-aria-label="Instagram" href="https://www.instagram.com/arquidromo/" 
-target="_blank">
-<DIV><svg xmlns="http://www.w3.org/2000/svg" class="sqs-svg-icon--social" 
-viewBox="0 0 64 64"><use class="sqs-use--icon" xmlns:xlink="http://www.w3.org/1999/xlink" 
-xlink:href="#instagram-unauth-icon" />           <use class="sqs-use--mask" 
-xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#instagram-unauth-mask" 
-/>         </svg>       </DIV></A>   </NAV></DIV></DIV></DIV></DIV>
+
+<div class="section-background" style="background: rgba(0,0,0,0);">
+<script>
+  "use strict";
+
+  var positionImage = function positionImage(imageEl) {
+    var imageDimensions = imageEl.dataset.imageDimensions.split('x');
+    var originalWidth = imageDimensions[0];
+    var originalHeight = imageDimensions[1];
+    var focalPoint = imageEl.dataset.imageFocalPoint.split(',');
+    var focalPointX = focalPoint[0];
+    var focalPointY = focalPoint[1];
+    var parentNode = imageEl.parentNode;
+
+    var scale = function () {
+      var imageRatio = originalWidth / originalHeight;
+      var parentClientSize = {
+        height: parentNode.clientHeight,
+        width: parentNode.clientWidth
+      };
+      var parentRatio = parentClientSize.width / parentClientSize.height;
+
+      if (imageRatio > parentRatio) {
+        return parentClientSize.height / originalHeight;
+      }
+
+      return parentClientSize.width / originalWidth;
+    }();
+
+    var getRelativeOffset = function getRelativeOffset() {
+      var targetWidth = Math.ceil(originalWidth * scale);
+      var targetHeight = Math.ceil(originalHeight * scale);
+      var parentDimensionWidth = parentNode.offsetWidth;
+      var parentDimensionHeight = parentNode.offsetHeight;
+      var overflowWidth = targetWidth - parentDimensionWidth;
+      var overflowHeight = targetHeight - parentDimensionHeight;
+      var valueX;
+
+      if (overflowWidth === 0) {
+        valueX = focalPointX;
+      } else {
+        valueX = Math.max(Math.min(targetWidth * focalPointX - parentDimensionWidth * 0.5, overflowWidth), 0) / overflowWidth;
+      }
+
+      var valueY;
+
+      if (overflowHeight === 0) {
+        valueY = focalPointY;
+      } else {
+        valueY = Math.max(Math.min(targetHeight * focalPointY - parentDimensionHeight * 0.5, overflowHeight), 0) / overflowHeight;
+      }
+
+      return {
+        valueX: valueX,
+        valueY: valueY
+      };
+    };
+
+    var relativeOffset = getRelativeOffset();
+    var valueX = relativeOffset.valueX;
+    var valueY = relativeOffset.valueY;
+    imageEl.style.objectPosition = "".concat(valueX * 100, "% ").concat(valueY * 100, "%");
+    Object.assign(imageEl.style, {
+      height: '100%',
+      width: '100%',
+      objectFit: 'cover',
+    });
+  };
+</script>
+
+<!-- focal-point x,y -->
+
+         <img onload="positionImage(this); this.classList.add('loaded');" alt="" data-src="./imgs/montana/Casa-Montana-Banner.jpg" srcset="./imgs/montana/Casa-Montana-Banner.jpg?format=100w 100w,./imgs/montana/Casa-Montana-Banner.jpg?format=300w 300w,./imgs/montana/Casa-Montana-Banner.jpg?format=500w 500w,./imgs/montana/Casa-Montana-Banner.jpg?format=750w 750w,./imgs/montana/Casa-Montana-Banner.jpg?format=1000w 1000w,./imgs/montana/Casa-Montana-Banner.jpg?format=1500w 1500w,./imgs/montana/Casa-Montana-Banner.jpg?format=2500w 2500w" loading="lazy" sizes="(max-width: 799px) 200vw, 100vw" data-load="false" data-image-focal-point="0.46,0.5" data-image-dimensions="2500x1406" data-image="./imgs/montana/Casa-Montana-Banner.jpg" style="width: 50%;height: 50%;margin-left: 50%;/* object-position: 26.0181% 50%; */object-fit: cover;/* z-index: 1; */" data-parent-ratio="1.5" class="loaded" data-image-resolution="1500w"> 
+                        
+</div>
+
+</DIV>
 
 
 
