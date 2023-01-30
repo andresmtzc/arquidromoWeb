@@ -22132,7 +22132,7 @@ body {
     background-color: var(--siteBackgroundColor);
     color: var(--paragraphMediumColor);
 }
-.page-section .section-border {
+.page-section {
     background-color: #f5f4ee;
 }
 p a {
