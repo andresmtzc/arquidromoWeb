@@ -22133,7 +22133,7 @@ body {
     color: var(--paragraphMediumColor);
 }
 .page-section .section-border {
-    background-color: var(--siteBackgroundColor);
+    background-color: #f5f4ee;
 }
 p a {
     color: var(--paragraphLinkColor);
@@ -22150,7 +22150,7 @@ div.sqs-block-opentable-v2 h1 {
     color: inherit;
 }
 .page-section {
-    color: var(--paragraphMediumColor);
+    color: var(--lightAccent-hsl);
 }
 .page-section .sqs-background-enabled {
     color: var(--tweak-paragraph-medium-color-on-background);
