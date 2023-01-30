@@ -23580,7 +23580,8 @@ a:focus {
 }
 .item-pagination[data-collection-type^="portfolio"] {
     background-color: #3f4741;
-    margin-bottom: 0px; /* espacio debajo de botones bottom */    margin-top: 4.25px;
+    margin-bottom: 0px; /* espacio debajo de botones bottom */    
+    border-top: 4.25px solid #f5f4ee;
 }
 .item-pagination[data-collection-type^="portfolio"] .item-pagination-icon svg {
     stroke: var(--tweak-portfolio-item-pagination-icon-color);
