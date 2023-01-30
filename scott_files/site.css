@@ -31767,6 +31767,10 @@ text-decoration: none;
     line-height: 1.3em;
 }
 
+.footerColor {
+background-color: #3f4741;
+}
+
 #ccc {
     text-align: center;
     white-space: pre-wrap;
