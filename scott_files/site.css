@@ -31858,3 +31858,24 @@ text-decoration: none;
 
     }
 }
+
+
+
+  .peeka {
+    visibility:hidden;
+    }
+
+    .tab {
+        color: hsla(120, 100%, 50%, 0);
+        background-color: black;
+    }
+  .selected {
+        position: relative;
+             color: hsla(120, 100%, 50%, 1);
+font-size:70px;
+        visibility:visible;
+            top: 50%;
+text-align:center;
+    transform: translateY( -50%);
+    }
+
