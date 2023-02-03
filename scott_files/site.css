@@ -31863,7 +31863,7 @@ text-decoration: none;
 
 .titleformat {
     font-size:20px;
-  color: white;
+  color: #3f4741;
   font-weight: 600;
       position: absolute;
     top: 50%;
@@ -31874,9 +31874,14 @@ text-decoration: none;
     letter-spacing: .08em;
 line-height: .9em;
 text-align: center; 
-    text-shadow: 0px 0px 20px black;
+
 
     overflow: hidden;
     padding-left: 5px;
-    padding-bottom: 7px;
+    padding-bottom: 10px;
+    background-color: #f5f4ee;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 9px;
 }
