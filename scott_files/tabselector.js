@@ -12,7 +12,7 @@ $(document).scroll(function () {
              $(this).delay(5000).fadeOut('slow');
 
         } else {
-            $(this).fadeOut();
+            $(this).delay(1000).fadeOut();
         }
     });
 });
