@@ -11,7 +11,7 @@ $(document).scroll(function () {
              $(this).css("font-size", "3.5vh");
         } 
         else {
-            $(this).delay(2500).fadeOut();
+            $(this).fadeOut();
         }
     });
 });
