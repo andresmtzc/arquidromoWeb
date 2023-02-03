@@ -9,6 +9,7 @@ $(document).scroll(function () {
         if (y > t) {
             $(this).fadeIn();
              $(this).css("font-size", "3.5vh");
+             $(this).delay(5000).fadeOut('slow');
 
         } else {
             $(this).fadeOut();
