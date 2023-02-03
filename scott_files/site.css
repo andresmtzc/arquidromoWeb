@@ -31862,9 +31862,15 @@ text-decoration: none;
 
 
 .titleformat {
-    font-size:40px;
-  color: red;
+    font-size:50px;
+  color: white;
+  font-weight: 800;
       position: absolute;
-    bottom:0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   display:none;
+    font-family:'Simplifica'; 
+    letter-spacing: 1.2em;
+
 }
