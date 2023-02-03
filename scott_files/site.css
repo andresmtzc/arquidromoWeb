@@ -31863,8 +31863,8 @@ text-decoration: none;
 
 .titleformat {
     font-size:20px;
-  color: #3f4741;
-  font-weight: 600;
+  
+  font-weight: 200;
       position: absolute;
     top: 50%;
     left: 50%;
@@ -31879,9 +31879,14 @@ text-align: center;
     overflow: hidden;
     padding-left: 5px;
     padding-bottom: 10px;
-    background-color: #f5f4ee;
+  
     text-decoration: underline;
     text-decoration-style: wavy;
     text-decoration-thickness: 1px;
     text-underline-offset: 9px;
+}
+
+mark { 
+  color: #3f4741;
+    background-color: #f5f4ee;
 }
