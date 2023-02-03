@@ -31875,18 +31875,15 @@ text-decoration: none;
 line-height: .9em;
 text-align: center; 
 
-
+        text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 9px;
     overflow: hidden;
     padding-left: 5px;
     padding-bottom: 10px;
   
-    text-decoration: underline;
-    text-decoration-style: wavy;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 9px;
-}
-
-mark { 
   color: #3f4741;
     background-color: #f5f4ee;
 }
+
