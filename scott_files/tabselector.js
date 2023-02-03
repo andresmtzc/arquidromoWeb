@@ -9,10 +9,9 @@ $(document).scroll(function () {
         if (y > t) {
             $(this).fadeIn();
              $(this).css("font-size", "3.5vh");
-
-
-        } else {
-            $(this).delay(1000).fadeOut();
+        } 
+        else {
+            $(this).fadeOut();
         }
     });
 });
