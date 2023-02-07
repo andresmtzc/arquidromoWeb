@@ -8,7 +8,7 @@ $(document).scroll(function () {
         var t = $(this).parent().offset().top;
         if (y > t) {
             $(this).fadeIn();
-             $(this).css("font-size", "3.5vh");
+             $(this).css("font-size", "2.5vh");
         } 
         else {
             $(this).fadeOut();
