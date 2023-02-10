@@ -31744,7 +31744,7 @@ text-decoration: none;
     width: 114.5%;
 }
 @media (max-width: 767px) {
-    .descuadre {
+    .videodescuadre {
         width: 116.8%;
     }
 }
@@ -31753,7 +31753,7 @@ text-decoration: none;
     width: 100%;
 }
 @media (max-width: 767px) {
-    .descuadre {
+    .videodescuadre2 {
         width: 101.6%;
     }
 }
