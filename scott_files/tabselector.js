@@ -7,10 +7,11 @@ $(document).scroll(function () {
     $('.offload').each(function () {
         var t = $(this).parent().offset().top;
         if (y > t) {
-            $(this).fadeIn().delay(2000).fadeOut();
-
+            $(this).fadeIn();
             
         } 
-return false;
+        else {
+            $(this).fadeOut();
+        }
     });
 });
