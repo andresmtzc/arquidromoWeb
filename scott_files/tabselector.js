@@ -15,3 +15,13 @@ $(document).scroll(function () {
         }
     });
 });
+
+function check_scroll_time(){
+  now = new Date();
+  if ((now.getTime() - scroll_timer.getTime())/1000 > 3){
+    $('.offload').fadeOut();
+  }else{
+    $('.offload').css("opacity:1");
+  }
+  setTimeout(function(){ check_scroll_time() },300);
+}
