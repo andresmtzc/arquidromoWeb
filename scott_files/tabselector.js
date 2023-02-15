@@ -14,7 +14,7 @@ $(document).scroll(function () {
             $(this).fadeOut();
         }
     });
-});
+
 
 var scroll_active = false;
 var scroll_timer = new Date();
@@ -34,3 +34,4 @@ function check_scroll_time(){
   setTimeout(function(){ check_scroll_time() },300);
 }
 
+});
