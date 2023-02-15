@@ -8,6 +8,7 @@ $(document).scroll(function () {
         var t = $(this).parent().offset().top;
         if (y > t) {
             $(this).fadeIn().delay(2000).fadeOut().delay(5000);
+            return false;
             
         } 
 
