@@ -1,24 +1,12 @@
+
+
+
 var scroll_active = false;
 var scroll_timer = new Date();
 check_scroll_time();
 
-$(document).scroll(function () {
-    scroll_timer = new Date();
-    var y = $(this).scrollTop();
-
-    // Show element after user scrolls past 
-    // the top edge of its parent 
-    $('.offload').each(function () {
-        var t = $(this).parent().offset().top;
-        if (y > t) {
-            $(this).fadeIn();
-            
-        } 
-        else {
-            $(this).fadeOut();
-        }
-    });
-
+$(window).scroll(function(){
+  scroll_timer = new Date();
 
 function check_scroll_time(){
   now = new Date();
