@@ -31822,8 +31822,8 @@ text-align:center;
 }
 
 @keyframes colorswitcher {
-  from {background-color: #3f4741;}
-  to {background-color: #f5f4ee;}
+  from {color: #3f4741;}
+  to {color: #f5f4ee;}
 }
 
 
