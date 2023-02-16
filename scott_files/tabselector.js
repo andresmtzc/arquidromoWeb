@@ -1,5 +1,9 @@
-$(document).scroll(function () {
+var scroll_active = false;
+var scroll_timer = new Date();
+check_scroll_time();
 
+$(document).scroll(function () {
+    scroll_timer = new Date();
     var y = $(this).scrollTop();
 
     // Show element after user scrolls past 
@@ -16,14 +20,6 @@ $(document).scroll(function () {
     });
 
 
-var scroll_active = false;
-var scroll_timer = new Date();
-check_scroll_time();
-
-$(window).scroll(function(){
-  scroll_timer = new Date();
-
-
 function check_scroll_time(){
   now = new Date();
   if ((now.getTime() - scroll_timer.getTime())/1000 > 3){
@@ -34,5 +30,4 @@ function check_scroll_time(){
   setTimeout(function(){ check_scroll_time() },300);
 }
 
-});
 });
