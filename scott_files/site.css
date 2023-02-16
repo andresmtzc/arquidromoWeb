@@ -20820,7 +20820,7 @@ body.tweak-transparent-header .header:not(.shrink):not(.transparent-header-theme
 }
 .tweak-fixed-header .header .header-announcement-bar-wrapper {
     transition: padding 140ms ease-in-out;
-    background-color:#f5f4ee;  /* bg image vs bg color #f5f4ee color de barra header*/
+   /* background-color:#f5f4ee;  /* bg image vs bg color #f5f4ee color de barra header*/
 }
 .header .header-nav-wrapper a,
 .header .language-item a {
