@@ -31814,6 +31814,18 @@ text-align:center;
   font-family:'Quakiez-Display'; 
 }
 
+.colorswitcher {
+  animation-name: colorswitcher;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes colorswitcher {
+  from {background-color: #3f4741;}
+  to {background-color: #f5f4ee;}
+}
+
 
 .rotate {
   animation: rotation 8s infinite linear;

@@ -22,7 +22,7 @@ check_scroll_time();
 
 $(window).scroll(function(){
   scroll_timer = new Date();
-});
+
 
 function check_scroll_time(){
   now = new Date();
@@ -34,4 +34,5 @@ function check_scroll_time(){
   setTimeout(function(){ check_scroll_time() },300);
 }
 
+});
 });
