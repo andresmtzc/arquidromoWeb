@@ -10,7 +10,7 @@ $(window).scroll(function(){
 
 function check_scroll_time(){
   now = new Date();
-  if ((now.getTime() - scroll_timer.getTime())/500 > 1){
+  if ((now.getTime() - scroll_timer.getTime())/800 > 1){
     $('.offload').fadeIn();
   }else{
     $('.offload').fadeOut();
