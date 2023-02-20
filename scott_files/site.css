@@ -31804,7 +31804,7 @@ background-color: #3f4741;
 
 .logoanim {
   margin: auto;
-  color: #3f4741;
+  color: #f5f4ee;
 text-align:center;
   line-height:1em;
   font-size:27px;
@@ -31812,6 +31812,12 @@ text-align:center;
       inline-size: 105px;
     overflow-wrap: break-word;
   font-family:'Quakiez-Display'; 
+}
+
+#titleColor {
+
+  color: #f5f4ee;
+
 }
 
 .colorswitcher {

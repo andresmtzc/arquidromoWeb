@@ -153,27 +153,12 @@ style="padding: 0px;" data-test="header-inner"><!-- Background -->
                                                             <!-- Title and nav wrapper --> 
           
 <DIV class="header-title-nav-wrapper"><!-- Title title logoanim script-->   
-<script>
-    var title = document.getElementById('title');
-    var colors = new Array('#3f4741',
-    '#f5f4ee',
-                           '#f5f4ee',
-                           '#3f4741',
-                           '#f5f4ee'
-                                                    );
-    var count = 0;
-    var interval = window.setInterval(changeColor, 4000);
-    function changeColor() {
-        title.style.color = colors[count++];
-    if (count == 5)
-            count = 0;
-    }
-</script>                          
+
   
 <DIV class="&#10;                    header-title&#10;                    &#10;                  " 
 data-animation-role="header-element">
 <DIV class="header-title-logo"><A alt="Arquidromo" href="https://andresmtzc.github.io/arquidromoWeb/index.html" 
-data-animation-role="header-element"><div id="title" class="logoanim">ARQUIDROMO</div>
+data-animation-role="header-element"><div id="titleColor" class="logoanim">ARQUIDROMO</div>
                       </A>                     </DIV></DIV><!-- Nav -->          
      
 <DIV class="header-nav">
@@ -224,7 +209,22 @@ hidden="">Close Menu</SPAN>
 <DIV class="&#10;                    header-title&#10;                    &#10;                  " 
 data-animation-role="header-element">
 <DIV class="header-title-logo"><A href="https://andresmtzc.github.io/arquidromoWeb/index.html" 
-data-animation-role="header-element"><div id="title" class="logoanim">ARQUIDROMO</div> <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="./scott_files/logoanim.js"></script> 
+data-animation-role="header-element"><div id="titleColor" class="logoanim">ARQUIDROMO</div> <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="./scott_files/logoanim.js"></script> <script>
+    var title = document.getElementById('titleColor');
+    var colors = new Array('#3f4741',
+    '#f5f4ee',
+                           '#f5f4ee',
+                           '#3f4741',
+                           '#f5f4ee'
+                                                    );
+    var count = 0;
+    var interval = window.setInterval(changeColor, 4000);
+    function changeColor() {
+        title.style.color = colors[count++];
+    if (count == 5)
+            count = 0;
+    }
+</script> 
                       </A>                     </DIV></DIV><!-- Nav -->          
      
 <DIV class="header-nav">
