@@ -31758,7 +31758,14 @@ text-decoration: none;
     }
 }
 
-
+.descuadre2 {
+    padding-bottom: 69.271%;
+}
+@media (max-width: 767px) {
+    .descuadre {
+        padding-bottom: 67.271%;
+    }
+}
 
 #overlaytexto {
     opacity: 1;
