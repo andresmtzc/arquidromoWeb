@@ -7325,8 +7325,8 @@ body:not(.tweak-product-quick-view-lightbox-show-close-button) .sqs-product-quic
 }
 @media screen and (max-width: 767px) {
     .page-section:not(.full-bleed-section) > .content-wrapper {
-        padding-right: 2vw; /* aqui son los padding laterales en mobile */
-        padding-left: 2vw;
+        padding-right: 8.5px; /* aqui son los side paddings laterales en mobile */
+        padding-left: 8.5px;
         box-sizing: border-box;
     }
     .page-section .collection-content-wrapper,
