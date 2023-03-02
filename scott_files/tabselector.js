@@ -5,7 +5,7 @@ $(document).scroll(function () {
     // Show element after user scrolls past 
     // the top edge of its parent 
     $('.offload').each(function () {
-        var t = $(this).parent().offset().top + (-50);
+        var t = $(this).parent().offset().top + (-160);
         if (y > t) {
             $(this).fadeIn();
         } else {
