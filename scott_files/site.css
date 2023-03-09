@@ -31937,6 +31937,6 @@ background-color: #f5f4ee;
 background-color: transparent;
 }
 
-.a:hover>.zoomi {
+.sqs-block-content:hover>.zoomi {
 transform: scale(1.1);
 }
