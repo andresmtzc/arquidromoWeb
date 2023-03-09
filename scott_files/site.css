@@ -31947,6 +31947,19 @@ transform: translatex(-5%) scale(1.1);
 transition: .2s ease-in-out;
 }
 
+.image-block-wrapper:hover #zoomi3 {
+transform: translatex(-6%) scale(1.1);
+transition: .2s ease-in-out;
+}
+
 .thumb-image {
 transition: .2s ease-in-out;
+}
+
+.fixt {
+transform: translatex(-5%)
+}
+
+.fixt2 {
+transform: translatex(-6%)
 }
