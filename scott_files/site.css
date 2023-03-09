@@ -31936,3 +31936,7 @@ background-color: #f5f4ee;
 .bgcolor {
 background-color: transparent;
 }
+
+.zoomi:hover {
+transform: scale(1.1);
+}
