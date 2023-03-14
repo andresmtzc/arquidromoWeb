@@ -22150,7 +22150,7 @@ div.sqs-block-opentable-v2 h1 {
     color: inherit;
 }
 .page-section {
-    color: var(--lightAccent-hsl);
+    color: var(--darkAccent-hsl);
 }
 .page-section .sqs-background-enabled {
     color: var(--tweak-paragraph-medium-color-on-background);
@@ -24324,7 +24324,7 @@ a:focus {
 .sqs-block-form .sqs-editable-button.sqs-button-element--primary,
 .site-wrapper .sqs-block-form .sqs-editable-button {
     background: #3f4741;
-    color: var(--tweak-form-block-button-text-color);
+    color: var(--lightAccent-hsl);
 }
 .primary-button-style-solid.primary-button-shape-underline .sqs-block-form .sqs-editable-button.sqs-button-element--primary,
 .secondary-button-style-solid.secondary-button-shape-underline .site-wrapper .sqs-block-form .sqs-editable-button.sqs-button-element--secondary,
