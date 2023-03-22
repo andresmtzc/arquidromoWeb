@@ -31938,17 +31938,17 @@ background-color: transparent;
 }
 
 .image-block-wrapper:hover #zoomi {
-transform: scale(1.1);
+transform: scale(1.06);
 transition: .2s ease-in-out;
 }
 
 .image-block-wrapper:hover #zoomi2 {
-transform: translatex(-5%) scale(1.1);
+transform: translatex(-5%) scale(1.06);
 transition: .2s ease-in-out;
 }
 
 .image-block-wrapper:hover #zoomi3 {
-transform: translatex(-6%) scale(1.1);
+transform: translatex(-6%) scale(1.06);
 transition: .2s ease-in-out;
 }
 
