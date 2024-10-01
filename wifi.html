@@ -13,6 +13,7 @@
             justify-content: center;
             height: 100vh;
             background-color: #f0f0f0;
+            position: relative;
         }
         h1 {
             margin-bottom: 20px;
@@ -42,19 +43,51 @@
             transform: scale(1.04);
             background-color: #21e065;
         }
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin: 0 auto;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            top: 30px;
+            font-size: 17px;
+            transition: visibility 0s, opacity 0.5s linear;
+            opacity: 0;
+            transform: translateX(-50%);
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
-    <h1>This is my WiFi password:</h1>
+    <h1>DekuTree_Guest</h1>
     <p id="text-to-copy">Visita12345</p>
-    <button id="copy-button" onclick="copyToClipboard()">Copy Text</button>
+    <button id="copy-button" onclick="copyToClipboard()">Copy Password</button>
+    
+    <div id="toast">Password copied to clipboard!</div>
 
     <script>
         function copyToClipboard() {
             const text = document.getElementById('text-to-copy').innerText;
             navigator.clipboard.writeText(text).then(() => {
-                alert('Text copied to clipboard!');
+                showToast();
             });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.className = 'show';
+            setTimeout(() => {
+                toast.className = toast.className.replace('show', '');
+            }, 3000); // Hide after 3 seconds
         }
     </script>
 </body>
