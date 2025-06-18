@@ -1,0 +1,50 @@
+html, body {
+  margin: 0; padding: 0;
+  width: 100vw; height: 100vh;
+  background: white;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.hex-wrapper {
+  width: 100vw;
+  overflow-x: auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  /* Make it horizontally scrollable */
+  scroll-behavior: smooth;
+  outline: none;
+}
+
+#hexGrid {
+  position: relative;
+  height: 720px;
+  /* Width based on cols and spacing */
+  width: calc(6 * 110px + 55px);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.hex {
+  position: absolute;
+  width: 100px;
+  height: 115px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0;
+  cursor: pointer;
+  transition:
+    transform 0.15s cubic-bezier(0.4, 0, 1, 1),
+    filter 0.15s cubic-bezier(0.4, 0, 1, 1),
+    left 0.15s cubic-bezier(0.4, 0, 1, 1),
+    top 0.15s cubic-bezier(0.4, 0, 1, 1);
+  will-change: transform, filter, left, top;
+  box-sizing: border-box;
+  filter: opacity(1);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
