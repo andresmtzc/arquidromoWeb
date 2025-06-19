@@ -32,8 +32,8 @@
   .nav-left-group {
   display: flex;
   align-items: center;
-  gap: 0rem; /* <<< adjust this to control spacing between DEN and nav links */
-  margin-right:0rem;
+  gap: 3rem; /* <<< adjust this to control spacing between DEN and nav links */
+  margin-right:3rem;
 }
 
 
@@ -89,7 +89,7 @@
 .filter-button {
   all: unset; /* Reset all native button styles */
   display: inline-block;       /* Like links */
-  margin-right: 2rem;          /* Same gap as .left-nav a have via flex gap or margin */
+  margin-right: 0rem;          /* Same gap as .left-nav a have via flex gap or margin */
   font: inherit;
   color: #000;
   cursor: pointer;
