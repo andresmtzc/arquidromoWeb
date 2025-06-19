@@ -1,20 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // === In-Page Filter Buttons ===
-  const filterButtons = document.querySelectorAll('.filter-button');
+  // === Two-Layer In-Page Filter ===
+  const typeButtons = document.querySelectorAll('.type-filter');
+  const clusterButtons = document.querySelectorAll('.cluster-filter');
   const allProjects = document.querySelectorAll('.project');
 
-  filterButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const target = button.getAttribute('data-filter');
+  let activeType = 'all';
+  let activeCluster = 'all';
 
-      // Update active state
-      filterButtons.forEach(btn => btn.classList.remove('active'));
+  function filterProjects() {
+    allProjects.forEach(project => {
+      const type = project.getAttribute('data-type');
+      const cluster = project.getAttribute('data-cluster');
+
+      const matchesType = activeType === 'all' || type === activeType;
+      const matchesCluster = activeCluster === 'all' || cluster === activeCluster;
+
+      project.style.display = (matchesType && matchesCluster) ? 'block' : 'none';
+    });
+  }
+
+  typeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      activeType = button.getAttribute('data-filter');
+
+      typeButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
 
-      allProjects.forEach(project => {
-        const cluster = project.getAttribute('data-cluster');
-        project.style.display = (target === 'all' || cluster === target) ? 'block' : 'none';
-      });
+      filterProjects();
+    });
+  });
+
+  clusterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      activeCluster = button.getAttribute('data-filter');
+
+      clusterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      filterProjects();
     });
   });
 
@@ -23,11 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   navFilterButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Update active state (only visual, no filtering logic here)
       navFilterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-
-      // You can add specific nav filter logic here if needed
     });
   });
 
