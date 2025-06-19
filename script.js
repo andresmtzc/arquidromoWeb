@@ -176,6 +176,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
 
+  if (!hamburger || !navMenu) {
+    console.error("Hamburger or navMenu not found");
+    return;
+  }
+
   hamburger.addEventListener('click', () => {
     const expanded = hamburger.getAttribute('aria-expanded') === 'true';
     const newExpanded = !expanded;
