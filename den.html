@@ -5,318 +5,39 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Responsive Grid Alana Dimou Clone with Carousel Modal</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet" />
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    max-width: 960px;
-    margin: auto;
-    padding: 3rem 2rem;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    letter-spacing: 0.16em;
-    background: #fff;
-    -webkit-font-smoothing: antialiased;
-  }
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-  }
-  .left-nav {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-  }
-  .den-text {
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    user-select: none;
-  }
-  .left-nav a,
-  .right-nav a {
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    color: #000;
-    position: relative;
-    text-decoration: none;
-    font-weight: 300;
-  }
-  .left-nav a::after,
-  .right-nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: #000;
-    transition: width 0.3s;
-  }
-  .left-nav a:hover::after,
-  .left-nav a:focus::after,
-  .right-nav a:hover::after,
-  .right-nav a:focus::after {
-    width: 100%;
-  }
-  .right-nav {
-    display: flex;
-    gap: 2rem;
-  }
-.badge {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: rgba(255, 255, 255, 0.9);
-  color: #000;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-align: right;
-  padding: 0.25rem 0.4rem;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  pointer-events: none;
-  border-radius: 0rem;
-}
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 1rem;
-}
-
-.modal[aria-hidden="false"] {
-  display: flex;
-}
-
-.modal-content {
-  background: #fff;
-  padding: 4rem; /* increased from 3rem */
-  border-radius: 0rem;
-  max-width: 600px; /* increased from 600px */
-  width: 95%;
-  max-height: 90vh;
-  overflow-y: auto;
-  text-align: center;
-  position: relative;
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  letter-spacing: 0.16em;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.modal-close {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  line-height: 1;
-  color: #333;
-  font-weight: 700;
-}
-
-.modal h2 {
-  margin-bottom: 0.3rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 2rem;
-}
-
-.modal p {
-  margin: 0.2rem 0 1.2rem;
-  font-size: 1rem;
-  color: #444;
-}
-
-.price {
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-bottom: 1.2rem;
-  color: #111;
-  letter-spacing: 0.1em;
-}
-
-.carousel {
-  position: relative;
-  width: 100%;
-  height: 320px;
-
-  overflow: hidden;
-  border-radius: 0rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.carousel img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  display: none;
-}
-
-.carousel img.active {
-  display: block;
-}
-
-.carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 0 0.6rem;
-  cursor: pointer;
-  user-select: none;
-  border-radius: 0rem;
-  transition: background 0.3s;
-}
-
-.carousel-button:hover {
-  background: rgba(0,0,0,0.1);
-}
-
-.carousel-prev {
-  left: 0.5rem;
-}
-
-.carousel-next {
-  right: 0.5rem;
-}
-
-/* Big plus sign moved lower with margin */
-.carousel-plus {
-  position: static; /* Remove absolute positioning */
-  font-size: 4.5rem;
-  font-weight: 700;
-  color: #111;
-  background: none;
-  border: none;
-  cursor: pointer;
-  user-select: none;
-  line-height: 1;
-  padding: 0;
-  transition: color 0.3s;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.carousel-plus:hover,
-.carousel-plus:focus {
-  color: #555;
-  outline: none;
-}
-
-/* Fade in animation observer */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-}
-.project {
-  position: relative;
-  overflow: visible;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  cursor: pointer;
-}
-.project.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.project img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(255 255 255 / 0.75);
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 2.4rem;
-  text-transform: uppercase;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  user-select: none;
-  letter-spacing: 0.1em;
-  transform-origin: center center;
-  transform: scale(1.15);
-}
-.project:hover .overlay,
-.project:focus-within .overlay {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Responsive columns */
-@media (max-width: 959px) {
-  .projects {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
-  }
-}
-@media (max-width: 679px) {
-  .projects {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-@media (max-width: 439px) {
-  .projects {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  .overlay {
-    font-size: 1.8rem;
-    transform: scale(1.15);
-  }
-}
-#modal-cluster {
-  color: #666;                 /* Soft dark gray for subtlety */
-  font-size: 0.9rem;           /* Slightly smaller than main titles */
-  margin: 0.5rem 0 0.4rem;     /* Space above and below */
-  letter-spacing: 0.1em;       /* Matches your site’s letter spacing */
-  text-transform: uppercase;   /* Uppercase to keep uniform styling */
-  font-weight: 600;            /* Semi-bold for emphasis */
-  font-family: 'Inter', sans-serif;
-  
-}
-
-</style>
 </head>
 <body>
 
-  <nav>
-    <div class="left-nav" role="navigation" aria-label="Primary navigation">
-      <div class="den-text" aria-hidden="true">DEN</div>
-      <a href="#" tabindex="0">Plot</a>
-      <a href="#" tabindex="0">Flat</a>
-      <a href="#" tabindex="0">Layout</a>
-      <a href="#" tabindex="0">Build</a>
+<nav>
+  <div class="nav-left-group">
+    <div class="den-text">DEN</div>
+  </div>
+
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+  </button>
+
+  <div id="nav-menu" aria-hidden="true">
+    <div class="left-nav">
+      <a href="#">Plot</a>
+      <a href="#">Flat</a>
+      <a href="#">Layout</a>
+      <a href="#">Build</a>
     </div>
-    <div class="right-nav" role="navigation" aria-label="Secondary navigation">
-      <a href="#" tabindex="0">Us</a>
-      <a href="#" tabindex="0">Contact</a>
+    <div class="right-nav">
+      <a href="#">Us</a>
+      <a href="#">Contact</a>
     </div>
-  </nav>
+  </div>
+</nav>
+
+
+
+
+
 
  <main>
 
@@ -379,7 +100,7 @@
       <div class="overlay">Mirador</div>
     </a>
 
-    <a href="#" class="project" data-cluster="c "role="listitem" tabindex="0" aria-label="Botania"
+    <a href="#" class="project" data-cluster="c"role="listitem" tabindex="0" aria-label="Botania"
        data-price="$530,000"
        data-images="https://picsum.photos/600/400?random=71,https://picsum.photos/600/400?random=72,https://picsum.photos/600/400?random=73">
       <img src="https://picsum.photos/400/350?random=7" alt="Botania" />
@@ -435,162 +156,6 @@
   </div>
 </div>
 
-<script>
 
-  const filterButtons = document.querySelectorAll('.filter-button');
-const allProjects = document.querySelectorAll('.project');
-
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const target = button.getAttribute('data-filter');
-
-    // Update active state
-    filterButtons.forEach(btn => btn.style.textDecoration = 'none');
-    button.style.textDecoration = 'underline';
-
-    allProjects.forEach(project => {
-      const cluster = project.getAttribute('data-cluster');
-      if (target === 'all' || cluster === target) {
-        project.style.display = 'block';
-      } else {
-        project.style.display = 'none';
-      }
-    });
-  });
-});
-
-  const projects = document.querySelectorAll('.project');
-  const modal = document.getElementById('modal');
-  const modalTitle = document.getElementById('modal-title');
-  const modalDesc = document.getElementById('modal-desc');
-  const modalPrice = document.getElementById('modal-price');
-  const modalBadge = document.getElementById('modal-badge');
-  const carousel = modal.querySelector('.carousel');
-  const carouselPrev = carousel.querySelector('.carousel-prev');
-  const carouselNext = carousel.querySelector('.carousel-next');
-  const carouselPlus = document.querySelector('.carousel-plus');
-
-  let currentIndex = 0;
-  let currentImages = [];
-
-const modalCluster = document.getElementById('modal-cluster');
-
-const clusterNames = {
-  a: "Carr.Nacional",
-  b: "SPGG",
-  c: "Centro"
-};
-
-  function openModal(project) {
-  modal.setAttribute('aria-hidden', 'false');
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-
-  modalTitle.textContent = project.getAttribute('aria-label');
-  modalDesc.textContent = ''; // No description
-  modalPrice.textContent = project.dataset.price || '';
-
-  const badge = project.querySelector('.badge');
-  modalBadge.textContent = badge ? badge.textContent : '';
-
-  // Set cluster title here
-  const clusterKey = project.dataset.cluster.trim(); // trim in case of spaces
-  modalCluster.textContent = clusterNames[clusterKey] || '';
-
-  currentImages = (project.dataset.images || '').split(',');
-  currentIndex = 0;
-  updateCarousel();
-  carousel.focus();
-}
-
-  
-
-  function closeModal() {
-    modal.setAttribute('aria-hidden', 'true');
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-    clearCarousel();
-  }
-
-  function updateCarousel() {
-    clearCarousel();
-
-    if (currentImages.length === 0) return;
-
-    const img = document.createElement('img');
-    img.src = currentImages[currentIndex];
-    img.alt = modalTitle.textContent + ' image ' + (currentIndex + 1);
-    img.classList.add('active');
-    carousel.insertBefore(img, carouselPrev);
-
-    carouselPrev.style.display = currentImages.length > 1 ? 'block' : 'none';
-    carouselNext.style.display = currentImages.length > 1 ? 'block' : 'none';
-  }
-
-  function clearCarousel() {
-    const imgs = carousel.querySelectorAll('img');
-    imgs.forEach(img => img.remove());
-  }
-
-  function prevImage() {
-    if (currentImages.length === 0) return;
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    updateCarousel();
-  }
-
-  function nextImage() {
-    if (currentImages.length === 0) return;
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    updateCarousel();
-  }
-
-  projects.forEach(project => {
-    project.addEventListener('click', e => {
-      e.preventDefault();
-      openModal(project);
-    });
-    project.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModal(project);
-      }
-    });
-  });
-
-  carouselPrev.addEventListener('click', prevImage);
-  carouselNext.addEventListener('click', nextImage);
-
-  carouselPlus.addEventListener('click', () => {
-    alert('Plus sign clicked!');
-  });
-
-  modal.querySelector('.modal-close').addEventListener('click', closeModal);
-
-  modal.addEventListener('click', e => {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
-      closeModal();
-    }
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
-
-  projects.forEach(project => {
-    observer.observe(project);
-  });
-</script>
 </body>
 </html>
