@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // === Filter Buttons ===
+  // === In-Page Filter Buttons ===
   const filterButtons = document.querySelectorAll('.filter-button');
   const allProjects = document.querySelectorAll('.project');
 
@@ -8,13 +8,26 @@ document.addEventListener('DOMContentLoaded', () => {
       const target = button.getAttribute('data-filter');
 
       // Update active state
-      filterButtons.forEach(btn => btn.style.textDecoration = 'none');
-      button.style.textDecoration = 'underline';
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
 
       allProjects.forEach(project => {
         const cluster = project.getAttribute('data-cluster');
         project.style.display = (target === 'all' || cluster === target) ? 'block' : 'none';
       });
+    });
+  });
+
+  // === Nav Filter Buttons (Separate) ===
+  const navFilterButtons = document.querySelectorAll('.nav-filter');
+
+  navFilterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active state (only visual, no filtering logic here)
+      navFilterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      // You can add specific nav filter logic here if needed
     });
   });
 
@@ -37,11 +50,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalDesc = document.getElementById('modal-desc');
   const modalPrice = document.getElementById('modal-price');
   const modalBadge = document.getElementById('modal-badge');
+  const modalCluster = document.getElementById('modal-cluster');
   const carousel = modal.querySelector('.carousel');
   const carouselPrev = carousel.querySelector('.carousel-prev');
   const carouselNext = carousel.querySelector('.carousel-next');
   const carouselPlus = document.querySelector('.carousel-plus');
-  const modalCluster = document.getElementById('modal-cluster');
 
   const clusterNames = {
     a: "Carr.Nacional",
@@ -86,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const img = document.createElement('img');
     img.src = currentImages[currentIndex];
-    img.alt = modalTitle.textContent + ' image ' + (currentIndex + 1);
+    img.alt = `${modalTitle.textContent} image ${currentIndex + 1}`;
     img.classList.add('active');
     carousel.insertBefore(img, carouselPrev);
 
@@ -128,39 +141,41 @@ document.addEventListener('DOMContentLoaded', () => {
   carouselNext.addEventListener('click', nextImage);
   carouselPlus.addEventListener('click', () => alert('Plus sign clicked!'));
   modal.querySelector('.modal-close').addEventListener('click', closeModal);
+
   modal.addEventListener('click', e => {
     if (e.target === modal) closeModal();
   });
 
   window.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+    if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') {
+      closeModal();
+    }
   });
 
   // === Hamburger Menu ===
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
 
-  if (!hamburger || !navMenu) {
-    console.error("Hamburger or navMenu not found");
-    return;
-  }
+  if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      const newExpanded = !expanded;
+      hamburger.setAttribute('aria-expanded', String(newExpanded));
 
-  hamburger.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    const newExpanded = !expanded;
-    hamburger.setAttribute('aria-expanded', String(newExpanded));
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
 
-    navMenu.classList.toggle('active');
-    hamburger.classList.toggle('active');
-
-    navMenu.setAttribute('aria-hidden', String(!newExpanded));
-  });
-
-  document.querySelectorAll('#nav-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      navMenu.classList.remove('active');
-      hamburger.setAttribute('aria-expanded', 'false');
+      navMenu.setAttribute('aria-hidden', String(!newExpanded));
     });
-  });
+
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  } else {
+    console.error("Hamburger or navMenu not found");
+  }
 });
