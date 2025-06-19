@@ -23,15 +23,14 @@
   </button>
 
 
-<div class="filter-buttons">
-  <button class="filter-button active" data-filter="all">All</button>
-  <button class="filter-button" data-filter="plot">Plot</button>
-  <button class="filter-button" data-filter="flat">Flat</button>
-  <button class="filter-button" data-filter="layout">Layout</button>
-  <button class="filter-button" data-filter="build">Built</button>
-</div>
-
-
+  <div id="nav-menu" aria-hidden="true">
+    <div class="left-nav">
+<button class="filter-button type-filter active" data-filter="all">All</button>
+  <button class="filter-button type-filter" data-filter="plot">Plot</button>
+  <button class="filter-button type-filter" data-filter="flat">Flat</button>
+  <button class="filter-button type-filter" data-filter="layout">Layout</button>
+  <button class="filter-button type-filter" data-filter="built">Built</button>
+    </div>
     <div class="right-nav">
       <a href="#">Us</a>
       <a href="#">Contact</a>
@@ -47,18 +46,18 @@
  <main>
 
 <div id="filter-menu" style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">
- <span class="filter-button active" data-filter="all">All</span>
+ <span class="filter-button cluster-filter active" data-filter="all">All</span>
 
-  <span class="filter-button" data-filter="a">Carr.Nacional</span>
-  <span class="filter-button" data-filter="b">SPGG</span>
-  <span class="filter-button" data-filter="c">CENTRO</span>
+  <span class="filter-button cluster-filter" data-filter="a">Carr.Nacional</span>
+  <span class="filter-button cluster-filter" data-filter="b">SPGG</span>
+  <span class="filter-button cluster-filter" data-filter="c">CENTRO</span>
 </div>
  
  
   <div class="projects" role="list" id="projects">
 
     <!-- Added data-price and data-images attributes -->
-    <a href="#" class="project" data-cluster="a" role="listitem" tabindex="0" aria-label="Arboretto"
+    <a href="#" class="project" data-type="plot" data-cluster="a" role="listitem" tabindex="0" aria-label="Arboretto"
        data-price="$450,000"
        data-images="https://picsum.photos/600/400?random=11,https://picsum.photos/600/400?random=12,https://picsum.photos/600/400?random=13">
       <img src="https://picsum.photos/400/300?random=1" alt="Arboretto" />
@@ -66,7 +65,7 @@
       <div class="overlay">Arbor&shy;etto</div>
     </a>
 
-    <a href="#" class="project" data-cluster="a" role="listitem" tabindex="0" aria-label="Dos Encinos"
+    <a href="#" class="project" data-type="plot" data-cluster="a" role="listitem" tabindex="0" aria-label="Dos Encinos"
        data-price="$380,000"
        data-images="https://picsum.photos/600/400?random=21,https://picsum.photos/600/400?random=22">
       <img src="https://picsum.photos/400/500?random=2" alt="Dos Encinos" />
@@ -74,7 +73,7 @@
       <div class="overlay">Dos Encinos</div>
     </a>
 
-    <a href="#" class="project" data-cluster="a" role="listitem" tabindex="0" aria-label="Robleza"
+    <a href="#" class="project" data-type="plot" data-cluster="a" role="listitem" tabindex="0" aria-label="Robleza"
        data-price="$520,000"
        data-images="https://picsum.photos/600/400?random=31,https://picsum.photos/600/400?random=32,https://picsum.photos/600/400?random=33">
       <img src="https://picsum.photos/400/350?random=3" alt="Robleza" />
@@ -82,7 +81,7 @@
       <div class="overlay">Robleza</div>
     </a>
 
-    <a href="#" class="project" data-cluster="b" role="listitem" tabindex="0" aria-label="Calenna"
+    <a href="#" class="project" data-type="plot" data-cluster="b" role="listitem" tabindex="0" aria-label="Calenna"
        data-price="$600,000"
        data-images="https://picsum.photos/600/400?random=41,https://picsum.photos/600/400?random=42">
       <img src="https://picsum.photos/400/450?random=4" alt="Calenna" />
@@ -90,7 +89,7 @@
       <div class="overlay">Calenna</div>
     </a>
 
-    <a href="#" class="project" data-cluster="b" role="listitem" tabindex="0" aria-label="Viterra"
+    <a href="#" class="project" data-type="plot" data-cluster="b" role="listitem" tabindex="0" aria-label="Viterra"
        data-price="$390,000"
        data-images="https://picsum.photos/600/400?random=51,https://picsum.photos/600/400?random=52,https://picsum.photos/600/400?random=53">
       <img src="https://picsum.photos/400/250?random=5" alt="Viterra" />
@@ -98,7 +97,7 @@
       <div class="overlay">Viterra</div>
     </a>
 
-    <a href="#" class="project" data-cluster="c" role="listitem" tabindex="0" aria-label="Mirador"
+    <a href="#" class="project" data-type="plot" data-cluster="c" role="listitem" tabindex="0" aria-label="Mirador"
        data-price="$470,000"
        data-images="https://picsum.photos/600/400?random=61,https://picsum.photos/600/400?random=62">
       <img src="https://picsum.photos/400/300?random=6" alt="Mirador" />
@@ -106,7 +105,7 @@
       <div class="overlay">Mirador</div>
     </a>
 
-    <a href="#" class="project" data-cluster="c"role="listitem" tabindex="0" aria-label="Botania"
+    <a href="#" class="project" data-type="plot" data-cluster="c"role="listitem" tabindex="0" aria-label="Botania"
        data-price="$530,000"
        data-images="https://picsum.photos/600/400?random=71,https://picsum.photos/600/400?random=72,https://picsum.photos/600/400?random=73">
       <img src="https://picsum.photos/400/350?random=7" alt="Botania" />
@@ -114,7 +113,7 @@
       <div class="overlay">Botania</div>
     </a>
 
-    <a href="#" class="project" data-cluster="c" role="listitem" tabindex="0" aria-label="Velaza"
+    <a href="#" class="project" data-type="plot" data-cluster="c" role="listitem" tabindex="0" aria-label="Velaza"
        data-price="$510,000"
        data-images="https://picsum.photos/600/400?random=81,https://picsum.photos/600/400?random=82">
       <img src="https://picsum.photos/400/400?random=8" alt="Velaza" />
@@ -122,7 +121,7 @@
       <div class="overlay">Velaza</div>
     </a>
 
-    <a href="#" class="project" data-cluster="c" role="listitem" tabindex="0" aria-label="Bambora"
+    <a href="#" class="project" data-type="plot" data-cluster="c" role="listitem" tabindex="0" aria-label="Bambora"
        data-price="$490,000"
        data-images="https://picsum.photos/600/400?random=91,https://picsum.photos/600/400?random=92,https://picsum.photos/600/400?random=93">
       <img src="https://picsum.photos/400/350?random=9" alt="Bambora" />
@@ -130,7 +129,7 @@
       <div class="overlay">Bambora</div>
     </a>
 
-    <a href="#" class="project" data-cluster="a" role="listitem" tabindex="0" aria-label="Retorno"
+    <a href="#" class="project" data-type="flat" data-cluster="a" role="listitem" tabindex="0" aria-label="Retorno"
        data-price="$430,000"
        data-images="https://picsum.photos/600/400?random=101,https://picsum.photos/600/400?random=102">
       <img src="https://picsum.photos/400/320?random=10" alt="Retorno" />
