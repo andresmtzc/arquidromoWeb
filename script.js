@@ -172,25 +172,26 @@ const clusterNames = {
     observer.observe(project);
   });
 
-const hamburger = document.getElementById('hamburger');
-const navMenu = document.getElementById('nav-menu');
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener('click', () => {
-  const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-  const newExpanded = !expanded;
-  hamburger.setAttribute('aria-expanded', String(newExpanded));
+  hamburger.addEventListener('click', () => {
+    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+    const newExpanded = !expanded;
+    hamburger.setAttribute('aria-expanded', String(newExpanded));
 
-  navMenu.classList.toggle('active');
-  hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
 
-  navMenu.setAttribute('aria-hidden', String(!newExpanded)); // hidden when !expanded
-});
+    navMenu.setAttribute('aria-hidden', String(!newExpanded));
+  });
 
-document.querySelectorAll('#nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
   });
 });
-
