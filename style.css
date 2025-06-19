@@ -1,5 +1,5 @@
 
-
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     max-width: 960px;
     margin: auto;
@@ -418,7 +418,7 @@ You can keep using what you already have for .projects, .modal, etc. */
 .project {
   position: relative;
   overflow: visible;
-  opacity: 100;
+  opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   cursor: pointer;
