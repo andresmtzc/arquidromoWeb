@@ -23,13 +23,15 @@
   </button>
 
 
-  <div id="nav-menu" aria-hidden="true">
-    <div class="left-nav">
-      <a href="#">Plot</a>
-      <a href="#">Flat</a>
-      <a href="#">Layout</a>
-      <a href="#">Build</a>
-    </div>
+<div class="filter-buttons">
+  <button class="filter-button active" data-filter="all">All</button>
+  <button class="filter-button" data-filter="plot">Plot</button>
+  <button class="filter-button" data-filter="flat">Flat</button>
+  <button class="filter-button" data-filter="layout">Layout</button>
+  <button class="filter-button" data-filter="build">Built</button>
+</div>
+
+
     <div class="right-nav">
       <a href="#">Us</a>
       <a href="#">Contact</a>
@@ -45,7 +47,8 @@
  <main>
 
 <div id="filter-menu" style="margin-bottom: 2rem; display: flex; gap: 1.5rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;">
-  <span class="filter-button" data-filter="all" style="text-decoration: underline;">All</span>
+ <span class="filter-button active" data-filter="all">All</span>
+
   <span class="filter-button" data-filter="a">Carr.Nacional</span>
   <span class="filter-button" data-filter="b">SPGG</span>
   <span class="filter-button" data-filter="c">CENTRO</span>
