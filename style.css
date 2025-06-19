@@ -493,16 +493,7 @@ You can keep using what you already have for .projects, .modal, etc. */
 
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111;
-    color: #fff;
-  }
-
-  .hamburger span {
-    background-color: #fff; /* white bars for dark background */
-  }
-
-  #nav-menu {
-    background-color: #222; /* dark background for menu */
+  .hamburger .line {
+    background-color: #fff; /* Make hamburger lines white in dark mode */
   }
 }
