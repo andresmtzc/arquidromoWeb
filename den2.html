@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Voxel Grid Pro Mode</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #1e1e1e;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    :root {
+      --edge-color: #436e97;
+    }
+
+.plot-dim {
+  position: absolute;
+  color: #ccc;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dim-8m {
+  left: calc(50% - 200px);
+  top: calc(50% + 160px);
+  transform: rotate(26deg);
+}
+
+.dim-20m {
+  left: calc(50% + 30px);
+  top: calc(50% + 125px);
+  transform: rotate(-30deg);
+}
+
+
+    .viewport {
+      flex-grow: 1;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1e1e1e;
+      position: relative;
+      z-index: 0;
+    }
+
+    .grid-container {
+      position: relative;
+      width: 800px;
+      height: 400px;
+      transform: scale(1);
+      transform-origin: center;
+    }
+
+    .face {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+    }
+
+    .inner {
+      position: absolute;
+      width: 94px;
+      height: 94px;
+      left: 3px;
+      top: 3px;
+      clip-path: inherit;
+    }
+
+    .top {
+      background: var(--edge-color);
+      clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+    }
+    .top .inner { background: #8eb3ce; }
+
+    .left {
+      background: var(--edge-color);
+      clip-path: polygon(0% 25%, 50% 50%, 50% 100%, 0% 75%);
+    }
+    .left .inner { background: #6e97c0; }
+
+    .right {
+      background: var(--edge-color);
+      clip-path: polygon(100% 25%, 50% 50%, 50% 100%, 100% 75%);
+    }
+    .right .inner { background: #4e7ba9; }
+
+    .bottom {
+      background: #2a2a2a;
+      clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+      transform: translateY(50px);
+      pointer-events: none;
+    }
+    .bottom .inner {
+      background: #3a3a3a;
+      width: 98px;
+      height: 98px;
+      left: 1px;
+      top: 1px;
+      clip-path: inherit;
+      position: absolute;
+    }
+
+    .hitbox {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(50px);
+      pointer-events: auto;
+      z-index: 1000;
+      background: transparent;
+    }
+
+    .hitbox::before {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+
+    .hitbox:hover::before {
+      background: rgba(255, 255, 255, 0.15);
+      cursor: crosshair;
+    }
+
+    .controls {
+      position: relative;
+      z-index: 100;
+      margin: 10px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      width: 300px;
+    }
+
+    .controls button {
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .controls button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .controls button:hover:not(:disabled) {
+      background: #555;
+    }
+
+    .info {
+      color: white;
+      margin: 10px 0;
+      font-size: 16px;
+      display: flex;
+      gap: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="info">
+    <div id="areaInfo">Construction size: 0 m²</div>
+    <div id="priceInfo">Estimated price: $0</div>
+  </div>
+  <div class="viewport">
+    <div class="grid-container" id="grid">
+        <div class="plot-dim dim-8m">8 m</div>
+<div class="plot-dim dim-20m">20 m</div>
+    </div>
+  </div>
+  <div class="controls">
+    <button id="levelBtn" onclick="cycleLevel()">Level: 1</button>
+    <button id="deleteBtn" onclick="handleDelete()">Delete All</button>
+    <button id="ideasBtn" onclick="cycleDesignIdea()">Design Ideas</button>
+    <button id="proModeBtn" onclick="toggleProMode()">🔒 Pro Mode</button>
+  </div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const levelBtn = document.getElementById('levelBtn');
+    const deleteBtn = document.getElementById('deleteBtn');
+    const proModeBtn = document.getElementById('proModeBtn');
+    const areaInfo = document.getElementById('areaInfo');
+    const priceInfo = document.getElementById('priceInfo');
+    const controls = document.querySelector('.controls');
+    const ideasBtn = document.getElementById('ideasBtn');
+
+    const cols = 3;
+    const rows = 6;
+    const offsetX = 50;
+    const offsetY = 25;
+    const baseLeft = 400;
+    const baseTop = 120;
+    const voxelArea = 160 / 18;
+    const pricePerM2 = 20000;
+
+    let currentLevel = 1;
+    let proMode = false;
+    let proModeUnlocked = false;
+    let lastState = [];
+    const voxels = [];
+    const faces = [];
+
+    const designIdeas = [
+      {
+        name: "Bridge House",
+        data: [
+          {"x":0,"y":0,"level":2}, {"x":1,"y":0,"level":2}, {"x":2,"y":0,"level":2},
+          {"x":0,"y":1,"level":2}, {"x":1,"y":1,"level":2}, {"x":2,"y":1,"level":2},
+          {"x":0,"y":2,"level":1}, {"x":0,"y":3,"level":1},
+          {"x":0,"y":4,"level":2}, {"x":1,"y":4,"level":2}, {"x":2,"y":4,"level":2},
+          {"x":0,"y":5,"level":2}, {"x":1,"y":5,"level":2}, {"x":2,"y":5,"level":2}
+        ]
+      },
+      {
+        name: "Hacienda Style",
+        data: [
+          {"x":0,"y":0,"level":2}, {"x":1,"y":0,"level":2}, {"x":2,"y":0,"level":2},
+          {"x":0,"y":1,"level":2}, {"x":1,"y":1,"level":2}, {"x":2,"y":1,"level":2},
+          {"x":1,"y":2,"level":2}, {"x":1,"y":3,"level":2},
+          {"x":0,"y":4,"level":3}, {"x":1,"y":4,"level":3}, {"x":2,"y":4,"level":1},
+          {"x":0,"y":5,"level":3}, {"x":1,"y":5,"level":3}, {"x":2,"y":5,"level":1}
+        ]
+      },
+      {
+        name: "Stairways",
+        data: [
+          {"x":0,"y":1,"level":2}, {"x":1,"y":1,"level":2}, {"x":2,"y":1,"level":2},
+          {"x":0,"y":2,"level":2}, {"x":2,"y":2,"level":2},
+          {"x":0,"y":3,"level":2}, {"x":2,"y":3,"level":2},
+          {"x":0,"y":4,"level":2}, {"x":1,"y":4,"level":2}, {"x":2,"y":4,"level":2},
+          {"x":0,"y":5,"level":1}, {"x":1,"y":5,"level":1}, {"x":2,"y":5,"level":1}
+        ]
+      }
+    ];
+
+    let currentIdeaIndex = -1;
+
+    function cycleDesignIdea() {
+  currentIdeaIndex = (currentIdeaIndex + 1) % designIdeas.length;
+  const idea = designIdeas[currentIdeaIndex];
+  voxels.forEach(v => { v.active = false; v.level = 0 });
+  idea.data.forEach(({x, y, level}) => {
+    const index = y * cols + x;
+    if (voxels[index]) {
+      voxels[index].level = level;
+      voxels[index].active = true;
+    }
+  });
+  ideasBtn.textContent = idea.name;
+
+  deleteBtn.textContent = 'Delete All'; // 🛠️ This is the fix!
+
+  buildVoxel();
+  updateStats();
+}
+
+    function createFace(x, y, z, type) {
+      const face = document.createElement('div');
+      face.className = `face ${type}`;
+      face.style.left = `${(x - y) * offsetX + baseLeft}px`;
+      face.style.top = `${(x + y) * offsetY + baseTop - z * 50}px`;
+      face.style.zIndex = `${(x + y) * 100 + z * 10 + (type === 'top' ? 2 : 1)}`;
+      const inner = document.createElement('div');
+      inner.className = 'inner';
+      face.appendChild(inner);
+      grid.appendChild(face);
+      faces.push(face);
+    }
+
+    function createBottom(x, y) {
+      const face = document.createElement('div');
+      face.className = 'face bottom';
+      face.style.left = `${(x - y) * offsetX + baseLeft}px`;
+      face.style.top = `${(x + y) * offsetY + baseTop}px`;
+      face.style.zIndex = '0';
+      const inner = document.createElement('div');
+      inner.className = 'inner';
+      face.appendChild(inner);
+      grid.appendChild(face);
+    }
+
+    function clearFaces() {
+      for (const f of faces) grid.removeChild(f);
+      faces.length = 0;
+    }
+
+    function buildVoxel() {
+      clearFaces();
+      for (const v of voxels) {
+        if (!v.active) continue;
+        for (let i = 0; i < v.level; i++) {
+          createFace(v.x, v.y, i, 'left');
+          createFace(v.x, v.y, i, 'right');
+        }
+        createFace(v.x, v.y, v.level - 1, 'top');
+      }
+    }
+
+    function updateStats() {
+      let totalVoxels = voxels.reduce((acc, v) => acc + v.level, 0);
+      const totalArea = Math.round(totalVoxels * voxelArea);
+      const totalPrice = Math.round((totalArea * pricePerM2) / 1000) * 1000;
+      areaInfo.textContent = `Construction size: ${totalArea} m²`;
+      priceInfo.textContent = `Estimated price: $${totalPrice.toLocaleString()}`;
+    }
+
+    function cycleLevel() {
+      currentLevel = currentLevel % 3 + 1;
+      levelBtn.textContent = `Level: ${currentLevel}`;
+      voxels.forEach(v => { if (v.active) v.level = currentLevel });
+      buildVoxel();
+      if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+      updateStats();
+    }
+
+    function handleDelete() {
+      if (deleteBtn.textContent === 'Undo') {
+        lastState.forEach(({ level }, i) => {
+          voxels[i].level = level;
+          voxels[i].active = level > 0;
+        });
+        deleteBtn.textContent = 'Delete All';
+      } else {
+        lastState = voxels.map(v => ({ level: v.level }));
+        voxels.forEach(v => { v.active = false; v.level = 0 });
+        ideasBtn.textContent = 'Design Ideas';
+        deleteBtn.textContent = 'Undo';
+      }
+      buildVoxel();
+      updateStats();
+    }
+
+    function exportGrid() {
+      const data = voxels.filter(v => v.active).map(v => ({ x: v.x, y: v.y, level: v.level }));
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'voxel-grid.json';
+      link.click();
+    }
+
+    function toggleProMode() {
+      if (!proMode && !proModeUnlocked) {
+        const pwd = prompt("Enter password to access Pro Mode:");
+        if (pwd !== "letmein") {
+          alert("Incorrect password.");
+          return;
+        }
+        proModeUnlocked = true;
+      }
+      proMode = !proMode;
+      proModeBtn.textContent = proMode ? 'Simple Mode' : '🔒 Pro Mode';
+      levelBtn.disabled = proMode;
+
+      const existingExportBtn = document.getElementById('exportBtn');
+      if (proMode && !existingExportBtn) {
+        const exportBtn = document.createElement('button');
+        exportBtn.id = 'exportBtn';
+        exportBtn.textContent = 'Export JSON';
+        exportBtn.onclick = exportGrid;
+        controls.appendChild(exportBtn);
+      } else if (!proMode && existingExportBtn) {
+        existingExportBtn.remove();
+      }
+    }
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const voxel = document.createElement('div');
+        voxel.style.position = 'absolute';
+        voxel.style.left = `${(x - y) * offsetX + baseLeft}px`;
+        voxel.style.top = `${(x + y) * offsetY + baseTop}px`;
+        voxel.style.zIndex = '999';
+
+        const hitbox = document.createElement('div');
+        hitbox.className = 'hitbox';
+
+        voxel.appendChild(hitbox);
+
+        const voxelData = { x, y, level: 0, active: false };
+        voxels.push(voxelData);
+
+        hitbox.addEventListener('click', () => {
+          if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+          ideasBtn.textContent = 'Design Ideas';
+          if (proMode) {
+            voxelData.level = (voxelData.level + 1) % 4;
+            voxelData.active = voxelData.level > 0;
+          } else {
+            voxelData.active = !voxelData.active;
+            voxelData.level = voxelData.active ? currentLevel : 0;
+          }
+          buildVoxel();
+          updateStats();
+        });
+
+        grid.appendChild(voxel);
+        createBottom(x, y);
+      }
+    }
+
+    updateStats();
+  </script>
+</body>
+</html>
