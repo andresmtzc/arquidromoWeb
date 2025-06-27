@@ -411,10 +411,13 @@ importInput.addEventListener('change', (e) => {
       importGrid(data);
     } catch (err) {
       alert("Invalid JSON file.");
+    } finally {
+      importInput.value = ''; // ✅ Reset so same file can be picked again
     }
   };
   reader.readAsText(file);
 });
+
 
 function toggleProMode() {
   if (!proMode && !proModeUnlocked) {
