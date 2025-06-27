@@ -35,7 +35,7 @@ html, body {
     .dim-8m {
       left: calc(50% - 210px);
       top: calc(50% + 160px);
-      transform: rotate(24deg);
+      transform: rotate(26deg);
     }
 
     .dim-20m {
@@ -186,14 +186,12 @@ html, body {
 
 @media (max-width: 600px) {
   .grid-container {
-    width: 100vw;
-    height: auto;
-    max-width: 100%;
-    transform: none;        /* remove fixed scale */
-    zoom: 1.3;              /* makes it visually fill screen — tune this! */
+    width: 120vw;
+    transform: scale(1.2);
     transform-origin: top center;
-    margin-left:-80%;
+    margin-left: calc(-25vw - 50px); /* approx equivalent to -170px */
   }
+
 
   .viewport {
     padding: 0;
@@ -206,7 +204,7 @@ html, body {
   }
 
   .info {
-    font-size: 16px;
+    font-size: 24px;
     margin: 10px auto 0;
     text-align: center;
     flex-direction: column;
@@ -215,7 +213,7 @@ html, body {
 
   .controls {
     width: 100%;
-    padding: 10px 20px;
+    padding: 140px 20px;
     grid-template-columns: 1fr 1fr;
     gap: 14px;
     margin: 16px auto;
@@ -224,6 +222,24 @@ html, body {
   .controls button {
     font-size: 17px;
     padding: 14px;
+  }
+
+  .plot-dim {
+    font-size: 1.1rem;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: #fff;
+  }
+
+  .dim-8m {
+    left: calc(50% - 100px);
+    top: calc(100% - 35px);
+  }
+
+  .dim-20m {
+    left: calc(50% + 120px);
+    top: calc(100% - 65px);
   }
 }
   </style>
