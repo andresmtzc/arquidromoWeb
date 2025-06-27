@@ -181,17 +181,17 @@ html, body {
     .controls button:hover:not(:disabled) {
       background: #555;
     }
-
+ 
 
 
 @media (max-width: 600px) {
   .grid-container {
     width: 120vw;
-    transform: scale(1.2);
+    transform: scale(.85);  
     transform-origin: top center;
-    margin-left: calc(-25vw - 50px); /* approx equivalent to -170px */
+    margin-left: calc((100%-350px)/2);  
   }
-
+       
 
   .viewport {
     padding: 0;
@@ -276,15 +276,16 @@ const priceInfo = document.getElementById('priceInfo');
 const controls = document.querySelector('.controls');
 const ideasBtn = document.getElementById('ideasBtn');
 const importInput = document.getElementById('importInput');
-
+ 
 const cols = 3;
 const rows = 6;
 const offsetX = 50;
 const offsetY = 25;
-const baseLeft = 400;
+const baseLeft = grid.offsetWidth / 2;
 const baseTop = 120;
 const voxelArea = 160 / 18;
 const pricePerM2 = 20000;
+
 
 let currentLevel = 1;
 let proMode = false;
@@ -292,7 +293,7 @@ let proModeUnlocked = false;
 let lastState = [];
 const voxels = [];
 const faces = [];
-
+    
 const designIdeas = [
   {
     name: "Bridge House",
