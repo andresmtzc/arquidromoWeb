@@ -13,7 +13,6 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      overflow: hidden;
     }
 
     :root {
@@ -31,17 +30,17 @@
       z-index: 9999;
     }
 
-    .dim-8m {
-      left: calc(50% - 200px);
-      top: calc(50% + 160px);
-      transform: rotate(26deg);
-    }
+  .dim-8m {
+  left: 15vw;
+  top: 58vh;
+  transform: rotate(26deg);
+}
 
-    .dim-20m {
-      left: calc(50% + 30px);
-      top: calc(50% + 125px);
-      transform: rotate(-30deg);
-    }
+.dim-20m {
+  left: 35vw;
+  top: 53vh;
+  transform: rotate(-30deg);
+}
 
     .viewport {
       flex-grow: 1;
@@ -54,14 +53,15 @@
       z-index: 0;
     }
 
-    .grid-container {
-      position: relative;
-      width: 100%;
-      max-width: 800px;
-      aspect-ratio: 2 / 1;
-      transform: scale(1);
-      transform-origin: center;
-    }
+.grid-container {
+  position: relative;
+  width: 90vw; /* Use most of the screen width */
+  height: 50vh; /* Adjust height based on screen */
+  transform: scale(1);
+  transform-origin: center;
+  max-width: 800px; /* Don't exceed desktop size */
+  max-height: 400px;
+}
 
     .face {
       position: absolute;
@@ -142,11 +142,11 @@
     .controls {
       position: relative;
       z-index: 100;
-      margin: 10px 0;
+      margin: 150px 0;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      width: 90vw;
+      gap: 10px;
+      width: 90%;
       max-width: 400px;
     }
 
@@ -154,9 +154,9 @@
       background: #333;
       color: #fff;
       border: none;
-      padding: 14px 18px;
+      padding: 15px;
       font-size: 18px;
-      border-radius: 6px;
+      border-radius: 4px;
       cursor: pointer;
     }
 
@@ -171,13 +171,48 @@
 
     .info {
       color: white;
-      margin: 14px 0;
-      font-size: 20px;
+      margin: 10px 0;
+      font-size: 18px;
       display: flex;
-      gap: 60px;
-      flex-wrap: wrap;
+      gap: 40px;
       justify-content: center;
-      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+  .grid-container {
+    width: 100vw;
+    height: 60vh;
+  }
+
+  .info {
+    font-size: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .controls {
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .controls button {
+    padding: 14px 20px;
+    font-size: 18px;
+  }
+  .dim-8m {
+    left: 10vw;
+    top: 68vh;
+    transform: rotate(26deg);
+  }
+
+  .dim-20m {
+    left: 50vw;
+    top: 63vh;
+    transform: rotate(-30deg);
+  }
     }
   </style>
 </head>
