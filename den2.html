@@ -19,27 +19,30 @@
       --edge-color: #436e97;
     }
 
-    .plot-dim {
-      position: absolute;
-      color: #ccc;
-      font-size: 14px;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 2px 6px;
-      border-radius: 4px;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-  .dim-8m {
-  left: 15vw;
-  top: 58vh;
-  transform: rotate(26deg);
+.plot-dim {
+  position: absolute;
+  color: #ccc;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 9999;
+  white-space: nowrap;
 }
 
+/* Place 8m label near bottom-left voxel (e.g. x=0, y=5) */
+.dim-8m {
+  left: calc(50% - 210px);
+  top: calc(50% + 160px);
+  transform: rotate(24deg);
+}
+
+/* Place 20m label near bottom-right voxel (e.g. x=2, y=5) */
 .dim-20m {
-  left: 35vw;
-  top: 53vh;
-  transform: rotate(-30deg);
+  left: calc(50% + 30px);
+  top: calc(50% + 130px);
+  transform: rotate(-26deg);
 }
 
     .viewport {
@@ -203,17 +206,18 @@
     padding: 14px 20px;
     font-size: 18px;
   }
-  .dim-8m {
-    left: 10vw;
-    top: 68vh;
-    transform: rotate(26deg);
+  .plot-dim {
+    font-size: 0.9rem;
   }
-
+.dim-8m {
+    left: calc(50% - 180px);
+    top: calc(50% + 90px);
+  }
   .dim-20m {
-    left: 50vw;
-    top: 63vh;
-    transform: rotate(-30deg);
+    left: calc(50% + 60px);
+    top: calc(50% + 85px);
   }
+  
     }
   </style>
 </head>
