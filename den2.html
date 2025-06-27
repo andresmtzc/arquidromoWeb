@@ -217,6 +217,7 @@
   <input type="file" id="importInput" accept="application/json" style="display: none" />
 
   <script>
+// ✅ Restored working right-click (bottom-to-top) logic
 
 const grid = document.getElementById('grid');
 const levelBtn = document.getElementById('levelBtn');
@@ -470,55 +471,51 @@ for (let y = 0; y < rows; y++) {
     voxels.push(voxelData);
 
     hitbox.addEventListener('click', () => {
-  if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
-  ideasBtn.textContent = 'Design Ideas';
+      if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+      ideasBtn.textContent = 'Design Ideas';
 
-  if (proMode) {
-    if (voxelData.level === 0 && voxelData.base === 3) {
-      voxelData.level = 1;
-      voxelData.base = 0;
-      voxelData.active = true;
-    } else if (voxelData.base > 0) {
-      voxelData.base -= 1;
-      voxelData.level += 1;
-      voxelData.active = true;
-    } else if (voxelData.level + voxelData.base < 3) {
-      voxelData.level += 1;
-      voxelData.active = true;
-    } else {
-      voxelData.level = 0;
-      voxelData.base = 0;
-      voxelData.active = false;
-    }
-  } else {
-    voxelData.active = !voxelData.active;
-    voxelData.level = voxelData.active ? currentLevel : 0;
-    voxelData.base = 0;
-  }
+      if (proMode) {
+        if (voxelData.level === 0 && voxelData.base === 3) {
+          voxelData.level = 1;
+          voxelData.base = 0;
+          voxelData.active = true;
+        } else if (voxelData.base > 0) {
+          voxelData.base -= 1;
+          voxelData.level += 1;
+          voxelData.active = true;
+        } else if (voxelData.level + voxelData.base < 3) {
+          voxelData.level += 1;
+          voxelData.active = true;
+        } else {
+          voxelData.level = 0;
+          voxelData.base = 0;
+          voxelData.active = false;
+        }
+      } else {
+        voxelData.active = !voxelData.active;
+        voxelData.level = voxelData.active ? currentLevel : 0;
+        voxelData.base = 0;
+      }
 
-  buildVoxel();
-  updateStats();
-});
+      buildVoxel();
+      updateStats();
+    });
 
-// hitbox.addEventListener('contextmenu', (e) => {
-//   e.preventDefault();
-//   if (!proMode) return;
+    hitbox.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      if (!proMode) return;
 
-//   if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
-//   ideasBtn.textContent = 'Design Ideas';
+      if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+      ideasBtn.textContent = 'Design Ideas';
 
-//   if (voxelData.level > 0) {
-//     voxelData.level -= 1;
-//     voxelData.base += 1;
-//     voxelData.active = voxelData.level > 0;
-//     buildVoxel();
-//     updateStats();
-//   }
-// });
-
-
-    // Right-click context menu suppression
-    hitbox.addEventListener('contextmenu', e => e.preventDefault());
+      if (voxelData.level > 0) {
+        voxelData.level -= 1;
+        voxelData.base += 1;
+        voxelData.active = voxelData.level > 0;
+        buildVoxel();
+        updateStats();
+      }
+    });
 
     voxel.appendChild(hitbox);
     grid.appendChild(voxel);
@@ -527,7 +524,6 @@ for (let y = 0; y < rows; y++) {
 }
 
 updateStats();
-
 
 </script>
 
