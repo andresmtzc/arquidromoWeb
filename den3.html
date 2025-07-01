@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SVG Zoom & Pan with Sold and Lot Labels</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f5f5f5;
+      font-family: sans-serif;
+    }
+
+    #svg-container {
+      width: 90vw;
+      height: 90vh;
+      border: 1px solid #ccc;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+
+
+    path.available:hover {
+      fill-opacity: 0.7;
+      stroke: #5a6b56;
+      stroke-width: 0.1;
+    }
+
+
+
+    path.stroke-only {
+      pointer-events: none;
+      stroke: #000;
+      stroke-width: 0.2;
+      fill: none;
+    }
+
+
+path.available {
+  fill: #66cc66; /* green-ish */
+  cursor: pointer;
+  transition: fill 0.3s, stroke 0.3s;
+}
+path.sold {
+  fill: #cc6666; /* red-ish */
+  cursor: pointer;
+  opacity: 0.8;
+}
+path.unavail {
+  fill: #cccc66; /* yellow-ish */
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.sold-label {
+  fill: #cc0000;
+  font-weight: bold;
+  font-size: 1px;
+}
+
+.unavail-label {
+  fill: #999900;
+  font-weight: bold;
+  font-size: 1px;
+}
+ 
+.lot-label {
+  fill: #004d00;
+  font-weight: bold;
+  font-size: 1px;
+}
+ 
+  </style>
+</head>
+<body>
+  <h2>Interactive SVG with Lot Numbers and Sold Labels</h2>
+  <div id="svg-container">
+    <div style="margin: 10px;">
+  <button onclick="downloadJSON()">💾 Save Lots</button>
+  <input type="file" id="upload-json" accept=".json" style="display:none;" onchange="loadJSONFromFile(event)">
+  <button onclick="document.getElementById('upload-json').click()">📂 Load Lots</button>
+</div>
+       <svg id="my-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+      <!-- Available plots 
+      <path class="available" data-lot-id="0" d="M33.82781,31.17856 L23.80249,38.11375 L17.74755,28.85975 L27.5384,22.08676 z" /> -->
+
+
+      <!-- Sold plots 
+      <path class="sold" d="M45.87606,35.36485 L40.0179,26.89645 L50.78949,19.44502 L56.97416,27.68754 z" /> -->
+
+
+  <path class="available" data-lot-id="0" d="M26.77237,36.79525 L23.14927,38.57033 L21.40733,34.84709 L24.96414,33.10449 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="1" d="M28.49066,20.30589 L25.46487,23.3805 L21.80738,19.72301 L24.83317,16.6484 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="2" d="M28.00709,24.48425 L29.78145,27.91795 L26.16985,29.6874 L25.07858,27.46002 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="3" d="M45.79998,6.93161 L48.32962,10.30295 L44.8695,12.69654 L42.56745,9.368761 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="4" d="M21.80738,19.72301 L25.46487,23.3805 L22.24174,26.65565 L18.58425,22.99816 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="5" d="M22.24174,26.65565 L18.48321,30.47483 L16.14489,25.47689 L18.58425,22.99816 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="6" d="M20.24782,32.36875 L23.15591,29.41372 L24.96414,33.10449 L21.40733,34.84709 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="7" d="M37.12769,29.1742 L39.14098,32.67828 L35.21108,34.93623 L33.35003,31.34468 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="8" d="M34.77066,25.07187 L31.17123,27.13994 L29.17839,23.29405 L32.06432,20.36155 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="9" d="M34.77066,25.07187 L37.12769,29.1742 L33.35003,31.34468 L31.17123,27.13994 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="10" d="M39.14098,32.67828 L41.17989,36.22694 L37.09581,38.57347 L35.21108,34.93623 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="11" d="M41.17989,36.22694 L43.78322,40.75798 L43.60036,40.92678 L39.3465,42.91698 L37.09581,38.57347 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="12" d="M45.69571,44.7631 L41.53483,47.14013 L39.3465,42.91698 L43.60036,40.92678 C43.08829,41.42982 42.84715,42.2645 42.99317,42.94526 C43.1128,43.71876 43.77498,44.47416 44.52615,44.69407 C44.88315,44.81309 45.29842,44.84501 45.69571,44.7631 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="13" d="M45.79998,6.93161 L42.46775,9.236737 C42.14261,8.830277 41.61212,8.555274 41.10249,8.518543 L40.85744,8.512548 L40.85744,0.3655321 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="14" d="M34.00528,51.55832 L35.8135,55.24908 L31.85899,57.18653 L30.11705,53.46329 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="15" d="M45.40995,38.39808 L43.39666,34.89399 L47.92342,32.29312 L50.13762,35.68177 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="16" d="M41.38336,31.38991 L45.70921,28.90446 L47.92342,32.29312 L43.39666,34.89399 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="17" d="M35.8135,55.24908 L37.52135,58.73495 L36.96601,59.2611 L33.60093,60.90977 L31.85899,57.18653 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="18" d="M41.2808,22.12716 L43.49501,25.51581 L39.37007,27.88582 L37.35677,24.38174 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="19" d="M35.10454,38.21903 L36.8789,41.65273 L32.97027,43.5677 L31.27016,40.09762 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="20" d="M38.83358,62.9228 C39.4495,62.92026 40.07232,62.62759 40.45921,62.20514 L42.08689,61.32889 L38.62282,71.64356 L35.34288,64.633 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="21" d="M36.90986,15.43781 L39.0666,18.73851 L35.34348,20.87766 L33.94749,18.44799 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="22" d="M38.83358,62.9228 L35.34288,64.633 L33.60093,60.90977 L36.96601,59.2611 C36.59514,59.74239 36.44266,60.4006 36.53013,60.95814 C36.61465,61.77486 37.31136,62.59781 38.10294,62.81593 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="23" d="M40.8509,11.43317 L42.74265,14.16783 L39.45918,16.43923 L38.04755,14.28177 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="24" d="M39.77069,57.448 L43.97635,55.38751 L42.08689,61.32889 L40.57886,62.06773 C41.08249,61.47788 41.2242,60.51478 40.93145,59.81724 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="25" d="M47.06461,20.41553 L43.62001,22.79839 L41.53959,19.61881 L44.90363,17.29168 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="26" d="M43.62001,22.79839 L47.06461,20.41553 L48.93612,23.12093 C48.7044,23.38439 48.52318,23.72179 48.43568,24.0858 L45.70042,25.97797 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="27" d="M38.07058,53.97792 L42.20198,51.95382 L43.97635,55.38751 L39.77069,57.448 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="28" d="M51.08033,26.87506 L47.78083,29.15755 L45.70042,25.97797 L48.43568,24.0858 C48.33932,24.47619 48.35371,24.89074 48.45822,25.25266 C48.63984,25.96334 49.2801,26.61705 49.98685,26.81341 C50.32446,26.9183 50.70974,26.94563 51.08033,26.87506 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="29" d="M52.61394,25.81416 L54.43787,24.55242 L51.15791,34.31889 L47.78083,29.15755 L51.08033,26.87506 C51.47299,26.80277 51.84229,26.62129 52.12805,26.37996 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="30" d="M41.53483,47.14013 L45.69571,44.7631 C46.11664,44.67952 46.50772,44.46945 46.79806,44.19727 L46.94185,44.0512 L48.11438,43.38135 L44.76105,53.36626 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="31" d="M28.3751,49.74005 L26.63316,46.01681 L30.38882,44.17678 L32.19705,47.86755 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="32" d="M42.20198,51.95382 L38.07058,53.97792 L36.37048,50.50785 L40.42762,48.52012 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="33" d="M51.20426,21.85389 L55.01745,19.21605 L55.85511,20.33244 L54.43787,24.55242 L52.61394,25.81416 C52.88507,25.37534 52.99269,24.82948 52.92929,24.34756 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="34" d="M42.74265,14.16783 L44.90363,17.29168 L41.53959,19.61881 L39.45918,16.43923 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="35" d="M49.19146,18.94424 L52.89246,16.384 L55.01745,19.21605 L51.20426,21.85389 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="36" d="M38.65326,45.08642 L40.42762,48.52012 L36.37048,50.50785 L34.67037,47.03777 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="37" d="M50.61104,13.34348 L52.89246,16.384 L49.19146,18.94424 L47.03048,15.82039 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="38" d="M39.0666,18.73851 L41.2808,22.12716 L37.35677,24.38174 L35.34348,20.87766 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="39" d="M44.8695,12.69654 L48.32962,10.30295 L50.61104,13.34348 L47.03048,15.82039 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="40" d="M33.33018,34.78534 L35.10454,38.21903 L31.27016,40.09762 L29.57006,36.62754 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="41" d="M36.14695,5.152039 L40.85744,0.3655321 L40.85744,8.512548 C40.50182,8.524155 40.13506,8.640541 39.8353,8.840388 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="42" d="M39.37007,27.88582 L43.49501,25.51581 L45.70921,28.90446 L41.38336,31.38991 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="43" d="M33.3185,8.026129 L36.14695,5.152039 L39.8353,8.840388 L39.51351,9.105144 L36.97599,11.68362 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="44" d="M27.86995,33.15747 L31.55581,31.35164 L33.33018,34.78534 L29.57006,36.62754 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="45" d="M33.3185,8.026129 L36.97599,11.68362 L34.14754,14.55771 L30.49006,10.90022 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="46" d="M34.14754,14.55771 L31.3191,17.4318 L27.66161,13.77431 L30.49006,10.90022 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="47" d="M30.38882,44.17678 L26.63316,46.01681 L24.89121,42.29357 L28.58059,40.48602 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="48" d="M23.14927,38.57033 L26.77237,36.79525 L28.58059,40.48602 L24.89121,42.29357 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="49" d="M27.86995,33.15747 L26.16985,29.6874 L29.78145,27.91795 L31.55581,31.35164 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="50" d="M30.11705,53.46329 L28.3751,49.74005 L32.19705,47.86755 L34.00528,51.55832 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="51" d="M45.40995,38.39808 L50.13762,35.68177 L50.50922,36.25046 L48.11438,43.38135 L46.94185,44.0512 C47.4433,43.52105 47.65099,42.65359 47.4612,41.96823 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="52" d="M32.97027,43.5677 L36.8789,41.65273 L38.65326,45.08642 L34.67037,47.03777 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+  <path class="available" data-lot-id="53" d="M31.3191,17.4318 L28.49066,20.30589 L24.83317,16.6484 L27.66161,13.77431 z" stroke="Black" stroke-width="0.1" fill="#6600CC" fill-opacity="1" />
+
+      <!-- Stroke-only lines 
+      <path class="stroke-only" d="M23.80251,38.11378 L33.82784,31.17858" /> -->
+    </svg>
+  </div>
+
+  <!-- Scripts -->
+ <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script>
+const svg = document.getElementById('my-svg');
+let isDragging = false;
+
+const panZoom = svgPanZoom(svg, {
+  zoomEnabled: true,
+  controlIconsEnabled: true,
+  fit: true,
+  center: true,
+  beforePan: () => {
+    isDragging = true;
+    return true;
+  }
+});
+
+svg.addEventListener('mouseup', () => {
+  setTimeout(() => { isDragging = false; }, 100);
+});
+
+svg.addEventListener('click', (e) => {
+  if (isDragging) return;
+
+  const target = e.target;
+  if (target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
+    cycleState(target);
+  }
+});
+
+function cycleState(plot) {
+  const parent = plot.parentNode;
+  const bbox = plot.getBBox();
+  const cx = bbox.x + bbox.width / 2;
+  const cy = bbox.y + bbox.height / 2;
+
+  const existing = Array.from(parent.querySelectorAll('text')).find(t => {
+    return (
+      Math.abs(+t.getAttribute('x') - cx) < 0.1 &&
+      Math.abs(+t.getAttribute('y') - cy) < 0.1
+    );
+  });
+  if (existing) existing.remove();
+
+  if (plot.classList.contains('available')) {
+    plot.classList.remove('available', 'unavail');
+    plot.classList.add('sold');
+    parent.appendChild(createLabel(cx, cy, "SOLD", "sold-label"));
+  } else if (plot.classList.contains('sold')) {
+    plot.classList.remove('available', 'sold');
+    plot.classList.add('unavail');
+    parent.appendChild(createLabel(cx, cy, "UNAVAIL", "unavail-label"));
+  } else {
+    plot.classList.remove('sold', 'unavail');
+    plot.classList.add('available');
+    const lotId = plot.getAttribute('data-lot-id');
+    parent.appendChild(createLabel(cx, cy, `Lot ${lotId}`, "lot-label"));
+  }
+}
+
+function createLabel(x, y, text, className) {
+  const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  label.setAttribute("x", x);
+  label.setAttribute("y", y);
+  label.setAttribute("class", className);
+  label.setAttribute("text-anchor", "middle");
+  label.setAttribute("dominant-baseline", "middle");
+  label.textContent = text;
+  return label;
+}
+
+function initializeLabels() {
+  const plots = svg.querySelectorAll('path[data-lot-id]');
+  plots.forEach(plot => {
+    const bbox = plot.getBBox();
+    const cx = bbox.x + bbox.width / 2;
+    const cy = bbox.y + bbox.height / 2;
+    const lotId = plot.getAttribute('data-lot-id');
+
+    let labelText, labelClass;
+
+    if (plot.classList.contains('sold')) {
+      labelText = "SOLD";
+      labelClass = "sold-label";
+    } else if (plot.classList.contains('unavail')) {
+      labelText = "UNAVAIL";
+      labelClass = "unavail-label";
+    } else {
+      plot.classList.add('available');
+      labelText = `Lot ${lotId}`;
+      labelClass = "lot-label";
+    }
+
+    plot.parentNode.appendChild(createLabel(cx, cy, labelText, labelClass));
+  });
+}
+
+function downloadJSON() {
+  const plots = svg.querySelectorAll('path[data-lot-id]');
+  const lotStatus = {};
+
+  plots.forEach(plot => {
+    const lotId = plot.getAttribute('data-lot-id');
+    let status = 'available';
+    if (plot.classList.contains('sold')) status = 'sold';
+    else if (plot.classList.contains('unavail')) status = 'unavail';
+    lotStatus[lotId] = status;
+  });
+
+  const jsonStr = JSON.stringify(lotStatus, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'lot-status.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function loadJSONFromFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    try {
+      const lotStatus = JSON.parse(e.target.result);
+      updateLotsFromStatus(lotStatus);
+    } catch (err) {
+      alert('Invalid JSON file');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+function updateLotsFromStatus(lotStatus) {
+  const existingLabels = svg.querySelectorAll('text.lot-label, text.sold-label, text.unavail-label');
+  existingLabels.forEach(label => label.remove());
+
+  Object.entries(lotStatus).forEach(([lotId, status]) => {
+    const plot = svg.querySelector(`path[data-lot-id="${lotId}"]`);
+    if (!plot) return;
+
+    plot.classList.remove('available', 'sold', 'unavail');
+    plot.classList.add(status);
+
+    const bbox = plot.getBBox();
+    const cx = bbox.x + bbox.width / 2;
+    const cy = bbox.y + bbox.height / 2;
+
+    let labelText, labelClass;
+    if (status === 'sold') {
+      labelText = "SOLD";
+      labelClass = "sold-label";
+    } else if (status === 'unavail') {
+      labelText = "UNAVAIL";
+      labelClass = "unavail-label";
+    } else {
+      labelText = `Lot ${lotId}`;
+      labelClass = "lot-label";
+    }
+
+    plot.parentNode.appendChild(createLabel(cx, cy, labelText, labelClass));
+  });
+}
+
+// 🔄 Load external JSON status file on page load
+fetch('lot-status.json')
+  .then(res => {
+    if (!res.ok) throw new Error("File not found");
+    return res.json();
+  })
+  .then(updateLotsFromStatus)
+  .catch(err => {
+    console.warn("Could not load lot-status.json:", err.message);
+    initializeLabels(); // fallback
+  });
+</script>
+ 
+ 
+
+</body>
+</html>
