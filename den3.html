@@ -15,6 +15,11 @@
       font-family: sans-serif;
     }
 
+  text {
+    pointer-events: none;
+    user-select: none;
+  }
+
     #svg-container {
       width: 90vw;
       height: 90vh;
@@ -163,15 +168,30 @@ path.unavail {
 <script>
 const svg = document.getElementById('my-svg');
 let isDragging = false;
+let touchStartTime = 0;
 
+// ✅ Add pan+pinch zoom with customEventsHandler for mobile support
 const panZoom = svgPanZoom(svg, {
   zoomEnabled: true,
   controlIconsEnabled: true,
   fit: true,
   center: true,
-  beforePan: () => {
-    isDragging = true;
-    return true;
+  dblClickZoomEnabled: false,
+  mouseWheelZoomEnabled: true,
+  customEventsHandler: {
+    haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel'],
+    init: function(options) {
+      const instance = options.instance;
+      let panned = false;
+
+      options.svgElement.addEventListener('touchstart', function(e) {
+        if (e.touches.length === 2) {
+          instance.zoomAtPointBy(1.01, instance.getEventPoint(e.touches[0]));
+          e.preventDefault();
+        }
+      });
+    },
+    destroy: function() {}
   }
 });
 
@@ -187,13 +207,20 @@ svg.addEventListener('click', (e) => {
   }
 });
 
-// ✅ Mobile support: Handle touchend
+// ✅ Touch: Tap to cycle state
+svg.addEventListener('touchstart', (e) => {
+  if (e.touches.length === 1) {
+    touchStartTime = Date.now();
+  }
+});
+
 svg.addEventListener('touchend', (e) => {
-  if (isDragging) return;
-  const touch = e.changedTouches[0];
-  const target = document.elementFromPoint(touch.clientX, touch.clientY);
-  if (target && target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
-    cycleState(target);
+  if (Date.now() - touchStartTime < 200 && e.changedTouches.length === 1) {
+    const touch = e.changedTouches[0];
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (target && target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
+      cycleState(target);
+    }
   }
 });
 
@@ -345,9 +372,10 @@ fetch('lot-status.json')
   .then(updateLotsFromStatus)
   .catch(err => {
     console.warn("Could not load lot-status.json:", err.message);
-    initializeLabels(); // fallback if file missing
+    initializeLabels(); // fallback
   });
 </script>
+
 
  
  
