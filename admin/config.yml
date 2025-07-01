@@ -1,0 +1,16 @@
+backend:
+  name: github
+  repo: andresmtzc/arquidromoWeb 
+
+media_folder: ""
+public_folder: ""
+
+collections:
+  - name: "lots"
+    label: "Lot Status"
+    files:
+      - file: "lot-status.json"
+        label: "Lot Status JSON"
+        name: "lot_status"
+        editor:
+          preview: false
