@@ -1,24 +1,19 @@
 backend:
   name: git-gateway
-  branch: main  # or your default branch
+  branch: main
 
 media_folder: ""
 public_folder: ""
 
 collections:
   - name: "lotstatus"
-    label: "Lot Status"
+    label: "Lot Status JSON"
     files:
       - file: "lot-status.json"
-        label: "Lot Data"
-        name: "lots"
-        editor:
-          preview: false
+        label: "Lot Status File"
+        name: "lotstatusfile"
         fields:
-          - label: "Lot List"
+          - label: "Raw JSON"
             name: "lots"
-            widget: list
-            summary: "Lot {{fields.id}} - {{fields.status}}"
-            fields:
-              - { label: "ID", name: "id", widget: number }
-              - { label: "Status", name: "status", widget: select, options: ["available", "sold", "unavail"] }
+            widget: "text"
+            default: '{ "lots": [] }'
