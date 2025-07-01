@@ -7,13 +7,18 @@ public_folder: ""
 
 collections:
   - name: "lotstatus"
-    label: "Lot Status JSON"
+    label: "Lot Status"
     files:
       - file: "lot-status.json"
-        label: "Lot Status File"
-        name: "lotstatusfile"
+        label: "Raw Lot Data"
+        name: "lots"
+        editor:
+          preview: false
         fields:
           - label: "Raw JSON"
-            name: "lots"
-            widget: "text"
+            name: "body"
+            widget: code
             default: '{ "lots": [] }'
+            output_code_only: true
+            code_mirror:
+              mode: "application/json"
