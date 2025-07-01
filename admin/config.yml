@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: andresmtzc/arquidromoWeb
-  branch: main
-  auth_scope: repo
-  base_url: https://auth.netlify.com
+  name: git-gateway
+  branch: main  # or your default branch
 
 media_folder: ""
 public_folder: ""
