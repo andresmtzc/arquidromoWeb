@@ -10,7 +10,11 @@ collections:
     label: "Lot Status"
     files:
       - file: "data/lotstatus/lot-status.json"
-        label: "Lot Status JSON"
+        label: "Upload Lot Status JSON"
         name: "lotstatus"
-        editor:
-          preview: false
+        fields:
+          - label: "Upload JSON file"
+            name: "jsonfile"
+            widget: "file"
+            media_folder: "data/lotstatus"
+            public_folder: "/data/lotstatus"
