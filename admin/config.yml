@@ -15,4 +15,10 @@ collections:
     delete: false
     editor:
       preview: false
-    fields: []
+    fields:
+      - name: "body"
+        label: "Raw JSON"
+        widget: "code"
+        output_code_only: true
+        code_mirror:
+          mode: "application/json"
