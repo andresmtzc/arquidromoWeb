@@ -1,16 +1,17 @@
 backend:
   name: github
-  repo: andresmtzc/arquidromoWeb 
+  repo: andresmtzc/arquidromoWeb
+  branch: main  # or 'master' depending on your default branch
 
 media_folder: ""
 public_folder: ""
 
 collections:
-  - name: "lots"
+  - name: "lotstatus"
     label: "Lot Status"
     files:
       - file: "lot-status.json"
-        label: "Lot Status JSON"
-        name: "lot_status"
+        label: "Lot Data"
+        name: "lots"
         editor:
           preview: false
