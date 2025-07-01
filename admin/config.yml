@@ -11,13 +11,11 @@ collections:
     files:
       - file: "lot-status.json"
         label: "Lot Status JSON"
-        name: "lots"
+        name: "lotstatus"
+        format: json
+        single_file: true
         editor:
           preview: false
-        fields:
-          - label: "Raw JSON"
-            name: "body"
-            widget: code
-            output_code_only: true
-            code_mirror:
-              mode: "application/json"
+        widget: code
+        code_mirror:
+          mode: "application/json"
