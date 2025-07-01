@@ -293,7 +293,6 @@ svg.addEventListener('click', e => {
   }
 });
 svg.addEventListener('touchend', e => {
-  // Use elementFromPoint to get tapped element
   const touch = e.changedTouches[0];
   const target = document.elementFromPoint(touch.clientX, touch.clientY);
   if (target && target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
@@ -312,7 +311,7 @@ fetch('lot-status.json')
     initializeLabels();
   });
 
-  function getLotStatusJSON() {
+function getLotStatusJSON() {
   const lots = svg.querySelectorAll('path[data-lot-id]');
   const data = {};
   lots.forEach(plot => {
@@ -354,11 +353,14 @@ function loadJSONFromFile(event) {
     } catch (err) {
       alert("Invalid JSON file.");
     }
+
+    // ✅ Important: Reset file input so re-selecting same file works again
+    event.target.value = "";
   };
   reader.readAsText(file);
 }
-
 </script>
+
 
 
 
