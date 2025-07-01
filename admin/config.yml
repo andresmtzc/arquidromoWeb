@@ -5,7 +5,6 @@ backend:
   auth_scope: repo
   base_url: https://auth.netlify.com  # required for OAuth with GitHub Pages
 
-
 media_folder: ""
 public_folder: ""
 
@@ -18,3 +17,15 @@ collections:
         name: "lots"
         editor:
           preview: false
+        fields:
+          - label: "Lots"
+            name: "lots"
+            widget: list
+            fields:
+              - label: "ID"
+                name: "id"
+                widget: number
+              - label: "Status"
+                name: "status"
+                widget: select
+                options: ["available", "sold", "unavail"]
