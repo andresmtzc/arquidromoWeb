@@ -16,7 +16,7 @@ jobs:
       - name: Find latest .json file
         id: find_latest
         run: |
-latest=$(git log -1 --pretty=format: --name-only --diff-filter=AM -- 'public/uploads/*.json' | grep -v 'lot-manifest.json' | head -n 1)
+          latest=$(git log -1 --pretty=format: --name-only --diff-filter=AM -- 'public/uploads/*.json' | grep -v 'lot-manifest.json' | head -n 1)
           echo "Latest JSON: $latest"
           echo "latest_file=$latest" >> $GITHUB_OUTPUT
 
@@ -32,4 +32,3 @@ latest=$(git log -1 --pretty=format: --name-only --diff-filter=AM -- 'public/upl
           git add public/uploads/lot-manifest.json
           git commit -m "Update lot-manifest.json to latest uploaded file"
           git push
-
