@@ -14,10 +14,3 @@ collections:
         name: "lotstatus"
         editor:
           preview: false
-        fields:
-          - label: "Raw JSON"
-            name: "body"
-            widget: code
-            default: ""
-            code_mirror:
-              mode: "application/json"
