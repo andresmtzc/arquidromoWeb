@@ -15,7 +15,8 @@ collections:
         editor:
           preview: false
         fields:
-          - label: "Raw JSON"
-            name: "body"
+          - name: "body"
+            label: "Raw JSON"
             widget: "text"
             multiline: true
+            raw: true
