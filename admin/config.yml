@@ -1,7 +1,10 @@
 backend:
   name: github
   repo: andresmtzc/arquidromoWeb
-  branch: main  # or 'master' depending on your default branch
+  branch: main
+  auth_scope: repo
+  base_url: https://auth.netlify.com  # required for OAuth with GitHub Pages
+
 
 media_folder: ""
 public_folder: ""
