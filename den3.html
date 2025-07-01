@@ -353,8 +353,15 @@ svg.addEventListener('touchend', e => {
   }
 });
 
-// Initial load
-fetch('/public/uploads/lot-status.json')
+// Initial load using manifest
+fetch('/public/uploads/lot-manifest.json')
+  .then(res => {
+    if (!res.ok) throw new Error("No manifest file");
+    return res.json();
+  })
+  .then(manifest => {
+    return fetch(`/public/uploads/${manifest.latest}`);
+  })
   .then(res => {
     if (!res.ok) throw new Error("No JSON file");
     return res.json();
