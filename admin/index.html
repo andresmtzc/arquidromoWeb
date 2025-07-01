@@ -3,18 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Prevent indexing by search engines -->
+  <!-- Prevent indexing by search engines -->
   <meta name="robots" content="noindex, nofollow" />
   <title>CMS Admin</title>
 </head>
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
- <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.init();
-  }
-</script>
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.init();
+    }
+
+    // Disable "Delete selected" button to prevent file deletion
+    window.addEventListener('load', () => {
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        if (btn.textContent.trim() === 'Delete selected') {
+          btn.style.pointerEvents = 'none';
+          btn.style.opacity = '0.5';
+          btn.title = "Deleting files is disabled";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
-
