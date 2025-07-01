@@ -3,7 +3,7 @@ backend:
   repo: andresmtzc/arquidromoWeb
   branch: main
   auth_scope: repo
-  base_url: https://auth.netlify.com  # required for OAuth with GitHub Pages
+  base_url: https://auth.netlify.com
 
 media_folder: ""
 public_folder: ""
@@ -18,14 +18,10 @@ collections:
         editor:
           preview: false
         fields:
-          - label: "Lots"
+          - label: "Lot List"
             name: "lots"
             widget: list
+            summary: "Lot {{fields.id}} - {{fields.status}}"
             fields:
-              - label: "ID"
-                name: "id"
-                widget: number
-              - label: "Status"
-                name: "status"
-                widget: select
-                options: ["available", "sold", "unavail"]
+              - { label: "ID", name: "id", widget: number }
+              - { label: "Status", name: "status", widget: select, options: ["available", "sold", "unavail"] }
