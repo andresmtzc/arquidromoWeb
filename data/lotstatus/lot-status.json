@@ -1,0 +1,220 @@
+{
+  "lots": [
+    {
+      "id": 0,
+      "status": "sold"
+    },
+    {
+      "id": 1,
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "status": "sold"
+    },
+    {
+      "id": 4,
+      "status": "available"
+    },
+    {
+      "id": 5,
+      "status": "available"
+    },
+    {
+      "id": 6,
+      "status": "sold"
+    },
+    {
+      "id": 7,
+      "status": "sold"
+    },
+    {
+      "id": 8,
+      "status": "sold"
+    },
+    {
+      "id": 9,
+      "status": "sold"
+    },
+    {
+      "id": 10,
+      "status": "sold"
+    },
+    {
+      "id": 11,
+      "status": "sold"
+    },
+    {
+      "id": 12,
+      "status": "sold"
+    },
+    {
+      "id": 13,
+      "status": "sold"
+    },
+    {
+      "id": 14,
+      "status": "sold"
+    },
+    {
+      "id": 15,
+      "status": "sold"
+    },
+    {
+      "id": 16,
+      "status": "sold"
+    },
+    {
+      "id": 17,
+      "status": "available"
+    },
+    {
+      "id": 18,
+      "status": "sold"
+    },
+    {
+      "id": 19,
+      "status": "available"
+    },
+    {
+      "id": 20,
+      "status": "sold"
+    },
+    {
+      "id": 21,
+      "status": "sold"
+    },
+    {
+      "id": 22,
+      "status": "available"
+    },
+    {
+      "id": 23,
+      "status": "sold"
+    },
+    {
+      "id": 24,
+      "status": "available"
+    },
+    {
+      "id": 25,
+      "status": "sold"
+    },
+    {
+      "id": 26,
+      "status": "sold"
+    },
+    {
+      "id": 27,
+      "status": "available"
+    },
+    {
+      "id": 28,
+      "status": "sold"
+    },
+    {
+      "id": 29,
+      "status": "sold"
+    },
+    {
+      "id": 30,
+      "status": "sold"
+    },
+    {
+      "id": 31,
+      "status": "available"
+    },
+    {
+      "id": 32,
+      "status": "available"
+    },
+    {
+      "id": 33,
+      "status": "sold"
+    },
+    {
+      "id": 34,
+      "status": "sold"
+    },
+    {
+      "id": 35,
+      "status": "sold"
+    },
+    {
+      "id": 36,
+      "status": "available"
+    },
+    {
+      "id": 37,
+      "status": "sold"
+    },
+    {
+      "id": 38,
+      "status": "sold"
+    },
+    {
+      "id": 39,
+      "status": "sold"
+    },
+    {
+      "id": 40,
+      "status": "available"
+    },
+    {
+      "id": 41,
+      "status": "available"
+    },
+    {
+      "id": 42,
+      "status": "sold"
+    },
+    {
+      "id": 43,
+      "status": "available"
+    },
+    {
+      "id": 44,
+      "status": "available"
+    },
+    {
+      "id": 45,
+      "status": "available"
+    },
+    {
+      "id": 46,
+      "status": "available"
+    },
+    {
+      "id": 47,
+      "status": "available"
+    },
+    {
+      "id": 48,
+      "status": "available"
+    },
+    {
+      "id": 49,
+      "status": "available"
+    },
+    {
+      "id": 50,
+      "status": "sold"
+    },
+    {
+      "id": 51,
+      "status": "sold"
+    },
+    {
+      "id": 52,
+      "status": "available"
+    },
+    {
+      "id": 53,
+      "status": "available"
+    }
+  ]
+}
