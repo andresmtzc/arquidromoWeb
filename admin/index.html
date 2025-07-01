@@ -25,15 +25,19 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // Initialize Netlify Identity
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', user => {
-        if (!user) {
-          window.netlifyIdentity.open(); // Open login/signup modal if not logged in
-        }
-      });
-      window.netlifyIdentity.init();
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', user => {
+          console.log("Netlify Identity initialized. User:", user);
+          if (!user) {
+            window.netlifyIdentity.open(); // Open login/signup modal if not logged in
+          }
+        });
+        window.netlifyIdentity.init();
+      } else {
+        console.error("Netlify Identity widget not loaded");
+      }
+    });
   </script>
 </body>
 </html>
