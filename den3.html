@@ -159,7 +159,7 @@ path.unavail {
   </div>
 
   <!-- Scripts -->
- <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
 <script>
 const svg = document.getElementById('my-svg');
 let isDragging = false;
@@ -181,9 +181,18 @@ svg.addEventListener('mouseup', () => {
 
 svg.addEventListener('click', (e) => {
   if (isDragging) return;
-
   const target = e.target;
   if (target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
+    cycleState(target);
+  }
+});
+
+// ✅ Mobile support: Handle touchend
+svg.addEventListener('touchend', (e) => {
+  if (isDragging) return;
+  const touch = e.changedTouches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (target && target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
     cycleState(target);
   }
 });
@@ -327,7 +336,7 @@ function updateLotsFromStatus(lotStatus) {
   });
 }
 
-// 🔄 Load external JSON status file on page load
+// 🔄 Auto-load JSON from external file
 fetch('lot-status.json')
   .then(res => {
     if (!res.ok) throw new Error("File not found");
@@ -336,9 +345,10 @@ fetch('lot-status.json')
   .then(updateLotsFromStatus)
   .catch(err => {
     console.warn("Could not load lot-status.json:", err.message);
-    initializeLabels(); // fallback
+    initializeLabels(); // fallback if file missing
   });
 </script>
+
  
  
 
