@@ -8,14 +8,11 @@ public_folder: ""
 collections:
   - name: "lotstatus"
     label: "Lot Status"
-    files:
-      - file: "lot-status.json"
-        label: "Lot Status JSON"
-        name: "lotstatus"
-        format: json
-        single_file: true
-        editor:
-          preview: false
-        widget: code
-        code_mirror:
-          mode: "application/json"
+    folder: "data/lotstatus"
+    format: json
+    extension: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    fields: []
