@@ -3,41 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex" />
-  <title>Content Manager</title>
-  <script>
-    // Basic password protection before loading CMS
-    const PASSWORD = "test123"; // <-- change this!
-
-    const entered = prompt("Enter admin password:");
-    if (entered !== PASSWORD) {
-      alert("Wrong password. Access denied.");
-      document.documentElement.innerHTML = "<h1>Access Denied</h1>";
-      throw new Error("Access denied");
-    }
-  </script>
+  <title>CMS Admin</title>
 </head>
 <body>
-  <!-- Netlify Identity widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-  <!-- Netlify CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', user => {
-          console.log("Netlify Identity initialized. User:", user);
-          if (!user) {
-            window.netlifyIdentity.open(); // Open login/signup modal if not logged in
-          }
-        });
-        window.netlifyIdentity.init();
-      } else {
-        console.error("Netlify Identity widget not loaded");
-      }
-    });
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', user => {
+        if (!user) {
+          window.netlifyIdentity.open();
+        }
+      });
+      window.netlifyIdentity.init();
+    }
   </script>
 </body>
 </html>
