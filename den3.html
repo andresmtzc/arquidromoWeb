@@ -27,12 +27,18 @@ svg text {
   tap-highlight-color: transparent;
 }
 
-    #svg-container {
-      width: 150vw;
-      height: 200vh;
- 
+#svg-container {
+  width: 90vw;
+  height: 90vh;
+}
 
-    }
+/* On small screens (phones), make it bigger */
+@media (max-width: 600px) {
+  #svg-container {
+    width: 150vw;
+    height: 200vh;
+  }
+}
 
     svg {
       width: 100%;
