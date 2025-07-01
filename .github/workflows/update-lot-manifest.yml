@@ -1,0 +1,34 @@
+name: Update Lot Manifest
+
+on:
+  push:
+    paths:
+      - 'public/uploads/*.json'
+
+jobs:
+  update-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Find latest .json file
+        id: find_latest
+        run: |
+          latest=$(git log -1 --pretty=format: --name-only --diff-filter=AM -- 'public/uploads/*.json' | grep '\.json$' | head -n 1)
+          echo "Latest JSON: $latest"
+          echo "latest_file=$latest" >> $GITHUB_OUTPUT
+
+      - name: Write manifest file
+        run: |
+          mkdir -p public/uploads
+          echo "{ \"latest\": \"$(basename ${{ steps.find_latest.outputs.latest_file }})\" }" > public/uploads/lot-manifest.json
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add public/uploads/lot-manifest.json
+          git commit -m "Update lot-manifest.json to latest uploaded file"
+          git push
