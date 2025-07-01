@@ -88,12 +88,13 @@ path.unavail {
 </head>
 <body>
   <h2>Interactive SVG with Lot Numbers and Sold Labels</h2>
-  <div id="svg-container">
-    <div style="margin: 10px;">
+     <div style="margin: 10px;">
   <button onclick="downloadJSON()">💾 Save Lots</button>
   <input type="file" id="upload-json" accept=".json" style="display:none;" onchange="loadJSONFromFile(event)">
   <button onclick="document.getElementById('upload-json').click()">📂 Load Lots</button>
 </div>
+  <div id="svg-container">
+ 
        <svg id="my-svg" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" version="1.1">
 
       <!-- Available plots 
