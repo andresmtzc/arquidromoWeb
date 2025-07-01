@@ -354,7 +354,7 @@ svg.addEventListener('touchend', e => {
 });
 
 // Initial load
-fetch('lot-status.json')
+fetch('data/lotstatus/lot-status.json')
   .then(res => {
     if (!res.ok) throw new Error("No JSON file");
     return res.json();
