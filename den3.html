@@ -36,12 +36,20 @@ svg text {
   width: 90vw;
   height: 90vh;
   max-width: 600px;  /* or any max size you prefer */
-  max-height: 800px;
+
   display: block;
   position: relative;
     margin: 20px auto;
 }
 
+    svg {
+  width: 100%;
+  height: auto;  /* keep aspect ratio */
+  display: block;
+  margin: 0 auto;
+    }
+
+    
 /* On small screens (phones), make it bigger */
 @media (max-width: 800px) {
   #svg-container {
@@ -51,12 +59,7 @@ svg text {
   }
 }
 
-    svg {
-  width: 100%;
-  height: auto;  /* keep aspect ratio */
-  display: block;
-  margin: 0 auto;
-    }
+
 
 
 
