@@ -14,7 +14,7 @@
     },
     {
       "id": 3,
-      "status": "unavail"
+      "status": "sold"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
     },
     {
       "id": 8,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 9,
@@ -46,11 +46,11 @@
     },
     {
       "id": 11,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 12,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 13,
@@ -62,11 +62,11 @@
     },
     {
       "id": 15,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 16,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 17,
@@ -74,7 +74,7 @@
     },
     {
       "id": 18,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 19,
@@ -94,7 +94,7 @@
     },
     {
       "id": 23,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 24,
@@ -102,11 +102,11 @@
     },
     {
       "id": 25,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 26,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 27,
@@ -114,15 +114,15 @@
     },
     {
       "id": 28,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 29,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 30,
-      "status": "unavail"
+      "status": "sold"
     },
     {
       "id": 31,
@@ -134,15 +134,15 @@
     },
     {
       "id": 33,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 34,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 35,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 36,
@@ -150,15 +150,15 @@
     },
     {
       "id": 37,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 38,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 39,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 40,
@@ -170,7 +170,7 @@
     },
     {
       "id": 42,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 43,
@@ -206,7 +206,7 @@
     },
     {
       "id": 51,
-      "status": "available"
+      "status": "sold"
     },
     {
       "id": 52,
@@ -216,6 +216,5 @@
       "id": 53,
       "status": "available"
     }
-  ],
-  "jsonfile": "/data/lotstatus/lot-status.json"
+  ]
 }
