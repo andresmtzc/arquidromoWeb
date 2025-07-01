@@ -311,6 +311,53 @@ fetch('lot-status.json')
   .catch(() => {
     initializeLabels();
   });
+
+  function getLotStatusJSON() {
+  const lots = svg.querySelectorAll('path[data-lot-id]');
+  const data = {};
+  lots.forEach(plot => {
+    const id = plot.getAttribute('data-lot-id');
+    if (plot.classList.contains('sold')) {
+      data[id] = 'sold';
+    } else if (plot.classList.contains('unavail')) {
+      data[id] = 'unavail';
+    } else {
+      data[id] = 'available';
+    }
+  });
+  return data;
+}
+
+function downloadJSON() {
+  const data = getLotStatusJSON();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "lot-status.json";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function loadJSONFromFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const json = JSON.parse(e.target.result);
+      updateLotsFromStatus(json);
+    } catch (err) {
+      alert("Invalid JSON file.");
+    }
+  };
+  reader.readAsText(file);
+}
+
 </script>
 
 
