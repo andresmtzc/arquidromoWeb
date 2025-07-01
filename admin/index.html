@@ -10,20 +10,29 @@
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
   <script>
     if (window.netlifyIdentity) {
       window.netlifyIdentity.init();
     }
 
-    // Disable "Delete selected" button to prevent file deletion
-    window.addEventListener('load', () => {
-      const buttons = document.querySelectorAll('button');
-      buttons.forEach(btn => {
-        if (btn.textContent.trim() === 'Delete selected') {
-          btn.style.pointerEvents = 'none';
-          btn.style.opacity = '0.5';
-          btn.title = "Deleting files is disabled";
-        }
+    // Wait until DOM is ready
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new MutationObserver(() => {
+        const buttons = Array.from(document.querySelectorAll("button"));
+        buttons.forEach((btn) => {
+          if (btn.textContent.trim().toLowerCase() === "delete selected") {
+            btn.disabled = true;
+            btn.style.pointerEvents = "none";
+            btn.style.opacity = "0.4";
+            btn.title = "Deleting files is disabled.";
+          }
+        });
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true,
       });
     });
   </script>
