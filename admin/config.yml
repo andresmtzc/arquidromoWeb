@@ -20,4 +20,4 @@ collections:
             widget: code
             output_code_only: true
             code_mirror:
-              mode: application/json
+              mode: "application/json"
