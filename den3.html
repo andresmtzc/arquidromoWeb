@@ -225,7 +225,7 @@ function createLabel(x, y, text, className) {
   label.setAttribute("class", className);
   label.setAttribute("text-anchor", "middle");
   label.setAttribute("dominant-baseline", "middle");
-  label.style.userSelect = "none"; // prevent text selection
+  label.style.userSelect = "none";
   label.textContent = text;
   return label;
 }
@@ -256,13 +256,15 @@ function initializeLabels() {
   });
 }
 
-function updateLotsFromStatus(lotStatus) {
-  // Remove existing labels
+function updateLotsFromStatus(data) {
+  const lots = data.lots || [];
+
+  // Clear old labels
   const existingLabels = svg.querySelectorAll('text.lot-label, text.sold-label, text.unavail-label');
   existingLabels.forEach(label => label.remove());
 
-  Object.entries(lotStatus).forEach(([lotId, status]) => {
-    const plot = svg.querySelector(`path[data-lot-id="${lotId}"]`);
+  lots.forEach(({ id, status }) => {
+    const plot = svg.querySelector(`path[data-lot-id="${id}"]`);
     if (!plot) return;
 
     plot.classList.remove('available', 'sold', 'unavail');
@@ -280,7 +282,7 @@ function updateLotsFromStatus(lotStatus) {
       labelText = "UNAVAIL";
       labelClass = "unavail-label";
     } else {
-      labelText = `Lot ${lotId}`;
+      labelText = `Lot ${id}`;
       labelClass = "lot-label";
     }
 
@@ -288,48 +290,21 @@ function updateLotsFromStatus(lotStatus) {
   });
 }
 
-// Click and touch handlers (mobile + desktop)
-svg.addEventListener('click', e => {
-  const target = e.target;
-  if (target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
-    cycleState(target);
-  }
-});
-svg.addEventListener('touchend', e => {
-  const touch = e.changedTouches[0];
-  const target = document.elementFromPoint(touch.clientX, touch.clientY);
-  if (target && target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
-    cycleState(target);
-  }
-});
-
-// Load external JSON if available, else initialize default labels
-fetch('lot-status.json')
-  .then(res => {
-    if (!res.ok) throw new Error("File not found");
-    return res.json();
-  })
-  .then(updateLotsFromStatus)
-  .catch(() => {
-    initializeLabels();
-  });
-
+// Export: JSON format compatible with Netlify CMS
 function getLotStatusJSON() {
-  const lots = svg.querySelectorAll('path[data-lot-id]');
-  const data = {};
-  lots.forEach(plot => {
-    const id = plot.getAttribute('data-lot-id');
-    if (plot.classList.contains('sold')) {
-      data[id] = 'sold';
-    } else if (plot.classList.contains('unavail')) {
-      data[id] = 'unavail';
-    } else {
-      data[id] = 'available';
-    }
+  const plots = svg.querySelectorAll('path[data-lot-id]');
+  const lots = [];
+  plots.forEach(plot => {
+    const id = parseInt(plot.getAttribute('data-lot-id'), 10);
+    let status = 'available';
+    if (plot.classList.contains('sold')) status = 'sold';
+    else if (plot.classList.contains('unavail')) status = 'unavail';
+    lots.push({ id, status });
   });
-  return data;
+  return { lots };
 }
 
+// Save to file
 function downloadJSON() {
   const data = getLotStatusJSON();
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
@@ -344,6 +319,7 @@ function downloadJSON() {
   URL.revokeObjectURL(url);
 }
 
+// Load from file
 function loadJSONFromFile(event) {
   const file = event.target.files[0];
   if (!file) return;
@@ -356,12 +332,35 @@ function loadJSONFromFile(event) {
     } catch (err) {
       alert("Invalid JSON file.");
     }
-
-    // ✅ Important: Reset file input so re-selecting same file works again
-    event.target.value = "";
+    event.target.value = ""; // Allow re-selecting the same file
   };
   reader.readAsText(file);
 }
+
+// Events
+svg.addEventListener('click', e => {
+  const target = e.target;
+  if (target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
+    cycleState(target);
+  }
+});
+
+svg.addEventListener('touchend', e => {
+  const touch = e.changedTouches[0];
+  const target = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (target && target.tagName === 'path' && target.hasAttribute('data-lot-id')) {
+    cycleState(target);
+  }
+});
+
+// Initial load
+fetch('lot-status.json')
+  .then(res => {
+    if (!res.ok) throw new Error("No JSON file");
+    return res.json();
+  })
+  .then(updateLotsFromStatus)
+  .catch(() => initializeLabels());
 </script>
 
 
