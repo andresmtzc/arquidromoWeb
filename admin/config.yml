@@ -8,6 +8,7 @@ public_folder: "/uploads"
 collections:
   - name: "lotstatus"
     label: "Lot Status Upload"
+    delete: false       # <--- Add this here
     files:
       - file: "data/dummy.md"
         label: "Upload JSON"
