@@ -2,21 +2,20 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: ""
-public_folder: ""
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
   - name: "lotstatus"
-    label: "Lot Status"
+    label: "Lot Status Upload"
     files:
-      - file: "data/lotstatus/lot-status.json"
-        label: "Lot Status JSON"
-        name: "lotstatus"
-        editor:
-          preview: false
+      - file: "data/dummy.md"
+        label: "Upload JSON"
+        name: "lot_upload"
         fields:
-          - name: "body"
-            label: "Raw JSON"
-            widget: "text"
-            multiline: true
-            raw: true
+          - name: "upload"
+            label: "JSON File"
+            widget: "file"
+            media_library:
+              config:
+                multiple: false
