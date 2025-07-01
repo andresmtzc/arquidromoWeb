@@ -17,5 +17,5 @@ collections:
         fields:
           - label: "Raw JSON"
             name: "body"
-            widget: "textarea"
-            # no formatting, just plain text
+            widget: "text"
+            multiline: true
