@@ -1,56 +1,220 @@
 {
-  "0": "available",
-  "1": "available",
-  "2": "available",
-  "3": "available",
-  "4": "sold",
-  "5": "available",
-  "6": "available",
-  "7": "available",
-  "8": "available",
-  "9": "available",
-  "10": "available",
-  "11": "available",
-  "12": "available",
-  "13": "available",
-  "14": "available",
-  "15": "available",
-  "16": "sold",
-  "17": "available",
-  "18": "available",
-  "19": "unavail",
-  "20": "available",
-  "21": "available",
-  "22": "available",
-  "23": "available",
-  "24": "available",
-  "25": "available",
-  "26": "sold",
-  "27": "available",
-  "28": "available",
-  "29": "available",
-  "30": "available",
-  "31": "available",
-  "32": "available",
-  "33": "available",
-  "34": "available",
-  "35": "available",
-  "36": "available",
-  "37": "available",
-  "38": "unavail",
-  "39": "available",
-  "40": "available",
-  "41": "available",
-  "42": "available",
-  "43": "available",
-  "44": "available",
-  "45": "available",
-  "46": "available",
-  "47": "available",
-  "48": "available",
-  "49": "available",
-  "50": "available",
-  "51": "available",
-  "52": "available",
-  "53": "sold"
+  "lots": [
+    {
+      "id": 0,
+      "status": "available"
+    },
+    {
+      "id": 1,
+      "status": "available"
+    },
+    {
+      "id": 2,
+      "status": "available"
+    },
+    {
+      "id": 3,
+      "status": "unavail"
+    },
+    {
+      "id": 4,
+      "status": "available"
+    },
+    {
+      "id": 5,
+      "status": "available"
+    },
+    {
+      "id": 6,
+      "status": "available"
+    },
+    {
+      "id": 7,
+      "status": "sold"
+    },
+    {
+      "id": 8,
+      "status": "available"
+    },
+    {
+      "id": 9,
+      "status": "sold"
+    },
+    {
+      "id": 10,
+      "status": "sold"
+    },
+    {
+      "id": 11,
+      "status": "available"
+    },
+    {
+      "id": 12,
+      "status": "available"
+    },
+    {
+      "id": 13,
+      "status": "sold"
+    },
+    {
+      "id": 14,
+      "status": "available"
+    },
+    {
+      "id": 15,
+      "status": "available"
+    },
+    {
+      "id": 16,
+      "status": "available"
+    },
+    {
+      "id": 17,
+      "status": "available"
+    },
+    {
+      "id": 18,
+      "status": "available"
+    },
+    {
+      "id": 19,
+      "status": "available"
+    },
+    {
+      "id": 20,
+      "status": "sold"
+    },
+    {
+      "id": 21,
+      "status": "sold"
+    },
+    {
+      "id": 22,
+      "status": "available"
+    },
+    {
+      "id": 23,
+      "status": "available"
+    },
+    {
+      "id": 24,
+      "status": "available"
+    },
+    {
+      "id": 25,
+      "status": "available"
+    },
+    {
+      "id": 26,
+      "status": "available"
+    },
+    {
+      "id": 27,
+      "status": "available"
+    },
+    {
+      "id": 28,
+      "status": "available"
+    },
+    {
+      "id": 29,
+      "status": "available"
+    },
+    {
+      "id": 30,
+      "status": "available"
+    },
+    {
+      "id": 31,
+      "status": "available"
+    },
+    {
+      "id": 32,
+      "status": "available"
+    },
+    {
+      "id": 33,
+      "status": "available"
+    },
+    {
+      "id": 34,
+      "status": "available"
+    },
+    {
+      "id": 35,
+      "status": "available"
+    },
+    {
+      "id": 36,
+      "status": "available"
+    },
+    {
+      "id": 37,
+      "status": "available"
+    },
+    {
+      "id": 38,
+      "status": "available"
+    },
+    {
+      "id": 39,
+      "status": "available"
+    },
+    {
+      "id": 40,
+      "status": "available"
+    },
+    {
+      "id": 41,
+      "status": "available"
+    },
+    {
+      "id": 42,
+      "status": "available"
+    },
+    {
+      "id": 43,
+      "status": "available"
+    },
+    {
+      "id": 44,
+      "status": "available"
+    },
+    {
+      "id": 45,
+      "status": "available"
+    },
+    {
+      "id": 46,
+      "status": "available"
+    },
+    {
+      "id": 47,
+      "status": "available"
+    },
+    {
+      "id": 48,
+      "status": "available"
+    },
+    {
+      "id": 49,
+      "status": "available"
+    },
+    {
+      "id": 50,
+      "status": "available"
+    },
+    {
+      "id": 51,
+      "status": "available"
+    },
+    {
+      "id": 52,
+      "status": "available"
+    },
+    {
+      "id": 53,
+      "status": "available"
+    }
+  ]
 }
