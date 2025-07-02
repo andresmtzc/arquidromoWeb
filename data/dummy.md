@@ -1,3 +1,3 @@
 ---
-upload: /uploads/lot-status-7-.json
+upload: /uploads/lot-status-8-.json
 ---
