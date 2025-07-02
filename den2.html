@@ -16,9 +16,12 @@ html, body {
   overflow-x: hidden;
 }
 
-    :root {
-      --edge-color: #436e97;
-    }
+:root {
+  --edge-color-top: #436e97;
+  --edge-color-left: #436e97;
+  --edge-color-right: #436e97;
+  --edge-color-bottom2: #436e97;
+}
 
     .plot-dim {
       position: absolute;
@@ -57,9 +60,10 @@ html, body {
   position: relative;
   width: 800px; /* base grid size */
   height: 400px;
-  transform: scale(1);
+  transform: scale(.7);
   transform-origin: center;
   max-width: 100%;
+  margin-left:400px;
 }
 
 .info {
@@ -74,7 +78,7 @@ html, body {
 }
 
 .controls {
-  margin: 30px auto;
+  margin: 450px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -106,26 +110,55 @@ html, body {
       clip-path: inherit;
     }
 
-    .top {
-      background: var(--edge-color);
-      clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
-    }
+.top {
+  background: var(--edge-color-top);
+  clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+}
+.top .inner {
+  background: #8eb3ce;
+}
 
-    .top .inner { background: #8eb3ce; }
+.left {
+  background: var(--edge-color-left);
+  clip-path: polygon(0% 25%, 50% 50%, 50% 100%, 0% 75%);
+}
+.left .inner {
+  background: #6e97c0;
+}
 
-    .left {
-      background: var(--edge-color);
-      clip-path: polygon(0% 25%, 50% 50%, 50% 100%, 0% 75%);
-    }
+.right {
+  background: var(--edge-color-right);
+  clip-path: polygon(100% 25%, 50% 50%, 50% 100%, 100% 75%);
+}
+.right .inner {
+  background: #4e7ba9;
+}
 
-    .left .inner { background: #6e97c0; }
+.bottom2 {
+  background: var(--edge-color-bottom2);
+  clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+  transform: translateY(50px);
+}
+.bottom2 .inner {
+  background: #8eb3ce;
+  width: 94px;
+  height: 94px;
+  left: 3px;
+  top: 3px;
+  clip-path: inherit;
+  position: absolute;
+}
 
-    .right {
-      background: var(--edge-color);
-      clip-path: polygon(100% 25%, 50% 50%, 50% 100%, 100% 75%);
-    }
-
-    .right .inner { background: #4e7ba9; }
+.top,
+.left,
+.right,
+.bottom2,
+.top .inner,
+.left .inner,
+.right .inner,
+.bottom2 .inner {
+  pointer-events: none;
+}
 
     .bottom {
       background: #2a2a2a;
@@ -152,7 +185,7 @@ html, body {
       left: 0;
       transform: translateY(50px);
       pointer-events: auto;
-      z-index: 1000;
+      z-index: 2147483647;
       background: transparent;
     }
 
@@ -164,6 +197,7 @@ html, body {
       clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
       background: transparent;
       transition: background 0.2s ease;
+      z-index: 2147483647;
     }
 
     .hitbox:hover::before {
@@ -250,12 +284,23 @@ html, body {
     <button id="levelBtn" onclick="cycleLevel()">Level: 1</button>
     <button id="deleteBtn" onclick="handleDelete()">Delete All</button>
     <button id="ideasBtn" onclick="cycleDesignIdea()">Design Ideas</button>
+    <button id="drawAllBtn" onclick="drawAll()">Draw All</button>
+    <button id="edgesBtn" onclick="toggleEdges()">Edges: On</button>
     <button id="proModeBtn" onclick="toggleProMode()">🔒 Pro Mode</button>
+        <label>
+    Columns:
+    <input type="number" id="colsInput" min="1" max="40" value="8" style="width: 60px; margin-left:5px;">
+  </label>
+      <label>
+    Rows:
+    <input type="number" id="rowsInput" min="1" max="40" value="20" style="width: 60px; margin-left:5px;">
+  </label>
+  <button id="resizeGridBtn">Resize Grid</button>
   </div>
 
   <input type="file" id="importInput" accept="application/json" style="display: none" />
 
-  <script>
+<script>
 // ✅ Restored working right-click (bottom-to-top) logic
 
 const grid = document.getElementById('grid');
@@ -267,16 +312,18 @@ const priceInfo = document.getElementById('priceInfo');
 const controls = document.querySelector('.controls');
 const ideasBtn = document.getElementById('ideasBtn');
 const importInput = document.getElementById('importInput');
- 
-const cols = 3;
-const rows = 6;
+const rowsInput = document.getElementById('rowsInput');
+const colsInput = document.getElementById('colsInput');
+const resizeGridBtn = document.getElementById('resizeGridBtn');
+
+let cols = 8;
+let rows = 20;
 const offsetX = 50;
 const offsetY = 25;
-const baseLeft = grid.offsetWidth / 1.8;
+let baseLeft = grid.offsetWidth / 1.8;
 const baseTop = 120;
 const voxelArea = 160 / 18;
 const pricePerM2 = 20000;
-
 
 let currentLevel = 1;
 let proMode = false;
@@ -284,7 +331,7 @@ let proModeUnlocked = false;
 let lastState = [];
 const voxels = [];
 const faces = [];
-    
+
 const designIdeas = [
   {
     name: "Bridge House",
@@ -351,9 +398,10 @@ function createFace(x, y, z, type) {
   faces.push(face);
 }
 
-function createBottom(x, y) {
+function createBottom(x, y, active) {
   const face = document.createElement('div');
   face.className = 'face bottom';
+  if (active) face.classList.add('active-base');
   face.style.left = `${(x - y) * offsetX + baseLeft}px`;
   face.style.top = `${(x + y) * offsetY + baseTop}px`;
   face.style.zIndex = '0';
@@ -361,6 +409,19 @@ function createBottom(x, y) {
   inner.className = 'inner';
   face.appendChild(inner);
   grid.appendChild(face);
+}
+
+function createBottom2(x, y) {
+  const face = document.createElement('div');
+  face.className = 'face bottom2';
+  face.style.left = `${(x - y) * offsetX + baseLeft}px`;
+  face.style.top = `${(x + y) * offsetY + baseTop}px`;
+  face.style.zIndex = '2';
+  const inner = document.createElement('div');
+  inner.className = 'inner';
+  face.appendChild(inner);
+  grid.appendChild(face);
+  faces.push(face);
 }
 
 function clearFaces() {
@@ -372,11 +433,15 @@ function buildVoxel() {
   clearFaces();
   for (const v of voxels) {
     if (!v.active) continue;
-    for (let i = v.base; i < v.base + v.level; i++) {
-      createFace(v.x, v.y, i, 'left');
-      createFace(v.x, v.y, i, 'right');
+    if (v.level === 0) {
+      createBottom2(v.x, v.y);
+    } else {
+      for (let i = v.base; i < v.base + v.level; i++) {
+        createFace(v.x, v.y, i, 'left');
+        createFace(v.x, v.y, i, 'right');
+      }
+      createFace(v.x, v.y, v.base + v.level - 1, 'top');
     }
-    createFace(v.x, v.y, v.base + v.level - 1, 'top');
   }
 }
 
@@ -388,10 +453,27 @@ function updateStats() {
   priceInfo.textContent = `Estimated price: $${totalPrice.toLocaleString()}`;
 }
 
+let edgesVisible = true;
+
+function toggleEdges() {
+  edgesVisible = !edgesVisible;
+  document.getElementById('edgesBtn').textContent = `Edges: ${edgesVisible ? 'On' : 'Off'}`;
+  document.documentElement.style.setProperty('--edge-color-top', edgesVisible ? '#436e97' : '#8eb3ce');
+  document.documentElement.style.setProperty('--edge-color-left', edgesVisible ? '#436e97' : '#6e97c0');
+  document.documentElement.style.setProperty('--edge-color-right', edgesVisible ? '#436e97' : '#4e7ba9');
+  document.documentElement.style.setProperty('--edge-color-bottom2', edgesVisible ? '#436e97' : '#8eb3ce');
+  buildVoxel();
+}
+
 function cycleLevel() {
-  currentLevel = currentLevel % 3 + 1;
+  currentLevel = (currentLevel + 1) % 10;
   levelBtn.textContent = `Level: ${currentLevel}`;
-  voxels.forEach(v => { if (v.active) v.level = currentLevel; v.base = 0; });
+  voxels.forEach(v => {
+    if (v.active) {
+      v.level = currentLevel;
+      v.base = 0;
+    }
+  });
   buildVoxel();
   if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
   updateStats();
@@ -413,6 +495,18 @@ function handleDelete() {
   }
   buildVoxel();
   updateStats();
+}
+
+function drawAll() {
+  voxels.forEach(v => {
+    v.level = currentLevel;
+    v.base = 0;
+    v.active = true;
+  });
+  buildVoxel();
+  updateStats();
+  if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+  ideasBtn.textContent = 'Design Ideas';
 }
 
 function exportGrid() {
@@ -452,12 +546,11 @@ importInput.addEventListener('change', (e) => {
     } catch (err) {
       alert("Invalid JSON file.");
     } finally {
-      importInput.value = ''; // ✅ Reset so same file can be picked again
+      importInput.value = '';
     }
   };
   reader.readAsText(file);
 });
-
 
 function toggleProMode() {
   if (!proMode && !proModeUnlocked) {
@@ -484,7 +577,6 @@ function toggleProMode() {
       exportBtn.onclick = exportGrid;
       controls.appendChild(exportBtn);
     }
-
     if (!existingImportBtn) {
       const importBtn = document.createElement('button');
       importBtn.id = 'importBtn';
@@ -498,77 +590,100 @@ function toggleProMode() {
   }
 }
 
-// Grid generation
-for (let y = 0; y < rows; y++) {
-  for (let x = 0; x < cols; x++) {
-    const voxel = document.createElement('div');
-    voxel.style.position = 'absolute';
-    voxel.style.left = `${(x - y) * offsetX + baseLeft}px`;
-    voxel.style.top = `${(x + y) * offsetY + baseTop}px`;
-    voxel.style.zIndex = '999';
+function initGrid() {
+  // Reset everything
+clearFaces();
+voxels.length = 0;
+grid.innerHTML = '';
+  grid.innerHTML = '';
+  baseLeft = grid.offsetWidth / 1.8;
 
-    const hitbox = document.createElement('div');
-    hitbox.className = 'hitbox';
+  for (let y = 0; y < rows; y++) {
+    for (let x = 0; x < cols; x++) {
+      const voxelData = { x, y, level: 0, base: 0, active: false };
+      voxels.push(voxelData);
 
-    const voxelData = { x, y, level: 0, base: 0, active: false };
-    voxels.push(voxelData);
+      const hitbox = document.createElement('div');
+      hitbox.className = 'hitbox';
+      hitbox.style.left = `${(x - y) * offsetX + baseLeft}px`;
+      hitbox.style.top = `${(x + y) * offsetY + baseTop}px`;
 
-    hitbox.addEventListener('click', () => {
-      if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
-      ideasBtn.textContent = 'Design Ideas';
+      hitbox.addEventListener('click', () => {
+        if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+        ideasBtn.textContent = 'Design Ideas';
 
-      if (proMode) {
-        if (voxelData.level === 0 && voxelData.base === 3) {
-          voxelData.level = 1;
-          voxelData.base = 0;
-          voxelData.active = true;
-        } else if (voxelData.base > 0) {
-          voxelData.base -= 1;
-          voxelData.level += 1;
-          voxelData.active = true;
-        } else if (voxelData.level + voxelData.base < 3) {
-          voxelData.level += 1;
-          voxelData.active = true;
+        if (proMode) {
+          if (voxelData.level === 0 && voxelData.base === 3) {
+            voxelData.level = 1;
+            voxelData.base = 0;
+            voxelData.active = true;
+          } else if (voxelData.base > 0) {
+            voxelData.base -= 1;
+            voxelData.level += 1;
+            voxelData.active = true;
+          } else if (voxelData.level + voxelData.base < 3) {
+            voxelData.level += 1;
+            voxelData.active = true;
+          } else {
+            voxelData.level = 0;
+            voxelData.base = 0;
+            voxelData.active = false;
+          }
         } else {
-          voxelData.level = 0;
+          voxelData.active = !voxelData.active;
+          voxelData.level = voxelData.active ? currentLevel : 0;
           voxelData.base = 0;
-          voxelData.active = false;
         }
-      } else {
-        voxelData.active = !voxelData.active;
-        voxelData.level = voxelData.active ? currentLevel : 0;
-        voxelData.base = 0;
-      }
 
-      buildVoxel();
-      updateStats();
-    });
-
-    hitbox.addEventListener('contextmenu', (e) => {
-      e.preventDefault();
-      if (!proMode) return;
-
-      if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
-      ideasBtn.textContent = 'Design Ideas';
-
-      if (voxelData.level > 0) {
-        voxelData.level -= 1;
-        voxelData.base += 1;
-        voxelData.active = voxelData.level > 0;
         buildVoxel();
         updateStats();
-      }
-    });
+      });
 
-    voxel.appendChild(hitbox);
-    grid.appendChild(voxel);
-    createBottom(x, y);
+      hitbox.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        if (!proMode) return;
+
+        if (deleteBtn.textContent === 'Undo') deleteBtn.textContent = 'Delete All';
+        ideasBtn.textContent = 'Design Ideas';
+
+        if (voxelData.level > 0) {
+          voxelData.level -= 1;
+          voxelData.base += 1;
+          voxelData.active = voxelData.level > 0;
+          buildVoxel();
+          updateStats();
+        }
+      });
+
+      grid.appendChild(hitbox);
+      createBottom(x, y);
+    }
   }
+
+  buildVoxel();
+  updateStats();
 }
 
-updateStats();
+// ✅ Initial render
+initGrid();
 
+// ✅ Add resize handler
+resizeGridBtn.addEventListener('click', () => {
+  const newRows = parseInt(rowsInput.value);
+  const newCols = parseInt(colsInput.value);
+
+  if (isNaN(newRows) || isNaN(newCols) || newRows < 1 || newCols < 1) {
+    alert('Invalid grid size.');
+    return;
+  }
+ 
+  rows = newRows;
+  cols = newCols;
+  initGrid();
+});
 </script>
+
+
 
 
   
