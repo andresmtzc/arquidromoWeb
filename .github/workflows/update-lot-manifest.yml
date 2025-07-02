@@ -4,49 +4,32 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'public/uploads/*.json'
 
 jobs:
   update-manifest:
+    if: contains(github.event.head_commit.message, 'Lot Status Upload')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check commit message
-        id: check_msg
-        run: |
-          echo "Commit message: ${{ github.event.head_commit.message }}"
-          if [[ "${{ github.event.head_commit.message }}" == *"Lot Status Upload"* ]]; then
-            echo "trigger=true" >> $GITHUB_OUTPUT
-          else
-            echo "No trigger phrase found. Skipping..."
-            echo "trigger=false" >> $GITHUB_OUTPUT
-          fi
-      - name: Exit if no trigger
-        if: steps.check_msg.outputs.trigger == 'false'
-        run: exit 0
-
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Find latest uploaded JSON (excluding manifest)
+      - name: Find latest uploaded JSON file
         id: find_latest
         run: |
-          latest=$(find public/uploads -name '*.json' ! -name 'lot-manifest.json' -printf '%T@ %p\n' | sort -nr | head -n 1 | cut -d' ' -f2-)
-          echo "Latest JSON: $latest"
-          echo "latest_file=$latest" >> $GITHUB_OUTPUT
+          latest_file=$(ls -t public/uploads/*.json | head -n 1)
+          echo "latest=$latest_file" >> $GITHUB_OUTPUT
 
-      - name: Write new lot-manifest.json
+      - name: Update lot-manifest.json to point to latest JSON
         run: |
-          mkdir -p public/uploads
-          echo "{ \"latest\": \"$(basename ${{ steps.find_latest.outputs.latest_file }})\" }" > public/uploads/lot-manifest.json
+          echo "{ \"file\": \"${{ steps.find_latest.outputs.latest }}\" }" > lot-manifest.json
 
-      - name: Commit only if changed
+      - name: Commit and push updated lot-manifest.json
         run: |
-          git config user.name "github-actions"
-          git config user.email "github-actions@github.com"
-          git add public/uploads/lot-manifest.json
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Update lot-manifest.json to latest uploaded file"
-            git push
-          fi
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add lot-manifest.json
+          git commit -m "Update lot-manifest.json after CMS upload"
+          git push
