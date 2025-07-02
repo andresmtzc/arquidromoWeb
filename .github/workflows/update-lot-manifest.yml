@@ -19,7 +19,6 @@ jobs:
       - name: Read latest uploaded filename from dummy.md
         id: read_filename
         run: |
-          # Extract the line starting with /uploads/ (assuming that line contains the path)
           filepath=$(grep '^/uploads/' data/dummy.md | head -n1)
           echo "filepath=$filepath" >> "$GITHUB_OUTPUT"
 
@@ -30,10 +29,10 @@ jobs:
         run: |
           echo "{ \"file\": \"$filepath\" }" > public/data/lot-manifest.json
 
-      - name: Commit and push updated lot-manifest.json
+      - name: Commit and push updated lot-manifest.json (force commit)
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add public/data/lot-manifest.json
-          git commit -m "Update lot-manifest.json from dummy.md"
+          git commit --allow-empty -m "Update lot-manifest.json from dummy.md"
           git push
