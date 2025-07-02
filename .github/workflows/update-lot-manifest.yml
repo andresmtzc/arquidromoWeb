@@ -7,10 +7,22 @@ on:
 
 jobs:
   update-manifest:
-    if: contains(github.event.head_commit.message, 'Lot Status Upload')
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check commit message
+        id: check_msg
+        run: |
+          echo "Commit message: ${{ github.event.head_commit.message }}"
+          if [[ "${{ github.event.head_commit.message }}" == *"Lot Status Upload"* ]]; then
+            echo "trigger=true" >> $GITHUB_OUTPUT
+          else
+            echo "No trigger phrase found. Skipping..."
+            echo "trigger=false" >> $GITHUB_OUTPUT
+      - name: Exit if no trigger
+        if: steps.check_msg.outputs.trigger == 'false'
+        run: exit 0
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
