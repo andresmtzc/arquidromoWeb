@@ -13,22 +13,26 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Find latest .json file
+      - name: Find latest uploaded JSON (excluding manifest)
         id: find_latest
         run: |
-          latest=$(git log -1 --pretty=format: --name-only --diff-filter=AM -- 'public/uploads/*.json' | grep -v 'lot-manifest.json' | head -n 1)
+          latest=$(find public/uploads -name '*.json' ! -name 'lot-manifest.json' -printf '%T@ %p\n' | sort -nr | head -n 1 | cut -d' ' -f2-)
           echo "Latest JSON: $latest"
           echo "latest_file=$latest" >> $GITHUB_OUTPUT
 
-      - name: Write manifest file
+      - name: Write new lot-manifest.json
         run: |
           mkdir -p public/uploads
           echo "{ \"latest\": \"$(basename ${{ steps.find_latest.outputs.latest_file }})\" }" > public/uploads/lot-manifest.json
 
-      - name: Commit and push
+      - name: Commit only if changed
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add public/uploads/lot-manifest.json
-          git commit -m "Update lot-manifest.json to latest uploaded file"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update lot-manifest.json to latest uploaded file"
+            git push
+          fi
