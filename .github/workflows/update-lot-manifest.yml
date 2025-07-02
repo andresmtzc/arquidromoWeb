@@ -2,11 +2,12 @@ name: Update Lot Manifest
 
 on:
   push:
-    paths:
-      - 'public/uploads/*.json'
+    branches:
+      - main
 
 jobs:
   update-manifest:
+    if: contains(github.event.head_commit.message, 'lot_upload')
     runs-on: ubuntu-latest
 
     steps:
@@ -35,4 +36,3 @@ jobs:
           else
             git commit -m "Update lot-manifest.json to latest uploaded file"
             git push
-          fi
