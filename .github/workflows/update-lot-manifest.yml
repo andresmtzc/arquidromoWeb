@@ -1,11 +1,11 @@
-name: Update Lot Manifest
+name: Update Lot Manifest from dummy.md
 
 on:
   push:
     branches:
       - main
     paths:
-      - 'public/uploads/*.json'
+      - 'data/dummy.md'
 
 jobs:
   update-manifest:
@@ -16,23 +16,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Find JSON file updated in the latest commit
-        id: find_latest
+      - name: Read latest uploaded filename from dummy.md
+        id: read_filename
         run: |
-          latest_file=$(git diff-tree --no-commit-id --name-only -r HEAD | grep '^public/uploads/.*\.json$' | head -n 1)
-          echo "latest=$latest_file" >> "$GITHUB_OUTPUT"
+          # Extract the line starting with /uploads/ (assuming that line contains the path)
+          filepath=$(grep '^/uploads/' data/dummy.md | head -n1)
+          echo "filepath=$filepath" >> "$GITHUB_OUTPUT"
 
       - name: Ensure public/data directory exists
         run: mkdir -p public/data
 
-      - name: Update lot-manifest.json to point to latest JSON
+      - name: Update lot-manifest.json using dummy.md filename
         run: |
-          echo "{ \"file\": \"${{ steps.find_latest.outputs.latest }}\" }" > public/data/lot-manifest.json
+          echo "{ \"file\": \"$filepath\" }" > public/data/lot-manifest.json
 
       - name: Commit and push updated lot-manifest.json
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add public/data/lot-manifest.json
-          git commit -m "Update lot-manifest.json after CMS upload"
+          git commit -m "Update lot-manifest.json from dummy.md"
           git push
