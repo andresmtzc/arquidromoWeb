@@ -19,6 +19,7 @@ jobs:
           else
             echo "No trigger phrase found. Skipping..."
             echo "trigger=false" >> $GITHUB_OUTPUT
+          fi
       - name: Exit if no trigger
         if: steps.check_msg.outputs.trigger == 'false'
         run: exit 0
