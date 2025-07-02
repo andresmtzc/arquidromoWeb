@@ -36,3 +36,4 @@ jobs:
           else
             git commit -m "Update lot-manifest.json to latest uploaded file"
             git push
+          fi
