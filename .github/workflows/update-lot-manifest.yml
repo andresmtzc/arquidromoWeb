@@ -1,4 +1,4 @@
-name: Update Lot Manifest from dummy.md
+name: Update lot-manifest.json from dummy.md
 
 on:
   push:
@@ -9,30 +9,35 @@ on:
 
 jobs:
   update-manifest:
-    if: contains(github.event.head_commit.message, 'Lot Status Upload')
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Read latest uploaded filename from dummy.md
-        id: read_filename
+      - name: Extract uploaded JSON filename from dummy.md
+        id: extract
         run: |
-          filepath=$(grep '^/uploads/' data/dummy.md | head -n1)
-          echo "filepath=$filepath" >> "$GITHUB_OUTPUT"
+          FILE_LINE=$(grep '^upload:' data/dummy.md || true)
+          echo "Found line: $FILE_LINE"
+          FILE_PATH=$(echo "$FILE_LINE" | sed 's/upload:[ ]*//' | xargs)
+          FILE_NAME=$(basename "$FILE_PATH")
+          echo "filename=$FILE_NAME" >> $GITHUB_OUTPUT
 
-      - name: Ensure public/data directory exists
-        run: mkdir -p public/data
-
-      - name: Update lot-manifest.json with new filename from dummy.md
+      - name: Fail if no filename found
+        if: steps.extract.outputs.filename == ''
         run: |
-          echo "{ \"file\": \"$filepath\" }" > public/data/lot-manifest.json
+          echo "No uploaded filename found in dummy.md"
+          exit 1
 
-      - name: Commit and push updated lot-manifest.json
+      - name: Write lot-manifest.json
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add public/data/lot-manifest.json
-          git commit -m "Update lot-manifest.json from dummy.md"
+          echo "{\"latest\": \"${{ steps.extract.outputs.filename }}\"}" > public/uploads/lot-manifest.json
+
+      - name: Commit and push lot-manifest.json
+        run: |
+          git config user.name "Netlify CMS Bot"
+          git config user.email "cms-bot@example.com"
+          git add public/uploads/lot-manifest.json
+          git commit -m "Update lot-manifest.json to ${{ steps.extract.outputs.filename }}"
           git push
