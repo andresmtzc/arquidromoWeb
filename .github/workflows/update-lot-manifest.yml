@@ -16,10 +16,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Find latest uploaded JSON file
+      - name: Find JSON file updated in the latest commit
         id: find_latest
         run: |
-          latest_file=$(find public/uploads -maxdepth 1 -type f -name '*.json' -printf '%T@ %p\n' | sort -nr | head -n 1 | cut -d' ' -f2)
+          latest_file=$(git diff-tree --no-commit-id --name-only -r HEAD | grep '^public/uploads/.*\.json$' | head -n 1)
           echo "latest=$latest_file" >> "$GITHUB_OUTPUT"
 
       - name: Ensure public/data directory exists
