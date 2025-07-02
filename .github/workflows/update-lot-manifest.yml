@@ -25,14 +25,14 @@ jobs:
       - name: Ensure public/data directory exists
         run: mkdir -p public/data
 
-      - name: Update lot-manifest.json using dummy.md filename
+      - name: Update lot-manifest.json with new filename from dummy.md
         run: |
           echo "{ \"file\": \"$filepath\" }" > public/data/lot-manifest.json
 
-      - name: Commit and push updated lot-manifest.json (force commit)
+      - name: Commit and push updated lot-manifest.json
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add public/data/lot-manifest.json
-          git commit --allow-empty -m "Update lot-manifest.json from dummy.md"
+          git commit -m "Update lot-manifest.json from dummy.md"
           git push
