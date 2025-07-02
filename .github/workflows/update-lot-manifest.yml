@@ -19,17 +19,20 @@ jobs:
       - name: Find latest uploaded JSON file
         id: find_latest
         run: |
-          latest_file=$(ls -t public/uploads/*.json | head -n 1)
-          echo "latest=$latest_file" >> $GITHUB_OUTPUT
+          latest_file=$(find public/uploads -maxdepth 1 -type f -name '*.json' -printf '%T@ %p\n' | sort -nr | head -n 1 | cut -d' ' -f2)
+          echo "latest=$latest_file" >> "$GITHUB_OUTPUT"
+
+      - name: Ensure public/data directory exists
+        run: mkdir -p public/data
 
       - name: Update lot-manifest.json to point to latest JSON
         run: |
-          echo "{ \"file\": \"${{ steps.find_latest.outputs.latest }}\" }" > lot-manifest.json
+          echo "{ \"file\": \"${{ steps.find_latest.outputs.latest }}\" }" > public/data/lot-manifest.json
 
       - name: Commit and push updated lot-manifest.json
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add lot-manifest.json
+          git add public/data/lot-manifest.json
           git commit -m "Update lot-manifest.json after CMS upload"
           git push
