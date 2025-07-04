@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Irregular Clickable Lots with Single Open Label</title>
+    <style>
+      #map {
+        height: 100vh;
+        width: 100%;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBTROq6LuvF_IE1r46-T4AeTSV-0d7my8"></script>
+    <script>
+      function initMap() {
+        const snazzyStyle = [
+          {
+            "featureType": "all",
+            "elementType": "labels.text.fill",
+            "stylers": [{"saturation":36},{"color":"#000000"},{"lightness":40}]
+          },
+          {
+            "featureType": "all",
+            "elementType": "labels.text.stroke",
+            "stylers": [{"visibility":"on"},{"color":"#000000"},{"lightness":16}]
+          },
+          {
+            "featureType": "all",
+            "elementType": "labels.icon",
+            "stylers": [{"visibility":"off"}]
+          },
+          {
+            "featureType": "administrative",
+            "elementType": "geometry.fill",
+            "stylers": [{"color":"#000000"},{"lightness":20}]
+          },
+          {
+            "featureType": "administrative",
+            "elementType": "geometry.stroke",
+            "stylers": [{"color":"#000000"},{"lightness":17},{"weight":1.2}]
+          },
+          {
+            "featureType": "landscape",
+            "elementType": "geometry",
+            "stylers": [{"color":"#000000"},{"lightness":20}]
+          },
+          {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [{"color":"#000000"},{"lightness":21}]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry.fill",
+            "stylers": [{"color":"#000000"},{"lightness":17}]
+          },
+          {
+            "featureType": "road.highway",
+            "elementType": "geometry.stroke",
+            "stylers": [{"color":"#000000"},{"lightness":29},{"weight":0.2}]
+          },
+          {
+            "featureType": "road.arterial",
+            "elementType": "geometry",
+            "stylers": [{"color":"#000000"},{"lightness":18}]
+          },
+          {
+            "featureType": "road.local",
+            "elementType": "geometry",
+            "stylers": [{"color":"#000000"},{"lightness":16}]
+          },
+          {
+            "featureType": "transit",
+            "elementType": "geometry",
+            "stylers": [{"color":"#000000"},{"lightness":19}]
+          },
+          {
+            "featureType": "water",
+            "elementType": "geometry",
+            "stylers": [{"color":"#0f252e"},{"lightness":17}]
+          }
+        ];
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 17.3,
+          center: { lat: 25.554195, lng: -100.235521 },
+          styles: snazzyStyle,
+          mapTypeId: "roadmap"
+        });
+
+        // Your 53 lots coordinates arrays here
+      const lotsCoords = [
+        // Lot 1
+        [
+          { lat: 25.554695, lng: -100.236721},
+          { lat: 25.554583, lng: -100.236844},
+          { lat: 25.554358, lng: -100.236727},
+          { lat: 25.55453, lng: -100.236538}
+        ],
+        // Lot 2
+        [
+          { lat: 25.554843, lng: -100.23656},
+          { lat: 25.554695, lng: -100.236721},
+          { lat: 25.55453, lng: -100.236538},
+          { lat: 25.554678, lng: -100.236377}
+        ],
+        // Lot 3
+        [
+          { lat: 25.554678, lng: -100.236377},
+          { lat: 25.554817, lng: -100.236225},
+          { lat: 25.554982, lng: -100.236408},
+          { lat: 25.554843, lng: -100.23656}
+        ],
+        // Lot 4
+        [
+          { lat: 25.554982, lng: -100.236408},
+          { lat: 25.554817, lng: -100.236225},
+          { lat: 25.554947, lng: -100.236084},
+          { lat: 25.555112, lng: -100.236267}
+        ],
+        // Lot 5
+        [
+          { lat: 25.555077, lng: -100.235942},
+          { lat: 25.555242, lng: -100.236125},
+          { lat: 25.555112, lng: -100.236267},
+          { lat: 25.554947, lng: -100.236084}
+        ],
+        // Lot 6
+        [
+          { lat: 25.555372, lng: -100.235983},
+          { lat: 25.555242, lng: -100.236125},
+          { lat: 25.555077, lng: -100.235942},
+          { lat: 25.555207, lng: -100.2358}
+        ],
+        // Lot 7
+        [
+          { lat: 25.555502, lng: -100.235842},
+          { lat: 25.555335, lng: -100.235657},
+          { lat: 25.555207, lng: -100.2358},
+          { lat: 25.555372, lng: -100.235983}
+        ],
+        // Lot 8
+        [
+          { lat: 25.555502, lng: -100.235842},
+          { lat: 25.555718, lng: -100.235606},
+          { lat: 25.55535, lng: -100.235606},
+          { lat: 25.555335, lng: -100.235657}
+        ],
+        // Lot 9
+        [
+          { lat: 25.555132, lng: -100.235117},
+          { lat: 25.555269, lng: -100.235232},
+          { lat: 25.555161, lng: -100.235405},
+          { lat: 25.55502, lng: -100.235297}
+        ],
+        // Lot 10
+        [
+          { lat: 25.555132, lng: -100.235117},
+          { lat: 25.55502, lng: -100.235297},
+          { lat: 25.554879, lng: -100.235188},
+          { lat: 25.554994, lng: -100.235003}
+        ],
+        // Lot 11
+        [
+          { lat: 25.554994, lng: -100.235003},
+          { lat: 25.554879, lng: -100.235188},
+          { lat: 25.554747, lng: -100.235088},
+          { lat: 25.554866, lng: -100.234897}
+        ],
+        // Lot 12
+        [
+          { lat: 25.554634, lng: -100.235001},
+          { lat: 25.554747, lng: -100.235088},
+          { lat: 25.554866, lng: -100.234897},
+          { lat: 25.554816, lng: -100.234855},
+          { lat: 25.554625, lng: -100.234926},
+          { lat: 25.554568, lng: -100.235017}
+        ],
+        // Lot 13
+        [
+          { lat: 25.554568, lng: -100.235017},
+          { lat: 25.554625, lng: -100.234926},
+          { lat: 25.554184, lng: -100.23509},
+          { lat: 25.554417, lng: -100.235259},
+          { lat: 25.55452, lng: -100.235094}
+        ],
+        // Lot 14
+        [
+          { lat: 25.55452, lng: -100.235094},
+          { lat: 25.554417, lng: -100.235259},
+          { lat: 25.554561, lng: -100.235363},
+          { lat: 25.554646, lng: -100.235226}
+        ],
+        // Lot 15
+        [
+          { lat: 25.554812, lng: -100.235295},
+          { lat: 25.55469, lng: -100.235201},
+          { lat: 25.554646, lng: -100.235226},
+          { lat: 25.554561, lng: -100.235363},
+          { lat: 25.554704, lng: -100.235468}
+        ],
+        // Lot 16
+        [
+          { lat: 25.554953, lng: -100.235403},
+          { lat: 25.554848, lng: -100.235572},
+          { lat: 25.554704, lng: -100.235468},
+          { lat: 25.554812, lng: -100.235295}
+        ],
+        // Lot 17
+        [
+          { lat: 25.555094, lng: -100.235511},
+          { lat: 25.554992, lng: -100.235676},
+          { lat: 25.554848, lng: -100.235572},
+          { lat: 25.554953, lng: -100.235403}
+        ],
+        // Lot 18
+        [
+          { lat: 25.555089, lng: -100.235747},
+          { lat: 25.554992, lng: -100.235676},
+          { lat: 25.555094, lng: -100.235511},
+          { lat: 25.555218, lng: -100.235606}
+        ],
+        // Lot 19
+        [
+          { lat: 25.555037, lng: -100.235804},
+          { lat: 25.554901, lng: -100.235952},
+          { lat: 25.554791, lng: -100.235882},
+          { lat: 25.554888, lng: -100.235696}
+        ],
+        // Lot 20
+        [
+          { lat: 25.554791, lng: -100.235882},
+          { lat: 25.554633, lng: -100.235781},
+          { lat: 25.554735, lng: -100.235585},
+          { lat: 25.554888, lng: -100.235696}
+        ],
+        // Lot 21
+        [
+          { lat: 25.554735, lng: -100.235585},
+          { lat: 25.554633, lng: -100.235781},
+          { lat: 25.554475, lng: -100.23568},
+          { lat: 25.554582, lng: -100.235474}
+        ],
+        // Lot 22
+        [
+          { lat: 25.554582, lng: -100.235474},
+          { lat: 25.554475, lng: -100.23568},
+          { lat: 25.554316, lng: -100.23558},
+          { lat: 25.554429, lng: -100.235363}
+        ],
+        // Lot 23
+        [
+          { lat: 25.554429, lng: -100.235363},
+          { lat: 25.554316, lng: -100.23558},
+          { lat: 25.554158, lng: -100.235479},
+          { lat: 25.554275, lng: -100.235252}
+        ],
+        // Lot 24
+        [
+          { lat: 25.554158, lng: -100.235479},
+          { lat: 25.554, lng: -100.235378},
+          { lat: 25.554122, lng: -100.235141},
+          { lat: 25.554275, lng: -100.235252}
+        ],
+        // Lot 25
+        [
+          { lat: 25.553712, lng: -100.235364},
+          { lat: 25.553605, lng: -100.235572},
+          { lat: 25.553795, lng: -100.235682},
+          { lat: 25.553885, lng: -100.235469}
+        ],
+        // Lot 26
+        [
+          { lat: 25.553992, lng: -100.235794},
+          { lat: 25.554098, lng: -100.23559},
+          { lat: 25.553893, lng: -100.235459},
+          { lat: 25.553885, lng: -100.235469},
+          { lat: 25.553795, lng: -100.235682}
+        ],
+        // Lot 27
+        [
+          { lat: 25.554156, lng: -100.235889},
+          { lat: 25.553992, lng: -100.235794},
+          { lat: 25.554098, lng: -100.23559},
+          { lat: 25.554258, lng: -100.235692}
+        ],
+        // Lot 28
+        [
+          { lat: 25.554416, lng: -100.235793},
+          { lat: 25.554318, lng: -100.235982},
+          { lat: 25.554156, lng: -100.235889},
+          { lat: 25.554258, lng: -100.235692}
+        ],
+        // Lot 29
+        [
+          { lat: 25.554602, lng: -100.235911},
+          { lat: 25.554508, lng: -100.236091},
+          { lat: 25.554318, lng: -100.235982},
+          { lat: 25.554416, lng: -100.235793}
+        ],
+        // Lot 30
+        [
+          { lat: 25.554602, lng: -100.235911},
+          { lat: 25.554815, lng: -100.236046},
+          { lat: 25.554682, lng: -100.236191},
+          { lat: 25.554508, lng: -100.236091}
+        ],
+        // Lot 31
+        [
+          { lat: 25.554473, lng: -100.236161},
+          { lat: 25.554628, lng: -100.236249},
+          { lat: 25.554494, lng: -100.236396},
+          { lat: 25.554393, lng: -100.236342}
+        ],
+        // Lot 32
+        [
+          { lat: 25.554318, lng: -100.236072},
+          { lat: 25.554473, lng: -100.236161},
+          { lat: 25.554393, lng: -100.236342},
+          { lat: 25.554236, lng: -100.236256}
+        ],
+        // Lot 33
+        [
+          { lat: 25.554236, lng: -100.236256},
+          { lat: 25.55408, lng: -100.236171},
+          { lat: 25.554163, lng: -100.235983},
+          { lat: 25.554318, lng: -100.236072}
+        ],
+        // Lot 34
+        [
+          { lat: 25.554163, lng: -100.235983},
+          { lat: 25.55408, lng: -100.236171},
+          { lat: 25.553923, lng: -100.236086},
+          { lat: 25.554008, lng: -100.235894}
+        ],
+        // Lot 35
+        [
+          { lat: 25.553452, lng: -100.235831},
+          { lat: 25.553542, lng: -100.235627},
+          { lat: 25.553697, lng: -100.235716},
+          { lat: 25.553609, lng: -100.235916}
+        ],
+        // Lot 36
+        [
+          { lat: 25.553452, lng: -100.235831},
+          { lat: 25.553296, lng: -100.235745},
+          { lat: 25.553387, lng: -100.235539},
+          { lat: 25.553542, lng: -100.235627}
+        ],
+        // Lot 37
+        [
+          { lat: 25.553387, lng: -100.235539},
+          { lat: 25.553296, lng: -100.235745},
+          { lat: 25.553139, lng: -100.23566},
+          { lat: 25.553232, lng: -100.23545}
+        ],
+        // Lot 38
+        [
+          { lat: 25.553032, lng: -100.235602},
+          { lat: 25.553139, lng: -100.23566},
+          { lat: 25.553232, lng: -100.23545},
+          { lat: 25.553226, lng: -100.235446},
+          { lat: 25.552963, lng: -100.235544},
+          { lat: 25.55293, lng: -100.23562}
+        ],
+        // Lot 39
+        [
+          { lat: 25.55293, lng: -100.23562},
+          { lat: 25.552963, lng: -100.235544},
+          { lat: 25.552497, lng: -100.235718},
+          { lat: 25.552814, lng: -100.235882},
+          { lat: 25.552891, lng: -100.235707}
+        ],
+        // Lot 40
+        [
+          { lat: 25.552891, lng: -100.235707},
+          { lat: 25.552814, lng: -100.235882},
+          { lat: 25.552982, lng: -100.235969},
+          { lat: 25.553057, lng: -100.235801}
+        ],
+        // Lot 41
+        [
+          { lat: 25.552982, lng: -100.235969},
+          { lat: 25.553151, lng: -100.236057},
+          { lat: 25.553238, lng: -100.235859},
+          { lat: 25.553081, lng: -100.235773},
+          { lat: 25.553057, lng: -100.235801}
+        ],
+        // Lot 42
+        [
+          { lat: 25.553238, lng: -100.235859},
+          { lat: 25.553405, lng: -100.235949},
+          { lat: 25.553319, lng: -100.236144},
+          { lat: 25.553151, lng: -100.236057}
+        ],
+        // Lot 43
+        [
+          { lat: 25.553572, lng: -100.23604},
+          { lat: 25.553487, lng: -100.236231},
+          { lat: 25.553319, lng: -100.236144},
+          { lat: 25.553405, lng: -100.235949}
+        ],
+        // Lot 44
+        [
+          { lat: 25.553824, lng: -100.236406},
+          { lat: 25.553487, lng: -100.236231},
+          { lat: 25.553572, lng: -100.23604},
+          { lat: 25.553905, lng: -100.236221}
+        ],
+        // Lot 45
+        [
+          { lat: 25.554072, lng: -100.236311},
+          { lat: 25.553992, lng: -100.236493},
+          { lat: 25.553824, lng: -100.236406},
+          { lat: 25.553905, lng: -100.236221}
+        ],
+        // Lot 46
+        [
+          { lat: 25.554072, lng: -100.236311},
+          { lat: 25.554239, lng: -100.236402},
+          { lat: 25.55416, lng: -100.23658},
+          { lat: 25.553992, lng: -100.236493}
+        ],
+        // Lot 47
+        [
+          { lat: 25.554239, lng: -100.236402},
+          { lat: 25.554406, lng: -100.236492},
+          { lat: 25.554272, lng: -100.236638},
+          { lat: 25.55416, lng: -100.23658}
+        ],
+        // Lot 48
+        [
+          { lat: 25.553838, lng: -100.235275},
+          { lat: 25.554, lng: -100.235378},
+          { lat: 25.554122, lng: -100.235141},
+          { lat: 25.554097, lng: -100.235122},
+          { lat: 25.553718, lng: -100.235263},
+          { lat: 25.553748, lng: -100.235298}
+        ],
+        // Lot 49
+        [
+          { lat: 25.553712, lng: -100.235364},
+          { lat: 25.553748, lng: -100.235298},
+          { lat: 25.553718, lng: -100.235263},
+          { lat: 25.553323, lng: -100.23541},
+          { lat: 25.553605, lng: -100.235572}
+        ],
+        // Lot 50
+        [
+          { lat: 25.553853, lng: -100.235805},
+          { lat: 25.554008, lng: -100.235894},
+          { lat: 25.553923, lng: -100.236086},
+          { lat: 25.553766, lng: -100.236001}
+        ],
+        // Lot 51
+        [
+          { lat: 25.553697, lng: -100.235716},
+          { lat: 25.553853, lng: -100.235805},
+          { lat: 25.553766, lng: -100.236001},
+          { lat: 25.553609, lng: -100.235916}
+        ],
+        // Lot 52
+        [
+          { lat: 25.555311, lng: -100.23552},
+          { lat: 25.555317, lng: -100.235525},
+          { lat: 25.555421, lng: -100.235358},
+          { lat: 25.555269, lng: -100.235232},
+          { lat: 25.555161, lng: -100.235405}
+        ],
+        // Lot 53
+        [
+          { lat: 25.55535, lng: -100.235606},
+          { lat: 25.555718, lng: -100.235606},
+          { lat: 25.555719, lng: -100.235605},
+          { lat: 25.555421, lng: -100.235358},
+          { lat: 25.555317, lng: -100.235525}
+        ]
+      ];
+
+        // Lot names or IDs matching lotsCoords
+    const lotNames = [
+  "Lot 1",
+  "Lot 2",
+  "Lot 3",
+  "Lot 4",
+  "Lot 5",
+  "Lot 6",
+  "Lot 7",
+  "Lot 8",
+  "Lot 9",
+  "Lot 10",
+  "Lot 11",
+  "Lot 12",
+  "Lot 13",
+  "Lot 14",
+  "Lot 15",
+  "Lot 16",
+  "Lot 17",
+  "Lot 18",
+  "Lot 19",
+  "Lot 20",
+  "Lot 21",
+  "Lot 22",
+  "Lot 23",
+  "Lot 24",
+  "Lot 25",
+  "Lot 26",
+  "Lot 27",
+  "Lot 28",
+  "Lot 29",
+  "Lot 30",
+  "Lot 31",
+  "Lot 32",
+  "Lot 33",
+  "Lot 34",
+  "Lot 35",
+  "Lot 36",
+  "Lot 37",
+  "Lot 38",
+  "Lot 39",
+  "Lot 40",
+  "Lot 41",
+  "Lot 42",
+  "Lot 43",
+  "Lot 44",
+  "Lot 45",
+  "Lot 46",
+  "Lot 47",
+  "Lot 48",
+  "Lot 49",
+  "Lot 50",
+  "Lot 51",
+  "Lot 52",
+  "Lot 53"
+];
+ 
+        let openInfoWindow = null; // To track the currently open info window
+
+        lotsCoords.forEach((coords, idx) => {
+          const polygon = new google.maps.Polygon({
+            paths: coords,
+            strokeColor: "#00AA00",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#00AA00",
+            fillOpacity: 0.35,
+            map: map,
+            zIndex: 1
+          });
+
+          const infoWindow = new google.maps.InfoWindow({
+            content: lotNames[idx],
+            position: coords[0]
+          });
+
+          polygon.addListener("click", () => {
+            if (openInfoWindow) {
+              openInfoWindow.close();
+            }
+            infoWindow.open(map);
+            openInfoWindow = infoWindow;
+          });
+
+          polygon.addListener("mouseover", () => {
+            polygon.setOptions({ fillOpacity: 0.6 });
+          });
+
+          polygon.addListener("mouseout", () => {
+            polygon.setOptions({ fillOpacity: 0.35 });
+          });
+        });
+      }
+    </script>
+  </head>
+  <body onload="initMap()">
+    <div id="map"></div>
+  </body>
+</html>
