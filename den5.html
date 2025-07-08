@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Supabase Auth Demo</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 500px; margin: auto; }
+    #dashboard, #signup, #login { display: none; }
+    input { display: block; margin-bottom: 1rem; width: 100%; padding: 0.5rem; font-size: 1rem; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; }
+    .message { margin-bottom: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
+    .sender { font-weight: bold; }
+    .timestamp { color: #888; font-size: 0.9rem; }
+    .toggle-link { color: blue; cursor: pointer; text-decoration: underline; margin-top: 1rem; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+
+  <div id="login">
+    <h2>Login</h2>
+    <input id="loginEmail" type="email" placeholder="Email" />
+    <input id="loginPassword" type="password" placeholder="Password" />
+    <button id="loginBtn">Login</button>
+    <p id="loginError" class="error"></p>
+    <p>Don't have an account? <span id="showSignup" class="toggle-link">Sign Up</span></p>
+  </div>
+
+  <div id="signup">
+    <h2>Sign Up</h2>
+    <input id="signupEmail" type="email" placeholder="Email" />
+    <input id="signupPassword" type="password" placeholder="Password" />
+    <button id="signupBtn">Sign Up</button>
+    <p id="signupError" class="error"></p>
+    <p id="signupSuccess" class="success"></p>
+    <p>Already have an account? <span id="showLogin" class="toggle-link">Login</span></p>
+  </div>
+
+  <div id="dashboard">
+    <h2>WhatsApp Messages</h2>
+    <button id="logoutBtn">Logout</button>
+    <div id="messages">Loading messages...</div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabaseUrl = 'https://pmcfepoldulhtswwtpkg.supabase.co'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtY2ZlcG9sZHVsaHRzd3d0cGtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MzI5MDcsImV4cCI6MjA2NzUwODkwN30.1hzthlKgqNoNrcIIxaImjw19hIRp5WtY4JhNhcOou_o'  // replace with your anon key
+    const supabase = createClient(supabaseUrl, supabaseKey)
+
+    // Elements
+    const loginDiv = document.getElementById('login')
+    const signupDiv = document.getElementById('signup')
+    const dashboardDiv = document.getElementById('dashboard')
+
+    const loginBtn = document.getElementById('loginBtn')
+    const logoutBtn = document.getElementById('logoutBtn')
+    const signupBtn = document.getElementById('signupBtn')
+
+    const loginError = document.getElementById('loginError')
+    const signupError = document.getElementById('signupError')
+    const signupSuccess = document.getElementById('signupSuccess')
+
+    const showSignupLink = document.getElementById('showSignup')
+    const showLoginLink = document.getElementById('showLogin')
+
+    const messagesDiv = document.getElementById('messages')
+
+    // Show/hide forms
+    function showLogin() {
+      loginDiv.style.display = 'block'
+      signupDiv.style.display = 'none'
+      dashboardDiv.style.display = 'none'
+      clearMessages()
+    }
+    function showSignup() {
+      loginDiv.style.display = 'none'
+      signupDiv.style.display = 'block'
+      dashboardDiv.style.display = 'none'
+      clearMessages()
+    }
+    function showDashboard() {
+      loginDiv.style.display = 'none'
+      signupDiv.style.display = 'none'
+      dashboardDiv.style.display = 'block'
+      clearMessages()
+    }
+
+    function clearMessages() {
+      loginError.textContent = ''
+      signupError.textContent = ''
+      signupSuccess.textContent = ''
+      messagesDiv.innerHTML = ''
+    }
+
+    // Initial check session
+    async function checkSession() {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session) {
+        showDashboard()
+        loadMessages()
+      } else {
+        showLogin()
+      }
+    }
+
+    // Login handler
+    loginBtn.addEventListener('click', async () => {
+      loginError.textContent = ''
+      const email = document.getElementById('loginEmail').value
+      const password = document.getElementById('loginPassword').value
+
+      if (!email || !password) {
+        loginError.textContent = 'Email and password required'
+        return
+      }
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password })
+
+      if (error) {
+        loginError.textContent = error.message
+      } else {
+        showDashboard()
+        loadMessages()
+      }
+    })
+
+    // Logout handler
+    logoutBtn.addEventListener('click', async () => {
+      await supabase.auth.signOut()
+      showLogin()
+    })
+
+    // Signup handler
+    signupBtn.addEventListener('click', async () => {
+      signupError.textContent = ''
+      signupSuccess.textContent = ''
+      const email = document.getElementById('signupEmail').value
+      const password = document.getElementById('signupPassword').value
+
+      if (!email || !password) {
+        signupError.textContent = 'Email and password required'
+        return
+      }
+
+      const { data, error } = await supabase.auth.signUp({ email, password })
+
+      if (error) {
+        signupError.textContent = error.message
+      } else {
+        signupSuccess.textContent = 'Sign-up successful! Please check your email to confirm.'
+      }
+    })
+
+    // Toggle links
+    showSignupLink.addEventListener('click', showSignup)
+    showLoginLink.addEventListener('click', showLogin)
+
+    // Load messages
+    async function loadMessages() {
+      const { data, error } = await supabase
+        .from('messages')
+        .select('*')
+        .order('id', { ascending: false })
+
+      if (error) {
+        messagesDiv.innerHTML = `<p>Error loading messages: ${error.message}</p>`
+        return
+      }
+
+      if (!data || data.length === 0) {
+        messagesDiv.innerHTML = '<p>No messages found.</p>'
+        return
+      }
+
+      messagesDiv.innerHTML = ''
+      data.forEach(msg => {
+        const div = document.createElement('div')
+        div.className = 'message'
+        div.innerHTML = `
+          <div class="sender">📱 ${msg.sender}</div>
+          <div class="text">💬 ${msg.message}</div>
+          <div class="timestamp">🕒 ${msg.timestamp || msg.time}</div>
+        `
+        messagesDiv.appendChild(div)
+      })
+    }
+
+    checkSession()
+  </script>
+
+</body>
+</html>
