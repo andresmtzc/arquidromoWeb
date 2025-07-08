@@ -2,194 +2,416 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Supabase Auth Demo</title>
+  <title>WhatsApp Inbox</title>
   <style>
-    body { font-family: sans-serif; padding: 2rem; max-width: 500px; margin: auto; }
-    #dashboard, #signup, #login { display: none; }
-    input { display: block; margin-bottom: 1rem; width: 100%; padding: 0.5rem; font-size: 1rem; }
-    button { padding: 0.5rem 1rem; font-size: 1rem; }
-    .message { margin-bottom: 1rem; border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; }
-    .sender { font-weight: bold; }
-    .timestamp { color: #888; font-size: 0.9rem; }
-    .toggle-link { color: blue; cursor: pointer; text-decoration: underline; margin-top: 1rem; }
-    .error { color: red; }
-    .success { color: green; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 30%;
+      min-width: 200px;
+      border-right: 1px solid #ccc;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .conversation-list .sender {
+      padding: 0.5rem;
+      border-bottom: 1px solid #eee;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .conversation-list .sender:hover,
+    .conversation-list .sender.active {
+      background: #f0f0f0;
+      font-weight: bold;
+    }
+
+    .notification {
+      background: red;
+      color: white;
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border-radius: 10px;
+      margin-left: 8px;
+    }
+
+    .chat {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .messages {
+      flex: 1;
+      overflow-y: auto;
+      padding-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .message {
+      position: relative;
+      max-width: 60%;
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      white-space: pre-line;
+      word-wrap: break-word;
+      margin: 0;
+      line-height: 1.2;
+      display: flex;
+      flex-direction: column;
+      gap: 2px; /* minimal vertical gap */
+    }
+
+    /* Sent messages */
+    .message.sent {
+      align-self: flex-end;
+      background: #a3cfff;
+      color: white;
+      padding-right: 1.5rem; /* space for status icon */
+    }
+
+    /* Received messages */
+    .message.received {
+      align-self: flex-start;
+      background: #f1f1f1;
+      color: #000;
+    }
+
+    .message > .text {
+      margin: 0;
+      padding: 0;
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+
+    .message > .meta {
+      font-size: 0.7rem;
+      color: #666;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      line-height: 1;
+      user-select: none;
+    }
+
+    /* Status icon */
+    .message.sent .status-icon {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .message.sent.pending .status-icon {
+      background-color: red;
+    }
+    .message.sent:not(.pending) .status-icon {
+      background-color: green;
+    }
+
+    .reply-box {
+      border-top: 1px solid #ccc;
+      padding-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    #replyInput {
+      flex: 1;
+      padding: 0.5rem;
+      font-size: 1rem;
+      resize: none;
+      min-height: 2.5rem;
+    }
+
+    #sendButton {
+      padding: 0 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      border-radius: 4px;
+      user-select: none;
+      transition: background-color 0.3s;
+    }
+    #sendButton:hover:not(:disabled) {
+      background-color: #0056b3;
+    }
+    #sendButton:disabled {
+      background-color: #999;
+      cursor: default;
+    }
+
+    .toast {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #222;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 10;
+      cursor: pointer;
+    }
+
+    .toast.show {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
-  <div id="login">
-    <h2>Login</h2>
-    <input id="loginEmail" type="email" placeholder="Email" />
-    <input id="loginPassword" type="password" placeholder="Password" />
-    <button id="loginBtn">Login</button>
-    <p id="loginError" class="error"></p>
-    <p>Don't have an account? <span id="showSignup" class="toggle-link">Sign Up</span></p>
+<div class="sidebar">
+  <h3>Senders</h3>
+  <div class="conversation-list" id="senderList"></div>
+</div>
+
+<div class="chat">
+  <h3 id="activeSender">Select a conversation</h3>
+  <div class="messages" id="messages"></div>
+  <div class="reply-box">
+    <textarea id="replyInput" placeholder="Type your reply here..." disabled rows="2"></textarea>
+    <button id="sendButton" disabled>Send</button>
   </div>
+  <div id="toast" class="toast">🔔 New message received</div>
+</div>
 
-  <div id="signup">
-    <h2>Sign Up</h2>
-    <input id="signupEmail" type="email" placeholder="Email" />
-    <input id="signupPassword" type="password" placeholder="Password" />
-    <button id="signupBtn">Sign Up</button>
-    <p id="signupError" class="error"></p>
-    <p id="signupSuccess" class="success"></p>
-    <p>Already have an account? <span id="showLogin" class="toggle-link">Login</span></p>
-  </div>
 
-  <div id="dashboard">
-    <h2>WhatsApp Messages</h2>
-    <button id="logoutBtn">Logout</button>
-    <div id="messages">Loading messages...</div>
-  </div>
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
-  <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+  const supabase = createClient(
+    'https://pmcfepoldulhtswwtpkg.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtY2ZlcG9sZHVsaHRzd3d0cGtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MzI5MDcsImV4cCI6MjA2NzUwODkwN30.1hzthlKgqNoNrcIIxaImjw19hIRp5WtY4JhNhcOou_o'
+  );
 
-    const supabaseUrl = 'https://pmcfepoldulhtswwtpkg.supabase.co'
-    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBtY2ZlcG9sZHVsaHRzd3d0cGtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE5MzI5MDcsImV4cCI6MjA2NzUwODkwN30.1hzthlKgqNoNrcIIxaImjw19hIRp5WtY4JhNhcOou_o'  // replace with your anon key
-    const supabase = createClient(supabaseUrl, supabaseKey)
+  let currentSender = null;
+  let allMessages = [];
+  let unreadCounts = {};
 
-    // Elements
-    const loginDiv = document.getElementById('login')
-    const signupDiv = document.getElementById('signup')
-    const dashboardDiv = document.getElementById('dashboard')
+  const senderListDiv = document.getElementById('senderList');
+  const messagesDiv = document.getElementById('messages');
+  const activeSenderH3 = document.getElementById('activeSender');
+  const toastDiv = document.getElementById('toast');
+  const replyInput = document.getElementById('replyInput');
+  const sendButton = document.getElementById('sendButton');
 
-    const loginBtn = document.getElementById('loginBtn')
-    const logoutBtn = document.getElementById('logoutBtn')
-    const signupBtn = document.getElementById('signupBtn')
+  function showToast(message) {
+    toastDiv.textContent = message;
+    toastDiv.classList.add('show');
+  }
 
-    const loginError = document.getElementById('loginError')
-    const signupError = document.getElementById('signupError')
-    const signupSuccess = document.getElementById('signupSuccess')
+  document.addEventListener('click', () => {
+    toastDiv.classList.remove('show');
+  });
+ 
+  function renderSenders() {
+    const senders = [...new Set(allMessages.map(msg => msg.sender))]
+      .filter(sender => sender !== 'agent');
 
-    const showSignupLink = document.getElementById('showSignup')
-    const showLoginLink = document.getElementById('showLogin')
+    senderListDiv.innerHTML = '';
+    senders.forEach(sender => {
+      const div = document.createElement('div');
+      div.className = 'sender' + (sender === currentSender ? ' active' : '');
+      div.onclick = () => {
+        currentSender = sender;
+        unreadCounts[sender] = 0;
+        renderSenders();
+        renderMessages();
+        replyInput.disabled = false;
+        sendButton.disabled = false;
+        replyInput.focus();
+      };
+      div.innerHTML = `
+        <span>${sender}</span>
+        ${unreadCounts[sender] > 0 ? `<span class="notification">${unreadCounts[sender]}</span>` : ''}
+      `;
+      senderListDiv.appendChild(div);
+    });
+  }
 
-    const messagesDiv = document.getElementById('messages')
+  // Format "21.37" style time to "9:37 PM"
+  function formatTime(decimalTime) {
+    if (!decimalTime) return '';
+    const parts = decimalTime.split('.');
+    let hours = parseInt(parts[0], 10);
+    let minutes = parts[1] ? parseInt(parts[1].padEnd(2, '0'), 10) : 0;
+    if (minutes > 59) minutes = 59;
 
-    // Show/hide forms
-    function showLogin() {
-      loginDiv.style.display = 'block'
-      signupDiv.style.display = 'none'
-      dashboardDiv.style.display = 'none'
-      clearMessages()
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    if (hours === 0) hours = 12;
+
+    return `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+  }
+
+  // Parse either received "M-D-YY" or sent "YYYY-M-D" format into JS Date
+  function parseCustomDate(dateStr) {
+    if (!dateStr) return null;
+
+    const parts = dateStr.split('-');
+    if (parts.length !== 3) return null;
+
+    let year, month, day;
+
+    if (parts[0].length === 4) {
+      // Sent message: YYYY-M-D
+      year = parseInt(parts[0], 10);
+      month = parseInt(parts[1], 10) - 1;
+      day = parseInt(parts[2], 10);
+    } else {
+      // Received message: M-D-YY
+      year = 2000 + parseInt(parts[2], 10);
+      month = parseInt(parts[0], 10) - 1;
+      day = parseInt(parts[1], 10);
     }
-    function showSignup() {
-      loginDiv.style.display = 'none'
-      signupDiv.style.display = 'block'
-      dashboardDiv.style.display = 'none'
-      clearMessages()
-    }
-    function showDashboard() {
-      loginDiv.style.display = 'none'
-      signupDiv.style.display = 'none'
-      dashboardDiv.style.display = 'block'
-      clearMessages()
-    }
 
-    function clearMessages() {
-      loginError.textContent = ''
-      signupError.textContent = ''
-      signupSuccess.textContent = ''
-      messagesDiv.innerHTML = ''
-    }
+    return new Date(year, month, day);
+  }
 
-    // Initial check session
-    async function checkSession() {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (session) {
-        showDashboard()
-        loadMessages()
-      } else {
-        showLogin()
-      }
+  // Format Date object to M-D-YY string
+  function formatDateUnified(dateStr) {
+    const dateObj = parseCustomDate(dateStr);
+    if (!dateObj) return '';
+
+    const month = dateObj.getMonth() + 1;
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear() % 100;
+
+    return `${month}-${day}-${year}`;
+  }
+
+  function renderMessages() {
+    if (!currentSender) {
+      messagesDiv.innerHTML = '';
+      activeSenderH3.textContent = 'Select a conversation';
+      return;
     }
 
-    // Login handler
-    loginBtn.addEventListener('click', async () => {
-      loginError.textContent = ''
-      const email = document.getElementById('loginEmail').value
-      const password = document.getElementById('loginPassword').value
+    const filtered = allMessages
+      .filter(m => m.sender === currentSender || m.recipient === currentSender)
+      .sort((a, b) => a.id - b.id);
 
-      if (!email || !password) {
-        loginError.textContent = 'Email and password required'
-        return
-      }
+    messagesDiv.innerHTML = '';
+    activeSenderH3.textContent = currentSender;
 
-      const { error } = await supabase.auth.signInWithPassword({ email, password })
+    filtered.forEach(msg => {
+      const div = document.createElement('div');
+      const isAgent = msg.sender === 'agent';
+      const pendingClass = msg.status === 'pending' ? ' pending' : '';
+      div.className = 'message ' + (isAgent ? 'sent' : 'received') + pendingClass;
 
-      if (error) {
-        loginError.textContent = error.message
-      } else {
-        showDashboard()
-        loadMessages()
-      }
-    })
+      const formattedDate = formatDateUnified(msg.timestamp);
+      div.innerHTML = `
+        <div class="text">${msg.message}</div>
+        <div class="meta">${formattedDate}${formattedDate && msg.time ? ' — ' : ''}${msg.time ? formatTime(msg.time) : ''}</div>
+        ${isAgent ? '<div class="status-icon"></div>' : ''}
+      `;
 
-    // Logout handler
-    logoutBtn.addEventListener('click', async () => {
-      await supabase.auth.signOut()
-      showLogin()
-    })
+      messagesDiv.appendChild(div);
+    });
 
-    // Signup handler
-    signupBtn.addEventListener('click', async () => {
-      signupError.textContent = ''
-      signupSuccess.textContent = ''
-      const email = document.getElementById('signupEmail').value
-      const password = document.getElementById('signupPassword').value
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+  }
 
-      if (!email || !password) {
-        signupError.textContent = 'Email and password required'
-        return
-      }
+  async function loadMessages() {
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .order('id', { ascending: true });
 
-      const { data, error } = await supabase.auth.signUp({ email, password })
+    if (data) {
+      allMessages = data;
+      renderSenders();
+      if (currentSender) renderMessages();
+    }
+  }
 
-      if (error) {
-        signupError.textContent = error.message
-      } else {
-        signupSuccess.textContent = 'Sign-up successful! Please check your email to confirm.'
-      }
-    })
-
-    // Toggle links
-    showSignupLink.addEventListener('click', showSignup)
-    showLoginLink.addEventListener('click', showLogin)
-
-    // Load messages
-    async function loadMessages() {
-      const { data, error } = await supabase
-        .from('messages')
-        .select('*')
-        .order('id', { ascending: false })
-
-      if (error) {
-        messagesDiv.innerHTML = `<p>Error loading messages: ${error.message}</p>`
-        return
-      }
-
-      if (!data || data.length === 0) {
-        messagesDiv.innerHTML = '<p>No messages found.</p>'
-        return
-      }
-
-      messagesDiv.innerHTML = ''
-      data.forEach(msg => {
-        const div = document.createElement('div')
-        div.className = 'message'
-        div.innerHTML = `
-          <div class="sender">📱 ${msg.sender}</div>
-          <div class="text">💬 ${msg.message}</div>
-          <div class="timestamp">🕒 ${msg.timestamp || msg.time}</div>
-        `
-        messagesDiv.appendChild(div)
+  function subscribeRealtime() {
+    supabase.channel('msg-grouped')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
+        const msg = payload.new;
+        allMessages.push(msg);
+        if (!currentSender) {
+          currentSender = msg.sender;
+        }
+        if (msg.sender !== currentSender) {
+          unreadCounts[msg.sender] = (unreadCounts[msg.sender] || 0) + 1;
+        } else {
+          showToast('🔔 New message from current conversation');
+        }
+        renderSenders();
+        if (msg.sender === currentSender || msg.recipient === currentSender) {
+          renderMessages();
+        }
       })
-    }
+      .subscribe();
+  }
 
-    checkSession()
-  </script>
+  async function sendMessage() {
+    if (!currentSender) return;
+    const replyText = replyInput.value.trim();
+    if (!replyText) return;
+
+    sendButton.disabled = true;
+
+    // Insert with status 'pending' to show red icon
+    const { data, error } = await supabase
+      .from('messages')
+      .insert([
+        {
+          sender: 'agent',
+          recipient: currentSender,
+          message: replyText,
+          timestamp: new Date().toISOString().slice(0, 10),
+          time: new Date().toLocaleTimeString('en-US', { hour12: false }).replace(':', '.'),
+          status: 'pending' // new messages start as pending
+        },
+      ]);
+
+    if (error) {
+      alert('Failed to send message: ' + error.message);
+    } else {
+      replyInput.value = '';
+    }
+    sendButton.disabled = false;
+    replyInput.focus();
+  }
+
+  sendButton.addEventListener('click', sendMessage);
+
+  replyInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  loadMessages();
+  subscribeRealtime();
+</script>
+
 
 </body>
 </html>
+
