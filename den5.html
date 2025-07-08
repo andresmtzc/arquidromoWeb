@@ -4,17 +4,14 @@
   <meta charset="UTF-8" />
   <title>WhatsApp Inbox</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
+    /* your original styles untouched... */
+    * { box-sizing: border-box; }
     body {
       font-family: sans-serif;
       margin: 0;
       display: flex;
       height: 100vh;
     }
-
     .sidebar {
       width: 30%;
       min-width: 200px;
@@ -22,7 +19,6 @@
       padding: 1rem;
       overflow-y: auto;
     }
-
     .conversation-list .sender {
       padding: 0.5rem;
       border-bottom: 1px solid #eee;
@@ -31,13 +27,11 @@
       justify-content: space-between;
       align-items: center;
     }
-
     .conversation-list .sender:hover,
     .conversation-list .sender.active {
       background: #f0f0f0;
       font-weight: bold;
     }
-
     .notification {
       background: red;
       color: white;
@@ -46,7 +40,6 @@
       border-radius: 10px;
       margin-left: 8px;
     }
-
     .chat {
       flex: 1;
       display: flex;
@@ -54,7 +47,6 @@
       padding: 1rem;
       position: relative;
     }
-
     .messages {
       flex: 1;
       overflow-y: auto;
@@ -63,7 +55,6 @@
       flex-direction: column;
       gap: 0.25rem;
     }
-
     .message {
       position: relative;
       max-width: 60%;
@@ -75,31 +66,25 @@
       line-height: 1.2;
       display: flex;
       flex-direction: column;
-      gap: 2px; /* minimal vertical gap */
+      gap: 2px;
     }
-
-    /* Sent messages */
     .message.sent {
       align-self: flex-end;
       background: #a3cfff;
       color: white;
-      padding-right: 1.5rem; /* space for status icon */
+      padding-right: 1.5rem;
     }
-
-    /* Received messages */
     .message.received {
       align-self: flex-start;
       background: #f1f1f1;
       color: #000;
     }
-
     .message > .text {
       margin: 0;
       padding: 0;
       font-size: 1rem;
       line-height: 1.2;
     }
-
     .message > .meta {
       font-size: 0.7rem;
       color: #666;
@@ -109,8 +94,6 @@
       line-height: 1;
       user-select: none;
     }
-
-    /* Status icon */
     .message.sent .status-icon {
       position: absolute;
       top: 4px;
@@ -125,14 +108,12 @@
     .message.sent:not(.pending) .status-icon {
       background-color: green;
     }
-
     .reply-box {
       border-top: 1px solid #ccc;
       padding-top: 1rem;
       display: flex;
       gap: 0.5rem;
     }
-
     #replyInput {
       flex: 1;
       padding: 0.5rem;
@@ -140,7 +121,6 @@
       resize: none;
       min-height: 2.5rem;
     }
-
     #sendButton {
       padding: 0 1rem;
       font-size: 1rem;
@@ -159,7 +139,6 @@
       background-color: #999;
       cursor: default;
     }
-
     .toast {
       position: absolute;
       top: 10px;
@@ -173,7 +152,6 @@
       z-index: 10;
       cursor: pointer;
     }
-
     .toast.show {
       opacity: 1;
     }
@@ -195,7 +173,6 @@
   </div>
   <div id="toast" class="toast">🔔 New message received</div>
 </div>
-
 
 <script type="module">
   import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
@@ -224,7 +201,7 @@
   document.addEventListener('click', () => {
     toastDiv.classList.remove('show');
   });
- 
+
   function renderSenders() {
     const senders = [...new Set(allMessages.map(msg => msg.sender))]
       .filter(sender => sender !== 'agent');
@@ -250,54 +227,41 @@
     });
   }
 
-  // Format "21.37" style time to "9:37 PM"
   function formatTime(decimalTime) {
     if (!decimalTime) return '';
     const parts = decimalTime.split('.');
     let hours = parseInt(parts[0], 10);
     let minutes = parts[1] ? parseInt(parts[1].padEnd(2, '0'), 10) : 0;
     if (minutes > 59) minutes = 59;
-
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     if (hours === 0) hours = 12;
-
     return `${hours}:${minutes.toString().padStart(2, '0')} ${ampm}`;
   }
 
-  // Parse either received "M-D-YY" or sent "YYYY-M-D" format into JS Date
   function parseCustomDate(dateStr) {
     if (!dateStr) return null;
-
     const parts = dateStr.split('-');
     if (parts.length !== 3) return null;
-
     let year, month, day;
-
     if (parts[0].length === 4) {
-      // Sent message: YYYY-M-D
       year = parseInt(parts[0], 10);
       month = parseInt(parts[1], 10) - 1;
       day = parseInt(parts[2], 10);
     } else {
-      // Received message: M-D-YY
       year = 2000 + parseInt(parts[2], 10);
       month = parseInt(parts[0], 10) - 1;
       day = parseInt(parts[1], 10);
     }
-
     return new Date(year, month, day);
   }
 
-  // Format Date object to M-D-YY string
   function formatDateUnified(dateStr) {
     const dateObj = parseCustomDate(dateStr);
     if (!dateObj) return '';
-
     const month = dateObj.getMonth() + 1;
     const day = dateObj.getDate();
     const year = dateObj.getFullYear() % 100;
-
     return `${month}-${day}-${year}`;
   }
 
@@ -335,7 +299,7 @@
   }
 
   async function loadMessages() {
-    const { data, error } = await supabase
+    const { data } = await supabase
       .from('messages')
       .select('*')
       .order('id', { ascending: true });
@@ -365,6 +329,19 @@
           renderMessages();
         }
       })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'messages' }, payload => {
+        const updated = payload.new;
+        const index = allMessages.findIndex(m => m.id === updated.id);
+        if (index !== -1) {
+          allMessages[index] = updated;
+          if (
+            updated.sender === currentSender ||
+            updated.recipient === currentSender
+          ) {
+            renderMessages();
+          }
+        }
+      })
       .subscribe();
   }
 
@@ -375,25 +352,23 @@
 
     sendButton.disabled = true;
 
-    // Insert with status 'pending' to show red icon
-    const { data, error } = await supabase
-      .from('messages')
-      .insert([
-        {
-          sender: 'agent',
-          recipient: currentSender,
-          message: replyText,
-          timestamp: new Date().toISOString().slice(0, 10),
-          time: new Date().toLocaleTimeString('en-US', { hour12: false }).replace(':', '.'),
-          status: 'pending' // new messages start as pending
-        },
-      ]);
+    const { error } = await supabase.from('messages').insert([
+      {
+        sender: 'agent',
+        recipient: currentSender,
+        message: replyText,
+        timestamp: new Date().toISOString().slice(0, 10),
+        time: new Date().toLocaleTimeString('en-US', { hour12: false }).replace(':', '.'),
+        status: 'pending'
+      },
+    ]);
 
     if (error) {
       alert('Failed to send message: ' + error.message);
     } else {
       replyInput.value = '';
     }
+
     sendButton.disabled = false;
     replyInput.focus();
   }
@@ -410,8 +385,5 @@
   loadMessages();
   subscribeRealtime();
 </script>
-
-
 </body>
 </html>
-
